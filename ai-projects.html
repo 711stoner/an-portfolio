@@ -50,6 +50,8 @@
           data-desc-en="Automated poster generation via scripting to improve missing‑pet info distribution."
           data-stack="Python · Pillow · OpenCV · Automation"
           data-detail="lostfound"
+          data-cover="assets/img/diu.jpg"
+          data-cover-webp="assets/img/diu.webp"
         >
           <!-- 这里可以替换图片链接 / Replace image URL here -->
           <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
@@ -84,6 +86,8 @@
           data-desc-zh="面向海外平台的一键翻译与发布流程。"
           data-desc-en="One‑click translation and publishing workflow for global platforms."
           data-stack="Midjourney · Runway · LLM · Workflow"
+          data-cover="assets/img/nei1.png"
+          data-cover-webp="assets/img/nei1.webp"
         >
           <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
             <source srcset="assets/img/nei1.webp" type="image/webp" />
@@ -116,6 +120,8 @@
           data-desc-zh="利用 AI 辅助手搓个人静态网站，实现低成本、高效率的数字化展示。"
           data-desc-en="AI‑assisted static site building for fast, low‑cost digital presence."
           data-stack="HTML · CSS · JS · AI Assist"
+          data-cover="assets/img/wang1.png"
+          data-cover-webp="assets/img/wang1.webp"
         >
           <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
             <source srcset="assets/img/wang1.webp" type="image/webp" />
@@ -172,10 +178,11 @@
           <div class="space-y-6">
             <div class="space-y-4">
               <picture>
-                <source srcset="assets/img/diu.webp" type="image/webp" />
+                <source id="modal-cover-source" srcset="assets/img/diu.webp" type="image/webp" />
                 <img
+                  id="modal-cover-img"
                   src="assets/img/diu.jpg"
-                  alt="丢了么：寻物海报 / Lost & Found Poster"
+                  alt="封面 / Cover"
                   loading="lazy"
                   decoding="async"
                   class="w-full max-w-[720px] mx-auto h-auto object-contain rounded-2xl"
@@ -338,6 +345,8 @@
       const modalDesc = document.getElementById("modal-desc");
       const modalStack = document.getElementById("modal-stack");
       const modalClose = document.getElementById("modal-close");
+      const modalCoverSource = document.getElementById("modal-cover-source");
+      const modalCoverImg = document.getElementById("modal-cover-img");
 
       document.querySelectorAll("button[data-title-zh]").forEach((card) => {
         card.addEventListener("click", () => {
@@ -345,9 +354,18 @@
           const titleEn = card.getAttribute("data-title-en") || "";
           const descZh = card.getAttribute("data-desc-zh") || "";
           const descEn = card.getAttribute("data-desc-en") || "";
+          const cover = card.getAttribute("data-cover") || "";
+          const coverWebp = card.getAttribute("data-cover-webp") || "";
           modalTitle.innerHTML = `<span class="block">${titleZh}</span><span class="block text-sm font-normal text-slate-500">${titleEn}</span>`;
           modalDesc.innerHTML = `<span class="block">${descZh}</span><span class="block text-slate-500">${descEn}</span>`;
           modalStack.textContent = "";
+          if (coverWebp) {
+            modalCoverSource.setAttribute("srcset", coverWebp);
+          }
+          if (cover) {
+            modalCoverImg.setAttribute("src", cover);
+            modalCoverImg.setAttribute("alt", `${titleZh} / ${titleEn}`);
+          }
           const detailId = card.getAttribute("data-detail");
           const detailWrap = document.getElementById("modal-detail");
           const detailBottom = document.getElementById("modal-detail-bottom");

@@ -52,11 +52,17 @@
           data-detail="lostfound"
         >
           <!-- 这里可以替换图片链接 / Replace image URL here -->
-          <img
-            src="assets/img/diu.jpg"
-            alt="丢了么：寻物海报 / Lost & Found Poster"
-            class="mb-4 w-full rounded-2xl"
-          />
+          <picture>
+            <source srcset="assets/img/diu.webp" type="image/webp" />
+            <img
+              src="assets/img/diu.jpg"
+              alt="丢了么：寻物海报 / Lost & Found Poster"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="high"
+              class="mb-4 w-full rounded-2xl"
+            />
+          </picture>
           <h3 class="text-lg font-semibold">
             <span class="block">丢了么：寻物海报自动生成器</span>
             <span class="block text-sm font-normal text-slate-500">Lost & Found Poster Auto Generator</span>
@@ -137,11 +143,16 @@
         <div class="flex-1 overflow-y-auto px-6 py-6">
           <div class="space-y-6">
             <div class="space-y-4">
-              <img
-                src="assets/img/diu.jpg"
-                alt="丢了么：寻物海报 / Lost & Found Poster"
-                class="w-full rounded-2xl"
-              />
+              <picture>
+                <source srcset="assets/img/diu.webp" type="image/webp" />
+                <img
+                  src="assets/img/diu.jpg"
+                  alt="丢了么：寻物海报 / Lost & Found Poster"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full rounded-2xl"
+                />
+              </picture>
             </div>
             <div class="h-px w-full bg-slate-200"></div>
             <div class="rounded-2xl bg-slate-50 p-6">
@@ -169,11 +180,16 @@
             <li>视觉噪音与转化率低下：寻物启事排版杂乱，无法在 1 秒内抓住注意力。<div class="text-slate-500">Visual noise reduces conversion within 1 second.</div></li>
             <li>设计门槛与时间错配：关键时刻缺乏高效工具。<div class="text-slate-500">Design friction wastes critical time.</div></li>
             <li>心理博弈机制缺失：悬赏与识别重点不突出。<div class="text-slate-500">Reward & recognition emphasis is missing.</div></li>
-            <img
-              src="assets/img/diu1.jpg"
-              alt="心理博弈机制示意 / Incentive & Recognition"
-              class="mt-3 w-full rounded-2xl"
-            />
+            <picture>
+              <source srcset="assets/img/diu1.webp" type="image/webp" />
+              <img
+                src="assets/img/diu1.jpg"
+                alt="心理博弈机制示意 / Incentive & Recognition"
+                loading="lazy"
+                decoding="async"
+                class="mt-3 w-full rounded-2xl"
+              />
+            </picture>
           </ul>
         </section>
         <section>
@@ -207,6 +223,16 @@
             </div>
           </div>
         </section>
+        <picture>
+          <source srcset="assets/img/diu3.webp" type="image/webp" />
+          <img
+            src="assets/img/diu3.png"
+            alt="使用指南与应用场景 / Quick Guide & Use Cases"
+            loading="lazy"
+            decoding="async"
+            class="w-full rounded-2xl"
+          />
+        </picture>
         <section>
           <h4 class="text-lg font-semibold">使用指南 / Quick Guide</h4>
           <ol class="mt-2 list-none space-y-1 pl-0 text-slate-700">

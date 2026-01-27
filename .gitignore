@@ -1,0 +1,9 @@
+
+# Private files
+袁仕强求职版简历（作品链接需点击后跳转）.pdf
+
+# macOS
+.DS_Store
+
+# Python venv
+.venv/

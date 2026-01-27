@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作品详情 / Project Detail - 章安 / Zhang An</title>
+    <meta name="description" content="作品详情页 / Project detail page" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container nav-inner">
+        <div>
+          <strong>作品详情 / Project Detail</strong>
+          <div style="font-size: 12px; color: #6b7280;">Project Detail / 作品详情</div>
+        </div>
+                        <nav class="nav-links">
+          <a href="index.html">首页 / Home</a>
+          <a href="works.html">视频作品 / Works</a>
+          <a href="ai-projects.html">AI 项目 / AI Projects</a>
+          <a href="services.html">服务 / Services</a>
+          <a href="about.html">履历 / Bio</a>
+          <a href="contact.html">联系 / Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" style="padding-top: 60px;">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2 data-detail-title>作品标题 / Project Title</h2>
+              <div class="sub" data-detail-role>角色 / Role</div>
+            </div>
+            <span class="tag" data-detail-year>年份 / Year</span>
+          </div>
+
+          <div class="grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 24px;">
+            <div class="work-cover" style="min-height: 360px; border-radius: 12px;">
+              <div>
+                <div style="font-size: 12px; color: rgba(15, 23, 42, 0.6);">项目概述 / Project Overview</div>
+                <div style="font-size: 22px; font-weight: 600; color: #0f172a;">视觉与叙事的完整呈现 / A complete visual narrative</div>
+              </div>
+            </div>
+            <div>
+              <div class="contact-card" style="box-shadow: none; border: 1px solid #e5e7eb;">
+                <h3 style="margin: 0 0 12px; color: #0f172a;">项目简介 / Summary</h3>
+                <p data-detail-desc style="margin: 0 0 18px; color: #6b7280; line-height: 1.6;">项目简介占位 / Summary placeholder</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                  <a class="btn btn-primary" data-detail-link href="#">打开原链接 / Open Link</a>
+                  <a class="btn btn-ghost" href="works.html">返回列表 / Back</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 20px;">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2>职责与工具 Roles & Tools</h2>
+              <div class="sub">清晰展示你的贡献与工作方式 / Clearly present your contribution and workflow.</div>
+            </div>
+          </div>
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div class="contact-card" style="box-shadow: none; border: 1px solid #e5e7eb;">
+              <h3 style="margin: 0 0 12px; color: #0f172a;">职责 / Credits</h3>
+              <ul class="info-list" data-detail-credits></ul>
+            </div>
+            <div class="contact-card" style="box-shadow: none; border: 1px solid #e5e7eb;">
+              <h3 style="margin: 0 0 12px; color: #0f172a;">工具 / Tools</h3>
+              <div class="chip-list" data-detail-tools></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2>播放与素材 / Video & Stills</h2>
+              <div class="sub">可嵌入 Bilibili / 新片场 / Embeds supported</div>
+            </div>
+          </div>
+          <div class="work-cover media-frame" style="min-height: 420px; border-radius: 12px; overflow: hidden;">
+            <iframe data-detail-iframe title="work" style="width: 100%; height: 100%; border: none;"></iframe>
+            <div class="media-placeholder" data-detail-placeholder>暂无嵌入视频，请补充链接 / No embedded video yet. Please add a link.</div>
+          </div>
+          <div class="stills-grid" data-detail-stills>
+            <div class="still-card">画面占位 01 / Still 01</div>
+            <div class="still-card">画面占位 02 / Still 02</div>
+            <div class="still-card">画面占位 03 / Still 03</div>
+            <div class="still-card">画面占位 04 / Still 04</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2>制作流程 / Process</h2>
+              <div class="sub">拍摄 / 剪辑 / 调色结构说明 / Shoot · Edit · Color</div>
+            </div>
+          </div>
+          <div class="grid grid-3 reveal" data-detail-process></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">© 2026 章安 · All Rights Reserved</footer>
+
+    <a class="float-contact" href="contact.html">合作咨询 / Project Inquiry</a>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/detail.js"></script>
+  </body>
+</html>

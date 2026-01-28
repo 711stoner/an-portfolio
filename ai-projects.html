@@ -357,7 +357,7 @@
           const cover = card.getAttribute("data-cover") || "";
           const coverWebp = card.getAttribute("data-cover-webp") || "";
           modalTitle.innerHTML = `<span class="block">${titleZh}</span><span class="block text-sm font-normal text-slate-500">${titleEn}</span>`;
-          modalDesc.innerHTML = `<span class="block">${descZh}</span><span class="block text-slate-500">${descEn}</span>`;
+          modalDesc.innerHTML = "";
           modalStack.textContent = "";
           if (coverWebp) {
             modalCoverSource.setAttribute("srcset", coverWebp);
@@ -377,6 +377,8 @@
               const clone = tpl.content.cloneNode(true);
               detailBottom.appendChild(clone);
             }
+          } else if (descZh || descEn) {
+            detailWrap.innerHTML = `<span class="block">${descZh}</span><span class="block text-slate-500">${descEn}</span>`;
           }
           modal.classList.remove("hidden");
           modal.classList.add("flex");

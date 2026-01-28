@@ -1,5 +1,11 @@
 {
-  "webapp": {
-    "type": "static"
-  }
+  "routes": [
+    {
+      "path": "/",
+      "target": {
+        "type": "static",
+        "dir": "."
+      }
+    }
+  ]
 }

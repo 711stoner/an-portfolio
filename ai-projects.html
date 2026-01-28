@@ -122,6 +122,8 @@
           data-stack="HTML · CSS · JS · AI Assist"
           data-cover="assets/img/wang1.png"
           data-cover-webp="assets/img/wang1.webp"
+          data-detail-image="assets/img/fa1.png"
+          data-detail-image-webp="assets/img/fa1.webp"
         >
           <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
             <source srcset="assets/img/wang1.webp" type="image/webp" />
@@ -356,6 +358,8 @@
           const descEn = card.getAttribute("data-desc-en") || "";
           const cover = card.getAttribute("data-cover") || "";
           const coverWebp = card.getAttribute("data-cover-webp") || "";
+          const detailImage = card.getAttribute("data-detail-image") || "";
+          const detailImageWebp = card.getAttribute("data-detail-image-webp") || "";
           modalTitle.innerHTML = `<span class="block">${titleZh}</span><span class="block text-sm font-normal text-slate-500">${titleEn}</span>`;
           modalDesc.innerHTML = "";
           modalStack.textContent = "";
@@ -377,8 +381,14 @@
               const clone = tpl.content.cloneNode(true);
               detailBottom.appendChild(clone);
             }
-          } else if (descZh || descEn) {
-            detailWrap.innerHTML = `<span class="block">${descZh}</span><span class="block text-slate-500">${descEn}</span>`;
+          } else if (descZh || descEn || detailImage) {
+            const imageMarkup = detailImage
+              ? `<picture>
+                  ${detailImageWebp ? `<source srcset="${detailImageWebp}" type="image/webp" />` : ""}
+                  <img src="${detailImage}" alt="${titleZh} / ${titleEn}" loading="lazy" decoding="async" class="mt-4 w-full max-w-[720px] mx-auto h-auto object-contain rounded-2xl" />
+                </picture>`
+              : "";
+            detailWrap.innerHTML = `<span class="block">${descZh}</span><span class="block text-slate-500">${descEn}</span>${imageMarkup}`;
           }
           modal.classList.remove("hidden");
           modal.classList.add("flex");

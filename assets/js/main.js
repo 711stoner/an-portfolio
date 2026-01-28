@@ -12,7 +12,10 @@
       { key: "2021", label: "2021 / 2021" }
     ];
 
-  let selectedCategory = "All";
+  const defaultCategory = categories.find((c) => c.key === "All")
+    ? "All"
+    : (categories[0] && categories[0].key) || "All";
+  let selectedCategory = defaultCategory;
 
   const qs = (sel, ctx = document) => ctx.querySelector(sel);
   const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -143,18 +146,20 @@
   }
 
   function renderWorkCard(work) {
+    const coverSize = work.cover_size || "contain";
+    const coverStyle = work.cover
+      ? ` style="background-image: linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), url('${work.cover}'); background-size: ${coverSize}; background-position: center; background-repeat: no-repeat;"`
+      : "";
     return `
       <article class="work-card" data-slug="${work.slug}">
-        <div class="work-cover">
+        <div class="work-cover"${coverStyle}>
           <div class="cover-shift" data-parallax></div>
-          <span class="badge">${work.category}</span>
-          <div class="cover-content">
-            <div style="font-size:13px;color:#0f172a;opacity:.6;">${work.year}</div>
-            <div style="font-size:16px;color:#0f172a;font-weight:600;">${work.title_zh}</div>
-          </div>
         </div>
         <div class="work-info">
-          <h3>${work.title_en}</h3>
+          <h3>
+            <span class="block">${work.title_zh}</span>
+            ${work.title_en ? `<span class="block text-sm" style="color:#64748b;font-weight:400;">${work.title_en}</span>` : ""}
+          </h3>
           <p>${formatRole(work)}</p>
           <div class="platform-row">
             <span class="platform-pill">${work.platform}</span>
@@ -202,8 +207,8 @@
   function renderFilters(container) {
     container.innerHTML = categories
       .map(
-        (cat, idx) =>
-          `<button class="filter-btn ${idx === 0 ? "active" : ""}" data-key="${cat.key}">${cat.label}</button>`
+        (cat) =>
+          `<button class="filter-btn ${cat.key === selectedCategory ? "active" : ""}" data-key="${cat.key}">${cat.label}</button>`
       )
       .join("");
 
@@ -224,6 +229,21 @@
     if (selectedCategory !== "All") {
       list = list.filter((w) => w.category === selectedCategory);
     }
+    const seen = new Set();
+    list = list.filter((w) => {
+      if (!w || !w.slug) return false;
+      if (seen.has(w.slug)) return false;
+      seen.add(w.slug);
+      return true;
+    });
+    list.sort((a, b) => {
+      const ay = Number(a.year) || 0;
+      const by = Number(b.year) || 0;
+      if (ay !== by) return by - ay;
+      const aTitle = (a.title_zh || a.title_en || "").toString();
+      const bTitle = (b.title_zh || b.title_en || "").toString();
+      return aTitle.localeCompare(bTitle, "zh-Hans-CN");
+    });
     const limit = Number(grid.dataset.limit || "0");
     if (limit) list = list.slice(0, limit);
     if (grid.dataset.grouped === "true") {
@@ -244,8 +264,10 @@
     const year = qs("[data-modal-year]");
     const desc = qs("[data-modal-desc]");
     const link = qs("[data-modal-link]");
+    const detailLink = qs("[data-modal-detail-link]");
     const iframe = qs("[data-modal-iframe]");
     const placeholder = qs("[data-modal-placeholder]");
+    const coverImg = qs("[data-modal-cover]");
     const credits = qs("[data-modal-credits]");
     const tools = qs("[data-modal-tools]");
     const process = qs("[data-modal-process]");
@@ -257,6 +279,9 @@
     desc.textContent = formatOneLine(work);
     link.href = work.link || "#";
     link.textContent = work.link ? "打开原链接 / Open Link" : "链接待补充 / Link pending";
+    if (detailLink) {
+      detailLink.href = `work.html?slug=${encodeURIComponent(work.slug)}`;
+    }
     if (credits) {
       const list = work.credits && work.credits.length ? work.credits : ["待补充 / To be updated"];
       credits.innerHTML = list.map((item) => `<li>${item}</li>`).join("");
@@ -288,10 +313,21 @@
     if (work.embed) {
       iframe.style.display = "block";
       iframe.src = work.embed;
+      if (coverImg) coverImg.style.display = "none";
       if (placeholder) placeholder.style.display = "none";
     } else {
       iframe.style.display = "none";
-      if (placeholder) placeholder.style.display = "block";
+      if (coverImg) {
+        const coverSrc = work.cover || (work.stills && work.stills[0]) || "";
+        if (coverSrc) {
+          coverImg.src = coverSrc;
+          coverImg.alt = `${work.title_zh} / ${work.title_en}`;
+          coverImg.style.display = "block";
+        } else {
+          coverImg.style.display = "none";
+        }
+      }
+      if (placeholder) placeholder.style.display = "none";
     }
 
     modal.classList.add("active");
@@ -303,6 +339,8 @@
     if (!modal) return;
     const iframe = qs("[data-modal-iframe]");
     if (iframe) iframe.src = "";
+    const coverImg = qs("[data-modal-cover]");
+    if (coverImg) coverImg.src = "";
     modal.classList.remove("active");
   }
 

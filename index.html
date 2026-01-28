@@ -59,8 +59,8 @@
         <div class="container">
           <div class="section-title">
             <div>
-              <h2>精选作品 Selected Works</h2>
-              <div class="sub">点击卡片弹出分级浮窗播放，支持分类筛选 / Click a card to open the layered modal with category filters.</div>
+              <h2>精选作品展示</h2>
+              <div class="sub">点击卡片弹出浮窗，支持分类切换 / Click a card to open the modal with category switching.</div>
             </div>
           </div>
           <div class="filter-sentinel" data-filter-sentinel></div>
@@ -194,7 +194,7 @@
       <div class="modal-card">
         <div class="modal-media">
           <iframe data-modal-iframe title="work"></iframe>
-          <div class="media-placeholder" data-modal-placeholder>暂无嵌入视频，请补充链接 / No embedded video yet. Please add a link.</div>
+          <img data-modal-cover alt="cover" class="modal-cover-img" />
           <button class="modal-close" data-modal-close>×</button>
         </div>
         <div class="modal-info">
@@ -212,6 +212,7 @@
             <p data-modal-desc>项目简介 / Summary</p>
             <div class="modal-actions">
               <a class="btn btn-primary" data-modal-link href="#">打开原链接 / Open Link</a>
+              <a class="btn btn-ghost" data-modal-detail-link href="#">查看详情页 / View Details</a>
             </div>
           </div>
           <div class="modal-panel" data-panel="credits">

@@ -27,7 +27,7 @@
 
     const toolsWrap = qs("[data-detail-tools]");
     if (toolsWrap) {
-      const tools = work.tools && work.tools.length ? work.tools : ["Premiere Pro", "DaVinci Resolve"];
+      const tools = work.tools && work.tools.length ? work.tools : ["DaVinci Resolve"];
       toolsWrap.innerHTML = tools.map((t) => `<span class="chip">${t}</span>`).join("");
     }
 
@@ -57,19 +57,40 @@
     }
 
     const iframe = qs("[data-detail-iframe]");
-    const placeholder = qs("[data-detail-placeholder]");
+    const mediaImg = qs("[data-detail-media]");
+    const coverImg = qs("[data-detail-cover]");
     if (work.embed) {
       iframe.src = work.embed;
       iframe.style.display = "block";
-      if (placeholder) placeholder.style.display = "none";
+      if (mediaImg) mediaImg.style.display = "none";
     } else {
       iframe.style.display = "none";
-      if (placeholder) placeholder.style.display = "block";
+      if (mediaImg) {
+        const mediaSrc = work.media || work.cover || (work.stills && work.stills[0]) || "";
+        if (mediaSrc) {
+          mediaImg.src = mediaSrc;
+          mediaImg.alt = `${work.title_zh} / ${work.title_en}`;
+          mediaImg.style.display = "block";
+        } else {
+          mediaImg.style.display = "none";
+        }
+      }
+    }
+
+    if (coverImg) {
+      const coverSrc = work.cover || (work.stills && work.stills[0]) || "";
+      if (coverSrc) {
+        coverImg.src = coverSrc;
+        coverImg.alt = `${work.title_zh} / ${work.title_en}`;
+        coverImg.style.display = "block";
+      } else {
+        coverImg.style.display = "none";
+      }
     }
 
     const link = qs("[data-detail-link]");
     link.href = work.link || "#";
-    link.textContent = work.link ? "打开原链接 / Open Link" : "链接待补充 / Link pending";
+    link.textContent = work.link ? "打开原链接 / Open Link" : "链接待补充（未上线流媒体）";
   }
 
   renderDetail();

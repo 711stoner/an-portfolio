@@ -471,6 +471,18 @@ img {
   width: min(820px, 100%);
 }
 
+.timeline-item > div {
+  padding-right: 6px;
+}
+
+.timeline-item ul.info-list {
+  margin-top: 10px;
+}
+
+.timeline-item ul.info-list li {
+  line-height: 1.7;
+}
+
 .timeline-item span {
   font-size: 13px;
   color: var(--muted);

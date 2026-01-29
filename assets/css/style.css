@@ -290,6 +290,11 @@ img {
   min-height: 56px;
 }
 
+.ai-grid .group {
+  transform: scale(0.8);
+  transform-origin: top center;
+}
+
 .work-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);

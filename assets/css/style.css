@@ -274,6 +274,18 @@ img {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.ai-card {
+  height: 100%;
+}
+
+.ai-card .ai-title {
+  min-height: 56px;
+}
+
+.ai-card .ai-desc {
+  min-height: 110px;
+}
+
 .work-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);

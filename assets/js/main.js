@@ -145,10 +145,30 @@
     return zh || en || "";
   }
 
+  function toWebp(src) {
+    if (!src) return "";
+    return src.replace(/\.(png|jpe?g)$/i, ".webp");
+  }
+
+  function getMime(src) {
+    const ext = (src || "").split(".").pop().toLowerCase();
+    if (ext === "jpg" || ext === "jpeg") return "image/jpeg";
+    if (ext === "png") return "image/png";
+    if (ext === "webp") return "image/webp";
+    return "";
+  }
+
   function renderWorkCard(work) {
     const coverSize = work.cover_size || "contain";
-    const coverStyle = work.cover
-      ? ` style="background-image: linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), url('${work.cover}'); background-size: ${coverSize}; background-position: center; background-repeat: no-repeat;"`
+    const coverUrl = work.cover || "";
+    const coverWebp = work.cover_webp || toWebp(coverUrl);
+    const coverType = getMime(coverUrl) || "image/png";
+    const bgBase = `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), url('${coverUrl}')`;
+    const bgWebp = coverWebp && coverWebp !== coverUrl
+      ? `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), image-set(url('${coverWebp}') type('image/webp'), url('${coverUrl}') type('${coverType}'))`
+      : bgBase;
+    const coverStyle = coverUrl
+      ? ` style="background-image: ${bgBase}; background-image: ${bgWebp}; background-size: ${coverSize}; background-position: center; background-repeat: no-repeat;"`
       : "";
     return `
       <article class="work-card" data-slug="${work.slug}">
@@ -268,6 +288,8 @@
     const iframe = qs("[data-modal-iframe]");
     const placeholder = qs("[data-modal-placeholder]");
     const coverImg = qs("[data-modal-cover]");
+    const coverSource = qs("[data-modal-cover-webp]");
+    const coverPicture = coverImg ? coverImg.closest("picture") : null;
     const credits = qs("[data-modal-credits]");
     const tools = qs("[data-modal-tools]");
     const process = qs("[data-modal-process]");
@@ -306,7 +328,13 @@
     if (stills) {
       const list = work.stills && work.stills.length ? work.stills : [];
       stills.innerHTML = list.length
-        ? list.map((src, idx) => `<div class="still-card"><img alt="still ${idx + 1}" src="${src}" /></div>`).join("")
+        ? list
+            .map((src, idx) => {
+              const webp = toWebp(src);
+              const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";
+              return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="lazy" decoding="async" /></picture></div>`;
+            })
+            .join("")
         : `<div class="still-card">画面待补充 / Stills pending</div>`;
     }
 
@@ -314,17 +342,24 @@
       iframe.style.display = "block";
       iframe.src = work.embed;
       if (coverImg) coverImg.style.display = "none";
+      if (coverPicture) coverPicture.style.display = "none";
       if (placeholder) placeholder.style.display = "none";
     } else {
       iframe.style.display = "none";
       if (coverImg) {
         const coverSrc = work.cover || (work.stills && work.stills[0]) || "";
+        const coverWebp = work.cover_webp || toWebp(coverSrc);
         if (coverSrc) {
           coverImg.src = coverSrc;
           coverImg.alt = `${work.title_zh} / ${work.title_en}`;
           coverImg.style.display = "block";
+          if (coverSource && coverWebp && coverWebp !== coverSrc) {
+            coverSource.setAttribute("srcset", coverWebp);
+          }
+          if (coverPicture) coverPicture.style.display = "block";
         } else {
           coverImg.style.display = "none";
+          if (coverPicture) coverPicture.style.display = "none";
         }
       }
       if (placeholder) placeholder.style.display = "none";
@@ -341,6 +376,8 @@
     if (iframe) iframe.src = "";
     const coverImg = qs("[data-modal-cover]");
     if (coverImg) coverImg.src = "";
+    const coverSource = qs("[data-modal-cover-webp]");
+    if (coverSource) coverSource.setAttribute("srcset", "");
     modal.classList.remove("active");
   }
 

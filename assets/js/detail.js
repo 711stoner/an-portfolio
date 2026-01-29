@@ -2,6 +2,11 @@
   const works = window.WORKS || [];
   const qs = (sel, ctx = document) => ctx.querySelector(sel);
 
+  function toWebp(src) {
+    if (!src) return "";
+    return src.replace(/\.(png|jpe?g)$/i, ".webp");
+  }
+
   function getSlug() {
     const params = new URLSearchParams(window.location.search);
     return params.get("slug");
@@ -51,40 +56,61 @@
       const stills = work.stills && work.stills.length ? work.stills : [];
       if (stills.length) {
         stillsWrap.innerHTML = stills
-          .map((src, idx) => `<div class="still-card"><img alt="still ${idx + 1}" src="${src}" /></div>`)
+          .map((src, idx) => {
+            const webp = toWebp(src);
+            const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";
+            return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="lazy" decoding="async" /></picture></div>`;
+          })
           .join("");
       }
     }
 
     const iframe = qs("[data-detail-iframe]");
     const mediaImg = qs("[data-detail-media]");
+    const mediaSource = qs("[data-detail-media-webp]");
+    const mediaPicture = mediaImg ? mediaImg.closest("picture") : null;
     const coverImg = qs("[data-detail-cover]");
+    const coverSource = qs("[data-detail-cover-webp]");
+    const coverPicture = coverImg ? coverImg.closest("picture") : null;
     if (work.embed) {
       iframe.src = work.embed;
       iframe.style.display = "block";
       if (mediaImg) mediaImg.style.display = "none";
+      if (mediaPicture) mediaPicture.style.display = "none";
     } else {
       iframe.style.display = "none";
       if (mediaImg) {
         const mediaSrc = work.media || work.cover || (work.stills && work.stills[0]) || "";
+        const mediaWebp = work.media_webp || toWebp(mediaSrc);
         if (mediaSrc) {
           mediaImg.src = mediaSrc;
           mediaImg.alt = `${work.title_zh} / ${work.title_en}`;
           mediaImg.style.display = "block";
+          if (mediaSource && mediaWebp && mediaWebp !== mediaSrc) {
+            mediaSource.setAttribute("srcset", mediaWebp);
+          }
+          if (mediaPicture) mediaPicture.style.display = "block";
         } else {
           mediaImg.style.display = "none";
+          if (mediaPicture) mediaPicture.style.display = "none";
         }
       }
     }
 
     if (coverImg) {
       const coverSrc = work.cover || (work.stills && work.stills[0]) || "";
+      const coverWebp = work.cover_webp || toWebp(coverSrc);
       if (coverSrc) {
         coverImg.src = coverSrc;
         coverImg.alt = `${work.title_zh} / ${work.title_en}`;
         coverImg.style.display = "block";
+        if (coverSource && coverWebp && coverWebp !== coverSrc) {
+          coverSource.setAttribute("srcset", coverWebp);
+        }
+        if (coverPicture) coverPicture.style.display = "block";
       } else {
         coverImg.style.display = "none";
+        if (coverPicture) coverPicture.style.display = "none";
       }
     }
 

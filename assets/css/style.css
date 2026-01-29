@@ -276,6 +276,8 @@ img {
 
 .ai-card {
   height: 100%;
+  transform: scale(0.7);
+  transform-origin: top center;
 }
 
 .ai-card .ai-title {
@@ -284,6 +286,19 @@ img {
 
 .ai-card .ai-desc {
   min-height: 110px;
+}
+
+.ai-grid {
+  align-items: start;
+}
+
+.ai-card picture {
+  height: 120px;
+}
+
+.ai-card picture img {
+  width: 70%;
+  max-height: 100%;
 }
 
 .work-card:hover {

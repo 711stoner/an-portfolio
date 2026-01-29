@@ -32,7 +32,7 @@ def main():
             with Image.open(path) as img:
                 save_kwargs = {"optimize": True}
                 if path.suffix.lower() in {".jpg", ".jpeg"}:
-                    save_kwargs["quality"] = 75
+                    save_kwargs["quality"] = 70
                     save_kwargs["progressive"] = True
                 elif path.suffix.lower() == ".png":
                     save_kwargs["compress_level"] = 9

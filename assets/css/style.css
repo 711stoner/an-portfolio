@@ -276,7 +276,7 @@ img {
 
 .ai-card {
   height: 100%;
-  transform: scale(0.7);
+  transform: scale(0.84);
   transform-origin: top center;
 }
 
@@ -299,6 +299,8 @@ img {
 .ai-card picture img {
   width: 70%;
   max-height: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 .work-card:hover {

@@ -72,6 +72,13 @@ img {
   margin-top: 8px;
 }
 
+.section-title .sub-inline {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
 .grid {
   display: grid;
   gap: 24px;

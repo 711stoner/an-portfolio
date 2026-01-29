@@ -450,10 +450,11 @@ img {
   grid-template-columns: 120px 1fr;
   gap: 16px;
   align-items: start;
-  padding: 16px;
+  padding: 20px;
   background: #fff;
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
 }
 
 .timeline-item span {

@@ -110,7 +110,7 @@ window.WORKS = [
     one_line_en: "",
     platform: "",
     embed: "",
-    link: "",
+    link: "https://www.xinpianchang.com/a13610114",
     cover: "assets/img/第二版-封面.jpg",
     credits: [],
     process: [],

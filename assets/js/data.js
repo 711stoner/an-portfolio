@@ -113,7 +113,7 @@ window.WORKS = [
     link: "https://www.xinpianchang.com/a13610114",
     cover: "assets/img/第二版-封面.jpg",
     credits: ["剪辑 / 文稿脚本整理 / Editing / Script Organization"],
-    process: ["整理文稿脚本 / Script Organization"],
+    process: ["整理文稿脚本 / Script Organization", "后期剪辑 / 双机位剪辑"],
     tools: ["Premiere"],
     stills: []
   },

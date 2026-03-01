@@ -111,7 +111,7 @@ window.WORKS = [
     platform: "",
     embed: "",
     link: "",
-    cover: "",
+    cover: "assets/img/第二版-封面.jpg",
     credits: [],
     process: [],
     tools: [],

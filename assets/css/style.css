@@ -616,13 +616,14 @@ img {
 }
 
 .still-card img {
-  width: 50%;
+  width: 100%;
   height: auto;
   object-fit: contain;
+  margin: 0 auto;
 }
 
 .stills-grid-single .still-card img {
-  width: 50%;
+  width: 100%;
 }
 
 .social-list {

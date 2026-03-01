@@ -299,8 +299,10 @@
     role.textContent = formatRole(work);
     year.textContent = work.year;
     desc.textContent = formatOneLine(work);
-    link.href = work.link || "#";
-    link.textContent = work.link ? "打开原链接 / Open Link" : "链接待补充 / Link pending";
+    if (link) {
+      link.href = work.link || "#";
+      link.textContent = work.link ? "打开原链接 / Open Link" : "链接待补充 / Link pending";
+    }
     if (detailLink) {
       detailLink.href = `work.html?slug=${encodeURIComponent(work.slug)}`;
     }

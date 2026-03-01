@@ -102,7 +102,7 @@ window.WORKS = [
     slug: "documentary-placeholder-01",
     title_zh: "商业视频播客",
     title_en: "",
-    role_zh: "",
+    role_zh: "剪辑/后期脚本",
     role_en: "",
     year: "2026",
     category: "Documentary",

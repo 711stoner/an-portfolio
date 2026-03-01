@@ -108,7 +108,7 @@ window.WORKS = [
     category: "Documentary",
     one_line_zh: "",
     one_line_en: "",
-    platform: "",
+    platform: "新片场",
     embed: "",
     link: "https://www.xinpianchang.com/a13610114",
     cover: "assets/img/第二版-封面.jpg",

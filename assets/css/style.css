@@ -626,6 +626,10 @@ img {
   width: 70%;
 }
 
+.stills-large .still-card img {
+  width: 90%;
+}
+
 .social-list {
   display: flex;
   flex-wrap: wrap;

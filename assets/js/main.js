@@ -325,9 +325,10 @@
         )
         .join("");
     }
-    if (stills) {
-      const list = work.stills && work.stills.length ? work.stills : [];
-      stills.innerHTML = list.length
+  if (stills) {
+    stills.classList.toggle("stills-large", work.slug === "bookstore");
+    const list = work.stills && work.stills.length ? work.stills : [];
+    stills.innerHTML = list.length
         ? list
             .map((src, idx) => {
               const webp = toWebp(src);

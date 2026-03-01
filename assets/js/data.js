@@ -20,7 +20,7 @@ window.WORKS = [
       "剪辑与调色 / Edit & Color"
     ],
     tools: ["Premiere Pro", "DaVinci Resolve"],
-    stills: ["assets/img/第二版-封面.jpg", "assets/img/播客剪辑截图2.png", "assets/img/播客剪辑截图1.png"]
+    stills: ["assets/img/播客剪辑截图2.png", "assets/img/播客剪辑截图1.png"]
   },
   {
     slug: "nanyang-city",

@@ -99,6 +99,25 @@ window.WORKS = [
     stills: []
   },
   {
+    slug: "documentary-placeholder-01",
+    title_zh: "",
+    title_en: "",
+    role_zh: "",
+    role_en: "",
+    year: "2026",
+    category: "Documentary",
+    one_line_zh: "",
+    one_line_en: "",
+    platform: "",
+    embed: "",
+    link: "",
+    cover: "",
+    credits: [],
+    process: [],
+    tools: [],
+    stills: []
+  },
+  {
     slug: "color-reel",
     title_zh: "商业调色作品",
     title_en: "Commercial Color Grading",

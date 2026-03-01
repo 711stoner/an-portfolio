@@ -4,6 +4,8 @@
 
 # macOS
 .DS_Store
+._*
+__MACOSX/
 
 # Python venv
 .venv/

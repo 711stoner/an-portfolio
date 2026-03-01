@@ -114,7 +114,7 @@ window.WORKS = [
     cover: "assets/img/第二版-封面.jpg",
     credits: [],
     process: [],
-    tools: [],
+    tools: ["Premiere"],
     stills: []
   },
   {

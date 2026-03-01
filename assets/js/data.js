@@ -101,9 +101,9 @@ window.WORKS = [
   {
     slug: "documentary-placeholder-01",
     title_zh: "商业视频播客",
-    title_en: "",
+    title_en: "Commercial Video Podcast",
     role_zh: "剪辑/后期脚本",
-    role_en: "",
+    role_en: "Editing / Post Script",
     year: "2026",
     category: "Documentary",
     one_line_zh: "",

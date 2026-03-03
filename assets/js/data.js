@@ -352,6 +352,82 @@ window.WORKS = [
       "assets/img/have5.jpg"
     ]
   },
+  {
+    slug: "placeholder-01",
+    title_zh: "待补充",
+    title_en: "Coming Soon",
+    role_zh: "",
+    role_en: "",
+    year: "2026",
+    category: "ShortVideo",
+    one_line_zh: "",
+    one_line_en: "",
+    platform: "",
+    embed: "",
+    link: "",
+    cover: "",
+    credits: [],
+    process: [],
+    tools: [],
+    stills: []
+  },
+  {
+    slug: "placeholder-02",
+    title_zh: "待补充",
+    title_en: "Coming Soon",
+    role_zh: "",
+    role_en: "",
+    year: "2026",
+    category: "ShortVideo",
+    one_line_zh: "",
+    one_line_en: "",
+    platform: "",
+    embed: "",
+    link: "",
+    cover: "",
+    credits: [],
+    process: [],
+    tools: [],
+    stills: []
+  },
+  {
+    slug: "placeholder-03",
+    title_zh: "待补充",
+    title_en: "Coming Soon",
+    role_zh: "",
+    role_en: "",
+    year: "2026",
+    category: "ShortVideo",
+    one_line_zh: "",
+    one_line_en: "",
+    platform: "",
+    embed: "",
+    link: "",
+    cover: "",
+    credits: [],
+    process: [],
+    tools: [],
+    stills: []
+  },
+  {
+    slug: "placeholder-04",
+    title_zh: "待补充",
+    title_en: "Coming Soon",
+    role_zh: "",
+    role_en: "",
+    year: "2026",
+    category: "ShortVideo",
+    one_line_zh: "",
+    one_line_en: "",
+    platform: "",
+    embed: "",
+    link: "",
+    cover: "",
+    credits: [],
+    process: [],
+    tools: [],
+    stills: []
+  }
   
 ];
 
@@ -360,7 +436,8 @@ window.WORK_CATEGORIES = [
   { key: "Documentary", label: "纪录/访谈 / Documentary" },
   { key: "MV", label: "MV / Music Video" },
   { key: "Short", label: "短片 / Short" },
-  { key: "Color", label: "调色 / Color" }
+  { key: "Color", label: "调色 / Color" },
+  { key: "ShortVideo", label: "短视频 / Short Video" }
 ];
 
 window.WORK_YEARS = [

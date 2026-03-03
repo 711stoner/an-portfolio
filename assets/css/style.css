@@ -904,6 +904,7 @@ img {
   .hero-cta { justify-content: center; }
   .timeline-item { grid-template-columns: 1fr; }
   .skill-grid { grid-template-columns: 1fr; }
-  .modal-card { height: 88vh; }
+  .modal-card { height: auto; max-height: 90vh; overflow: auto; }
+  .modal-media { min-height: 240px; max-height: 45vh; }
   .stills-grid { grid-template-columns: 1fr; }
 }

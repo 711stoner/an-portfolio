@@ -301,7 +301,7 @@
     desc.textContent = formatOneLine(work);
     if (link) {
       link.href = work.link || "#";
-      link.textContent = work.link ? "在线播放" : "链接待补充 / Link pending";
+      link.textContent = work.link ? "在线播放" : "穆桂英雪姐（视频号）";
     }
     if (detailLink) {
       detailLink.href = `work.html?slug=${encodeURIComponent(work.slug)}`;

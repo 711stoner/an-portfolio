@@ -117,7 +117,7 @@
 
     const link = qs("[data-detail-link]");
     link.href = work.link || "#";
-    link.textContent = work.link ? "在线播放" : "链接待补充（未上线流媒体）";
+    link.textContent = work.link ? "在线播放" : "穆桂英雪姐（视频号）";
   }
 
   renderDetail();

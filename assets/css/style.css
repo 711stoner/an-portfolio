@@ -757,9 +757,9 @@ img {
 
 .detail-media-img {
   width: auto;
-  height: 60%;
+  height: 50%;
   max-height: 100%;
-  max-width: 55%;
+  max-width: 50%;
   object-fit: contain;
   display: none;
   background: #0f172a;

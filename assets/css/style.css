@@ -327,6 +327,10 @@ img {
   position: relative;
   overflow: hidden;
 }
+.work-cover.media-frame {
+  background: #eef2ff;
+  align-items: center;
+}
 
 .cover-shift {
   position: absolute;

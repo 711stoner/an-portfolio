@@ -304,7 +304,12 @@
       link.textContent = work.link ? "在线播放" : "穆桂英雪姐（视频号）";
     }
     if (detailLink) {
-      detailLink.href = `work.html?slug=${encodeURIComponent(work.slug)}`;
+      if (work.detail === false) {
+        detailLink.style.display = "none";
+      } else {
+        detailLink.style.display = "";
+        detailLink.href = `work.html?slug=${encodeURIComponent(work.slug)}`;
+      }
     }
     if (credits) {
       const list = work.credits && work.credits.length ? work.credits : ["待补充 / To be updated"];

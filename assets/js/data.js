@@ -358,6 +358,7 @@ window.WORKS = [
     title_en: "Mu Guiying",
     role_zh: "短视频IP",
     role_en: "Short-video IP",
+    detail: false,
     year: "2026",
     category: "ShortVideo",
     one_line_zh: "2025 年运营视频号「穆桂英雪姐」，累计约 100 条内容，聚焦女性商业与心理学方向。负责文案撰写、现场拍摄、后期剪辑包装及账号发布。本页面素材部分包含部分本人工作截图。In 2025, produced around 100 videos for the “Mu Guiying Senior” channel, focusing on women, business, and psychology. Responsibilities included copywriting, on‑site shooting, post‑production packaging, and publishing; the materials include my work screenshots.",

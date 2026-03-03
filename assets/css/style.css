@@ -536,9 +536,16 @@ img {
 .skill-card {
   background: #fff;
   border-radius: 10px;
-  padding: 16px;
+  padding: 12px;
   border: 1px solid #eef2ff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.skill-card strong {
+  font-size: 13px;
+}
+.skill-card p {
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .skill-card:hover {

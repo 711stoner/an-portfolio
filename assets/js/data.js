@@ -369,7 +369,12 @@ window.WORKS = [
     cover_webp: "assets/img/李雪5-1400.webp",
     cover_size: "80% auto",
     credits: ["文案 / 拍摄 / 剪辑"],
-    process: ["待补充 / To be updated"],
+    process: [
+      "拍摄 / 剪辑 / 调色结构说明 / Shoot · Edit · Color",
+      "选题策划 / Topic Development",
+      "脚本与分镜 / Script & Storyboard",
+      "发布与复盘 / Publish & Review"
+    ],
     tools: ["剪映"],
     stills: [
       "assets/img/李雪4-1400.jpg",

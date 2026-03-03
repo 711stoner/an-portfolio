@@ -354,7 +354,7 @@ window.WORKS = [
   },
   {
     slug: "placeholder-01",
-    title_zh: "商业穆桂英IP",
+    title_zh: "商业穆桂英",
     title_en: "Coming Soon",
     role_zh: "短视频IP",
     role_en: "TBD",

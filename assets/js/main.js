@@ -294,6 +294,7 @@
     const tools = qs("[data-modal-tools]");
     const process = qs("[data-modal-process]");
     const stills = qs("[data-modal-stills]");
+    const isMobile = window.matchMedia("(max-width: 720px)").matches;
 
     title.textContent = `${work.title_zh} / ${work.title_en}`;
     role.textContent = formatRole(work);
@@ -304,12 +305,8 @@
       link.textContent = work.link ? "在线播放" : "穆桂英雪姐（视频号）";
     }
     if (detailLink) {
-      if (work.detail === false) {
-        detailLink.style.display = "none";
-      } else {
-        detailLink.style.display = "";
-        detailLink.href = `work.html?slug=${encodeURIComponent(work.slug)}`;
-      }
+      detailLink.style.display = "";
+      detailLink.href = `work.html?slug=${encodeURIComponent(work.slug)}`;
     }
     if (credits) {
       const list = work.credits && work.credits.length ? work.credits : ["待补充 / To be updated"];
@@ -346,7 +343,7 @@
         : `<div class="still-card">画面待补充 / Stills pending</div>`;
     }
 
-    if (work.embed) {
+    if (work.embed && !isMobile) {
       iframe.style.display = "block";
       iframe.src = work.embed;
       if (coverImg) coverImg.style.display = "none";

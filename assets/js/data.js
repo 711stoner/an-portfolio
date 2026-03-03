@@ -356,7 +356,7 @@ window.WORKS = [
     slug: "placeholder-01",
     title_zh: "商业穆桂英IP",
     title_en: "Coming Soon",
-    role_zh: "待定",
+    role_zh: "短视频IP",
     role_en: "TBD",
     year: "2026",
     category: "ShortVideo",

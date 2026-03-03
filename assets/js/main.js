@@ -297,7 +297,7 @@
       text = summaryEn;
     }
     if (!text) text = "项目简介待补充 / Description pending.";
-    if (!isMobile) return text;
+    if (!isMobile || work.modal_full) return text;
     if (!summaryZh && !summaryEn) {
       const zh = work.one_line_zh || work.one_line || "";
       const en = work.one_line_en || "";

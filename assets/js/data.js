@@ -364,6 +364,7 @@ window.WORKS = [
     one_line_en: "",
     summary_zh: "2025 年运营视频号「穆桂英雪姐」，累计约 100 条内容，聚焦女性商业与心理学。负责文案、拍摄、剪辑包装与发布。",
     summary_en: "In 2025, produced ~100 videos for the “Mu Guiying Senior” channel; handled copywriting, shooting, post‑production, and publishing.",
+    modal_full: true,
     platform: "视频号",
     link_label: "穆桂英雪姐（视频号）",
     embed: "",

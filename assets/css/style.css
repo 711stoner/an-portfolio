@@ -906,11 +906,38 @@ img {
   .skill-grid { grid-template-columns: 1fr; }
   .modal-card { height: auto; max-height: 90vh; overflow: auto; }
   .modal-media { min-height: 240px; max-height: 45vh; }
-  .work-cover.media-frame { padding: 0; min-height: 0; height: auto; aspect-ratio: 16 / 9; }
-  .detail-media-picture { padding: 0; }
-  .detail-media-img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 12px; }
-  .still-card { min-height: 0; aspect-ratio: 16 / 9; overflow: hidden; }
-  .still-card img { width: 100%; height: 100%; object-fit: cover; margin: 0; }
-  .stills-grid-single .still-card img { width: 100%; height: 100%; }
-  .stills-grid { grid-template-columns: 1fr; }
+  .detail-page .work-cover.media-frame {
+    padding: 0;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .detail-page .detail-media-picture { padding: 0; }
+  .detail-page .detail-media-img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+  }
+  .detail-page .stills-grid { grid-template-columns: 1fr; justify-items: center; }
+  .detail-page .stills-grid .still-card {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    width: 100%;
+    max-width: 560px;
+  }
+  .detail-page .stills-grid .still-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+  }
 }

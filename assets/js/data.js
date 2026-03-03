@@ -368,7 +368,7 @@ window.WORKS = [
     cover: "assets/img/李雪3-1400.jpg",
     cover_webp: "assets/img/李雪3-1400.webp",
     cover_size: "80% auto",
-    credits: ["待补充 / To be updated"],
+    credits: ["文案 / 拍摄 / 剪辑"],
     process: ["待补充 / To be updated"],
     tools: ["待补充 / To be updated"],
     stills: [

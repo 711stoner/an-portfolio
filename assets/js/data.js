@@ -372,7 +372,8 @@ window.WORKS = [
     process: ["待补充 / To be updated"],
     tools: ["剪映"],
     stills: [
-      "assets/img/李雪4-1400.jpg"
+      "assets/img/李雪4-1400.jpg",
+      "assets/img/李雪3-1400.jpg"
     ]
   },
   

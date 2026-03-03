@@ -279,6 +279,13 @@
     return `${text.slice(0, Math.max(0, maxChars - 1))}…`;
   }
 
+  function firstSentence(text) {
+    if (!text) return "";
+    const trimmed = text.trim();
+    const parts = trimmed.split(/[\u3002\uFF01\uFF1F.!?]/).map((p) => p.trim()).filter(Boolean);
+    return parts[0] || trimmed;
+  }
+
   function formatModalSummary(work, isMobile) {
     const summaryZh = work.summary_zh || work.summary || "";
     const summaryEn = work.summary_en || "";
@@ -290,7 +297,15 @@
       text = summaryEn;
     }
     if (!text) text = "项目简介待补充 / Description pending.";
-    return isMobile ? clampText(text, 120) : text;
+    if (!isMobile) return text;
+    if (!summaryZh && !summaryEn) {
+      const zh = work.one_line_zh || work.one_line || "";
+      const en = work.one_line_en || "";
+      const zhShort = firstSentence(zh);
+      const enShort = firstSentence(en);
+      text = zhShort && enShort ? `${zhShort} ${enShort}` : (zhShort || enShort || text);
+    }
+    return clampText(text, 100);
   }
 
   function openModal(slug) {

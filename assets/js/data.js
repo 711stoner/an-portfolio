@@ -372,7 +372,7 @@ window.WORKS = [
     process: [
       "拍摄 / 剪辑 / 调色结构说明 / Shoot · Edit · Color",
       "后期制作 / Post‑production",
-      "脚本与分镜 / Script & Storyboard"
+      "文案与发布 / Copy & Publish"
     ],
     tools: ["剪映"],
     stills: [

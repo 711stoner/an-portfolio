@@ -371,7 +371,7 @@ window.WORKS = [
     credits: ["文案 / 拍摄 / 剪辑"],
     process: [
       "拍摄 / 剪辑 / 调色结构说明 / Shoot · Edit · Color",
-      "选题策划 / Topic Development",
+      "后期制作 / Post‑production",
       "脚本与分镜 / Script & Storyboard"
     ],
     tools: ["剪映"],

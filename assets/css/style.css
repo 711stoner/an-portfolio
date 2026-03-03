@@ -914,6 +914,8 @@ img {
     width: 100%;
     max-width: 560px;
     margin: 0 auto;
+    align-items: center;
+    justify-content: center;
   }
   .detail-page .detail-media-picture { padding: 0; }
   .detail-page .detail-media-img {
@@ -932,6 +934,7 @@ img {
     overflow: hidden;
     width: 100%;
     max-width: 560px;
+    margin: 0 auto;
   }
   .detail-page .stills-grid .still-card img {
     width: 100%;

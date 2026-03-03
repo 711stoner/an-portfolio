@@ -752,16 +752,12 @@ img {
 }
 
 .detail-media-img {
-  width: 50%;
-  height: auto;
+  width: auto;
+  height: 85%;
   max-height: 100%;
-  max-width: 100%;
+  max-width: 70%;
   object-fit: contain;
   display: none;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   background: #0f172a;
 }
 .detail-media-picture {
@@ -770,6 +766,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 24px;
 }
 
 .modal-cover-img {

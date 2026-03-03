@@ -762,6 +762,8 @@ img {
   max-width: 50%;
   object-fit: contain;
   display: none;
+  margin: 0 auto;
+  align-self: center;
   background: #0f172a;
 }
 .detail-media-picture {

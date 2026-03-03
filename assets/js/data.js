@@ -365,12 +365,15 @@ window.WORKS = [
     platform: "coming-soon",
     embed: "",
     link: "",
-    cover: "assets/img/李雪5-1400.jpg",
-    cover_webp: "assets/img/李雪5-1400.webp",
+    cover: "assets/img/李雪3-1400.jpg",
+    cover_webp: "assets/img/李雪3-1400.webp",
+    cover_size: "80% auto",
     credits: ["待补充 / To be updated"],
     process: ["待补充 / To be updated"],
     tools: ["待补充 / To be updated"],
-    stills: []
+    stills: [
+      "assets/img/李雪4-1400.jpg"
+    ]
   },
   
   

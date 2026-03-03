@@ -370,7 +370,7 @@ window.WORKS = [
     cover_size: "80% auto",
     credits: ["文案 / 拍摄 / 剪辑"],
     process: ["待补充 / To be updated"],
-    tools: ["待补充 / To be updated"],
+    tools: ["剪映"],
     stills: [
       "assets/img/李雪4-1400.jpg"
     ]

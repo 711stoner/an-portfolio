@@ -296,13 +296,13 @@
     const stills = qs("[data-modal-stills]");
     const isMobile = window.matchMedia("(max-width: 720px)").matches;
 
-    title.textContent = `${work.title_zh} / ${work.title_en}`;
+    title.textContent = work.title_en ? `${work.title_zh} / ${work.title_en}` : work.title_zh;
     role.textContent = formatRole(work);
     year.textContent = work.year;
-    desc.textContent = formatOneLine(work);
+    desc.textContent = formatOneLine(work) || "项目简介待补充 / Description pending.";
     if (link) {
       link.href = work.link || "#";
-      link.textContent = work.link ? "在线播放" : "穆桂英雪姐（视频号）";
+      link.textContent = work.link ? "在线播放" : (work.link_label || "链接待补充 / Link pending");
     }
     if (detailLink) {
       detailLink.style.display = "";

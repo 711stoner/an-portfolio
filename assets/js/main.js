@@ -273,6 +273,26 @@
     }
   }
 
+  function clampText(text, maxChars) {
+    if (!text) return "";
+    if (text.length <= maxChars) return text;
+    return `${text.slice(0, Math.max(0, maxChars - 1))}…`;
+  }
+
+  function formatModalSummary(work, isMobile) {
+    const summaryZh = work.summary_zh || work.summary || "";
+    const summaryEn = work.summary_en || "";
+    const fallback = formatOneLine(work);
+    let text = summaryZh || fallback;
+    if (summaryZh && summaryEn) {
+      text = `${summaryZh} ${summaryEn}`;
+    } else if (!summaryZh && summaryEn) {
+      text = summaryEn;
+    }
+    if (!text) text = "项目简介待补充 / Description pending.";
+    return isMobile ? clampText(text, 120) : text;
+  }
+
   function openModal(slug) {
     const modal = qs(".modal");
     if (!modal) return;
@@ -299,7 +319,7 @@
     title.textContent = work.title_en ? `${work.title_zh} / ${work.title_en}` : work.title_zh;
     role.textContent = formatRole(work);
     year.textContent = work.year;
-    desc.textContent = formatOneLine(work) || "项目简介待补充 / Description pending.";
+    desc.textContent = formatModalSummary(work, isMobile);
     if (link) {
       link.href = work.link || "#";
       link.textContent = work.link ? "在线播放" : (work.link_label || "链接待补充 / Link pending");

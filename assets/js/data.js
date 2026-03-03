@@ -355,9 +355,9 @@ window.WORKS = [
   {
     slug: "placeholder-01",
     title_zh: "商业穆桂英",
-    title_en: "Coming Soon",
+    title_en: "Mu Guiying",
     role_zh: "短视频IP",
-    role_en: "TBD",
+    role_en: "Short-video IP",
     year: "2026",
     category: "ShortVideo",
     one_line_zh: "2025 年运营视频号「穆桂英雪姐」，累计约 100 条内容，聚焦女性商业与心理学方向。负责文案撰写、现场拍摄、后期剪辑包装及账号发布。本页面素材部分包含部分本人工作截图。In 2025, produced around 100 videos for the “Mu Guiying Senior” channel, focusing on women, business, and psychology. Responsibilities included copywriting, on‑site shooting, post‑production packaging, and publishing; the materials include my work screenshots.",

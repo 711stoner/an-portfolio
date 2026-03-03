@@ -305,7 +305,7 @@
       const enShort = firstSentence(en);
       text = zhShort && enShort ? `${zhShort} ${enShort}` : (zhShort || enShort || text);
     }
-    return clampText(text, 100);
+    return clampText(text, 80);
   }
 
   function openModal(slug) {

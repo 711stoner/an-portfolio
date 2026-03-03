@@ -273,12 +273,6 @@
     }
   }
 
-  function clampText(text, maxChars) {
-    if (!text) return "";
-    if (text.length <= maxChars) return text;
-    return `${text.slice(0, Math.max(0, maxChars - 1))}…`;
-  }
-
   function firstSentence(text) {
     if (!text) return "";
     const trimmed = text.trim();
@@ -305,7 +299,7 @@
       const enShort = firstSentence(en);
       text = zhShort && enShort ? `${zhShort} ${enShort}` : (zhShort || enShort || text);
     }
-    return clampText(text, 80);
+    return text;
   }
 
   function openModal(slug) {
@@ -332,8 +326,8 @@
     const isMobile = window.matchMedia("(max-width: 720px)").matches;
 
     title.textContent = work.title_en ? `${work.title_zh} / ${work.title_en}` : work.title_zh;
-    role.textContent = formatRole(work);
-    year.textContent = work.year;
+    role.textContent = formatRole(work) || "职务待补充 / Role pending";
+    year.textContent = work.year ? `年份 / ${work.year}` : "年份待补充 / Year pending";
     desc.textContent = formatModalSummary(work, isMobile);
     if (link) {
       link.href = work.link || "#";

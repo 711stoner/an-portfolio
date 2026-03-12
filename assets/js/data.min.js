@@ -409,6 +409,31 @@ window.WORKS = [
     tools: ["剪映 / CapCut"],
     stills: ["assets/img/yezishuo-1.jpg"]
   },
+  {
+    slug: "shortvideo-placeholder-03",
+    title_zh: "某公安分局系列反邪教宣传",
+    title_en: "",
+    role_zh: "后期剪辑",
+    role_en: "Post-production Editor",
+    year: "2023",
+    category: "ShortVideo",
+    one_line_zh: "2023年为某公安分局系列反邪教宣传视频比赛做的后期剪辑。",
+    one_line_en: "In 2023, I handled post-production editing for a district public security bureau's anti-cult video competition series.",
+    summary_zh: "2023年为某公安分局系列反邪教宣传视频比赛做的后期剪辑。",
+    summary_en: "In 2023, I handled post-production editing for a district public security bureau's anti-cult video competition series.",
+    modal_full: true,
+    platform: "短视频",
+    link_label: "作品链接待补充",
+    embed: "",
+    link: "",
+    cover: "assets/img/huangpu-fxj-1.jpg",
+    cover_webp: "assets/img/huangpu-fxj-1.webp",
+    cover_size: "80% auto",
+    credits: ["后期剪辑"],
+    process: ["后期剪辑"],
+    tools: ["剪映"],
+    stills: ["assets/img/huangpu-fxj-1.jpg"]
+  },
   
   
 ];

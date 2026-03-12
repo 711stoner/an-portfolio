@@ -384,6 +384,31 @@ window.WORKS = [
       "assets/img/李雪3-1400.jpg"
     ]
   },
+  {
+    slug: "shortvideo-placeholder-02",
+    title_zh: "椰子说国际教育",
+    title_en: "",
+    role_zh: "短视频项目制作",
+    role_en: "",
+    year: "2022",
+    category: "ShortVideo",
+    one_line_zh: "2022年参与椰子说国际教育短视频项目，负责视频剪辑与直播幕后。客户平台私信转私域后进行项目销售。",
+    one_line_en: "In 2022, I worked on short-video production for Yezi Shuo International Education, covering editing and live-stream backstage support.",
+    summary_zh: "2022年参与椰子说国际教育短视频项目，负责视频剪辑与直播幕后。客户平台私信转私域后进行项目销售。",
+    summary_en: "In 2022, I worked on short-video production for Yezi Shuo International Education, covering editing and live-stream backstage support.",
+    modal_full: true,
+    platform: "抖音 / Douyin",
+    link_label: "抖音搜索 / Search on Douyin",
+    embed: "",
+    link: "",
+    cover: "assets/img/yezishuo-1.jpg",
+    cover_webp: "assets/img/yezishuo-1.webp",
+    cover_size: "80% auto",
+    credits: ["短视频项目制作 / Short-video Project Production"],
+    process: ["视频剪辑和直播幕后 / Video Editing & Live-stream Backstage Support"],
+    tools: ["剪映 / CapCut"],
+    stills: ["assets/img/yezishuo-1.jpg"]
+  },
   
   
 ];

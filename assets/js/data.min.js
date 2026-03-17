@@ -385,6 +385,71 @@ window.WORKS = [
     ]
   },
   {
+    slug: "shortvideo-placeholder-04",
+    title_zh: "幸福凝老师",
+    title_en: "",
+    role_zh: "短视频IP",
+    role_en: "Short-video IP",
+    year: "2025",
+    category: "ShortVideo",
+    one_line_zh: "2025 年运营视频号「幸福凝教官」（部分内容），聚焦女性商业与心理学方向，负责文案、拍摄、剪辑包装与发布。",
+    one_line_en: "In 2025, I worked on selected content for the \"Xingfuning Coach\" video channel focused on women, business, and psychology, handling copywriting, shooting, editing, packaging, and publishing.",
+    summary_zh: "2025 年参与运营视频号「幸福凝教官」（部分），内容聚焦女性商业与心理学，负责文案、拍摄、剪辑包装与发布。",
+    summary_en: "In 2025, I supported selected operations for the \"Xingfuning Coach\" channel, covering women, business, and psychology, and handled copywriting, shooting, editing, packaging, and publishing.",
+    modal_full: true,
+    platform: "视频号",
+    link_label: "幸福凝教官（视频号）",
+    embed: "",
+    link: "",
+    cover: "assets/img/tu14-1400.jpg",
+    cover_webp: "assets/img/tu14-1400.webp",
+    cover_size: "80% auto",
+    credits: ["文案 / 拍摄 / 剪辑"],
+    process: [
+      "拍摄 / 剪辑 / 调色结构说明 / Shoot · Edit · Color",
+      "后期制作 / Post‑production",
+      "文案与发布 / Copy & Publish"
+    ],
+    tools: ["剪映"],
+    stills: [
+      "assets/img/tu11-1400.jpg",
+      "assets/img/tu12-1400.jpg",
+      "assets/img/tu13-1400.jpg"
+    ]
+  },
+  {
+    slug: "ai-video-placeholder-01",
+    title_zh: "AI视频示例项目",
+    title_en: "AI Video Demo Project",
+    role_zh: "AI视频IP",
+    role_en: "AI Video IP",
+    year: "2026",
+    category: "AIVideo",
+    one_line_zh: "示例占位内容：使用 AI 工具完成选题、脚本、画面生成与后期合成，用于验证页面分类与卡片展示。",
+    one_line_en: "Placeholder demo: an AI-assisted workflow from topic ideation to script, visual generation, and final compositing.",
+    summary_zh: "示例占位内容：用于展示 AI 视频分类卡片样式与弹窗信息结构。",
+    summary_en: "Placeholder entry for validating the AI Video category card and modal layout.",
+    modal_full: true,
+    platform: "AI视频",
+    link_label: "示例链接待补充",
+    embed: "",
+    link: "",
+    cover: "assets/img/李雪5-1400.jpg",
+    cover_webp: "assets/img/李雪5-1400.webp",
+    cover_size: "80% auto",
+    credits: ["策划 / 脚本 / AI生成 / 剪辑"],
+    process: [
+      "AI选题与脚本 / AI Ideation & Script",
+      "画面生成与组接 / Visual Generation & Assembly",
+      "后期剪辑与发布 / Post & Delivery"
+    ],
+    tools: ["ChatGPT", "剪映", "Midjourney"],
+    stills: [
+      "assets/img/李雪4-1400.jpg",
+      "assets/img/李雪3-1400.jpg"
+    ]
+  },
+  {
     slug: "shortvideo-placeholder-02",
     title_zh: "椰子说国际教育",
     title_en: "",
@@ -392,10 +457,10 @@ window.WORKS = [
     role_en: "",
     year: "2022",
     category: "ShortVideo",
-    one_line_zh: "2022年参与椰子说国际教育短视频项目，负责视频剪辑与直播幕后。客户平台私信转私域后进行项目销售。",
-    one_line_en: "In 2022, I worked on short-video production for Yezi Shuo International Education, covering editing and live-stream backstage support.",
-    summary_zh: "2022年参与椰子说国际教育短视频项目，负责视频剪辑与直播幕后。客户平台私信转私域后进行项目销售。",
-    summary_en: "In 2022, I worked on short-video production for Yezi Shuo International Education, covering editing and live-stream backstage support.",
+    one_line_zh: "2025 年运营视频号「穆桂英雪姐」，累计约 100 条内容，聚焦女性商业与心理学方向。负责文案撰写、现场拍摄、后期剪辑包装及账号发布。本页面素材部分包含部分本人工作截图。In 2025, produced around 100 videos for the “Mu Guiying Senior” channel, focusing on women, business, and psychology. Responsibilities included copywriting, on‑site shooting, post‑production packaging, and publishing; the materials include my work screenshots.",
+    one_line_en: "",
+    summary_zh: "2025 年运营视频号「穆桂英雪姐」，累计约 100 条内容，聚焦女性商业与心理学。负责文案、拍摄、剪辑包装与发布。",
+    summary_en: "In 2025, produced ~100 videos for the “Mu Guiying Senior” channel; handled copywriting, shooting, post‑production, and publishing.",
     modal_full: true,
     platform: "抖音 / Douyin",
     link_label: "抖音搜索 / Search on Douyin",
@@ -444,7 +509,8 @@ window.WORK_CATEGORIES = [
   { key: "MV", label: "MV / Music Video" },
   { key: "Short", label: "短片 / Short" },
   { key: "Color", label: "调色 / Color" },
-  { key: "ShortVideo", label: "短视频 / Short Video" }
+  { key: "ShortVideo", label: "短视频 / Short Video" },
+  { key: "AIVideo", label: "AI视频 / AI Video" }
 ];
 
 window.WORK_YEARS = [

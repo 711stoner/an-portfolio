@@ -355,7 +355,7 @@ window.WORKS = [
   {
     slug: "placeholder-01",
     title_zh: "商业穆桂英",
-    title_en: "Mu Guiying",
+    title_en: "",
     role_zh: "短视频IP",
     role_en: "Short-video IP",
     year: "2025",

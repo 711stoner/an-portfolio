@@ -418,38 +418,6 @@ window.WORKS = [
     ]
   },
   {
-    slug: "ai-video-placeholder-01",
-    title_zh: "AI视频示例项目",
-    title_en: "AI Video Demo Project",
-    role_zh: "AI视频IP",
-    role_en: "AI Video IP",
-    year: "2026",
-    category: "AIVideo",
-    one_line_zh: "示例占位内容：使用 AI 工具完成选题、脚本、画面生成与后期合成，用于验证页面分类与卡片展示。",
-    one_line_en: "Placeholder demo: an AI-assisted workflow from topic ideation to script, visual generation, and final compositing.",
-    summary_zh: "示例占位内容：用于展示 AI 视频分类卡片样式与弹窗信息结构。",
-    summary_en: "Placeholder entry for validating the AI Video category card and modal layout.",
-    modal_full: true,
-    platform: "AI视频",
-    link_label: "示例链接待补充",
-    embed: "",
-    link: "",
-    cover: "assets/img/李雪5-1400.jpg",
-    cover_webp: "assets/img/李雪5-1400.webp",
-    cover_size: "80% auto",
-    credits: ["策划 / 脚本 / AI生成 / 剪辑"],
-    process: [
-      "AI选题与脚本 / AI Ideation & Script",
-      "画面生成与组接 / Visual Generation & Assembly",
-      "后期剪辑与发布 / Post & Delivery"
-    ],
-    tools: ["ChatGPT", "剪映", "Midjourney"],
-    stills: [
-      "assets/img/李雪4-1400.jpg",
-      "assets/img/李雪3-1400.jpg"
-    ]
-  },
-  {
     slug: "shortvideo-placeholder-02",
     title_zh: "椰子说国际教育",
     title_en: "",
@@ -509,8 +477,7 @@ window.WORK_CATEGORIES = [
   { key: "MV", label: "MV / Music Video" },
   { key: "Short", label: "短片 / Short" },
   { key: "Color", label: "调色 / Color" },
-  { key: "ShortVideo", label: "短视频 / Short Video" },
-  { key: "AIVideo", label: "AI视频 / AI Video" }
+  { key: "ShortVideo", label: "短视频 / Short Video" }
 ];
 
 window.WORK_YEARS = [

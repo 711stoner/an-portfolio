@@ -17,7 +17,8 @@
     const work = works.find((w) => w.slug === slug) || works[0];
     if (!work) return;
 
-    qs("[data-detail-title]").textContent = `${work.title_zh} / ${work.title_en}`;
+    const detailTitleEn = work.detail_title_en || work.title_en || "";
+    qs("[data-detail-title]").textContent = detailTitleEn ? `${work.title_zh} / ${detailTitleEn}` : work.title_zh;
     const role = `${work.role_zh || ""}${work.role_zh && work.role_en ? " / " : ""}${work.role_en || ""}`;
     qs("[data-detail-role]").textContent = role || "";
     qs("[data-detail-year]").textContent = work.year;
@@ -117,7 +118,7 @@
 
     const link = qs("[data-detail-link]");
     link.href = work.link || "#";
-    link.textContent = work.link ? "在线播放" : (work.link_label || "链接待补充（未上线流媒体）");
+    link.textContent = work.link_label || (work.link ? "在线播放" : "链接待补充（未上线流媒体）");
   }
 
   renderDetail();

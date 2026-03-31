@@ -331,7 +331,7 @@
     desc.textContent = formatModalSummary(work, isMobile);
     if (link) {
       link.href = work.link || "#";
-      link.textContent = work.link ? "在线播放" : (work.link_label || "链接待补充 / Link pending");
+      link.textContent = work.link_label || (work.link ? "在线播放" : "链接待补充 / Link pending");
     }
     if (detailLink) {
       detailLink.style.display = "";

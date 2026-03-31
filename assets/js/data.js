@@ -472,12 +472,12 @@ window.WORKS = [
 ];
 
 window.WORK_CATEGORIES = [
-  { key: "Commercial", label: "商业广告 / Commercial" },
   { key: "Documentary", label: "纪录/访谈 / Documentary" },
-  { key: "MV", label: "MV / Music Video" },
+  { key: "ShortVideo", label: "短视频 / Short Video" },
+  { key: "Commercial", label: "商业广告 / Commercial" },
   { key: "Short", label: "短片 / Short" },
+  { key: "MV", label: "MV / Music Video" },
   { key: "Color", label: "调色 / Color" },
-  { key: "ShortVideo", label: "短视频 / Short Video" }
 ];
 
 window.WORK_YEARS = [

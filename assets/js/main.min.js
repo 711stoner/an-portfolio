@@ -260,6 +260,13 @@
       const ay = Number(a.year) || 0;
       const by = Number(b.year) || 0;
       if (ay !== by) return by - ay;
+      const aOrder = Number.isFinite(Number(a.sort_order)) ? Number(a.sort_order) : null;
+      const bOrder = Number.isFinite(Number(b.sort_order)) ? Number(b.sort_order) : null;
+      if (aOrder !== null || bOrder !== null) {
+        if (aOrder === null) return 1;
+        if (bOrder === null) return -1;
+        if (aOrder !== bOrder) return aOrder - bOrder;
+      }
       const aTitle = (a.title_zh || a.title_en || "").toString();
       const bTitle = (b.title_zh || b.title_en || "").toString();
       return aTitle.localeCompare(bTitle, "zh-Hans-CN");

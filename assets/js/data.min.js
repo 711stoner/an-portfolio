@@ -387,6 +387,7 @@ window.WORKS = [
   },
   {
     slug: "shortvideo-blank-01",
+    sort_order: 1,
     title_zh: "汽车展品牌总结视频",
     title_en: "",
     detail_title_en: "Tesche GT Show Brand Recap",
@@ -415,6 +416,7 @@ window.WORKS = [
   },
   {
     slug: "shortvideo-blank-02",
+    sort_order: 2,
     title_zh: "雪碧线下营销品宣",
     title_en: "",
     detail_title_en: "Sprite Offline Activation Campaign",
@@ -441,6 +443,7 @@ window.WORKS = [
   },
   {
     slug: "shortvideo-blank-03",
+    sort_order: 3,
     title_zh: "创始人IP故事（高数据）",
     title_en: "",
     detail_title_en: "Founder IP Story with 10K+ Engagement",

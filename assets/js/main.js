@@ -158,6 +158,40 @@
     return "";
   }
 
+  function setModalPlaceholder(node, text, visible) {
+    if (!node) return;
+    node.textContent = text || "";
+    node.style.display = visible ? "flex" : "none";
+  }
+
+  function setModalCoverBackground(node, coverSrc, coverWebp) {
+    if (!node) return;
+    if (!coverSrc) {
+      node.style.backgroundImage = "";
+      return;
+    }
+    const coverType = getMime(coverSrc) || "image/png";
+    node.style.backgroundImage = coverWebp && coverWebp !== coverSrc
+      ? `image-set(url('${coverWebp}') type('image/webp'), url('${coverSrc}') type('${coverType}'))`
+      : `url('${coverSrc}')`;
+  }
+
+  function resetModalCover(media, coverImg, coverSource, coverPicture, placeholder) {
+    if (media) media.style.backgroundImage = "";
+    if (coverPicture) {
+      coverPicture.style.display = "none";
+      coverPicture.style.backgroundImage = "";
+    }
+    if (coverImg) {
+      coverImg.onload = null;
+      coverImg.onerror = null;
+      coverImg.removeAttribute("src");
+      coverImg.style.display = "none";
+    }
+    if (coverSource) coverSource.setAttribute("srcset", "");
+    setModalPlaceholder(placeholder, "", false);
+  }
+
   function renderWorkCard(work) {
     const coverSize = work.cover_size || "contain";
     const coverUrl = work.cover || "";
@@ -315,6 +349,7 @@
     const work = works.find((w) => w.slug === slug);
     if (!work) return;
 
+    const media = qs(".modal-media");
     const title = qs("[data-modal-title]");
     const role = qs("[data-modal-role]");
     const year = qs("[data-modal-year]");
@@ -365,45 +400,66 @@
         )
         .join("");
     }
-  if (stills) {
-    stills.classList.toggle("stills-large", work.slug === "bookstore");
-    const list = work.stills && work.stills.length ? work.stills : [];
-    stills.innerHTML = list.length
+    if (stills) {
+      stills.classList.toggle("stills-large", work.slug === "bookstore");
+      const list = work.stills && work.stills.length ? work.stills : [];
+      stills.innerHTML = list.length
         ? list
             .map((src, idx) => {
               const webp = toWebp(src);
               const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";
-              return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="lazy" decoding="async" /></picture></div>`;
+              const priority = idx === 0 ? "high" : "auto";
+              return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="eager" fetchpriority="${priority}" decoding="async" /></picture></div>`;
             })
             .join("")
         : `<div class="still-card">画面待补充 / Stills pending</div>`;
     }
 
+    resetModalCover(media, coverImg, coverSource, coverPicture, placeholder);
+
     if (work.embed && !isMobile) {
-      iframe.style.display = "block";
-      iframe.src = work.embed;
+      if (iframe) {
+        iframe.style.display = "block";
+        iframe.src = work.embed;
+      }
       if (coverImg) coverImg.style.display = "none";
       if (coverPicture) coverPicture.style.display = "none";
-      if (placeholder) placeholder.style.display = "none";
+      setModalPlaceholder(placeholder, "", false);
     } else {
-      iframe.style.display = "none";
+      if (iframe) iframe.style.display = "none";
       if (coverImg) {
         const coverSrc = work.cover || (work.stills && work.stills[0]) || "";
         const coverWebp = work.cover_webp || toWebp(coverSrc);
+        const coverTarget = coverPicture || media;
         if (coverSrc) {
-          coverImg.src = coverSrc;
-          coverImg.alt = `${work.title_zh} / ${work.title_en}`;
-          coverImg.style.display = "block";
+          setModalCoverBackground(coverTarget, coverSrc, coverWebp);
+          setModalPlaceholder(placeholder, "封面加载中 / Loading cover", true);
+          coverImg.alt = work.title_en ? `${work.title_zh} / ${work.title_en}` : work.title_zh;
+          coverImg.loading = "eager";
+          coverImg.setAttribute("fetchpriority", "high");
+          coverImg.onload = () => {
+            coverImg.style.display = "block";
+            setModalPlaceholder(placeholder, "", false);
+          };
+          coverImg.onerror = () => {
+            coverImg.style.display = "none";
+            setModalPlaceholder(placeholder, "封面未能加载 / Cover unavailable", true);
+          };
           if (coverSource && coverWebp && coverWebp !== coverSrc) {
             coverSource.setAttribute("srcset", coverWebp);
           }
-          if (coverPicture) coverPicture.style.display = "block";
+          if (coverPicture) coverPicture.style.display = "flex";
+          coverImg.src = coverSrc;
+          if (coverImg.complete && coverImg.naturalWidth > 0) {
+            coverImg.style.display = "block";
+            setModalPlaceholder(placeholder, "", false);
+          }
         } else {
           coverImg.style.display = "none";
           if (coverPicture) coverPicture.style.display = "none";
+          setModalPlaceholder(placeholder, "封面待补充 / Cover pending", true);
         }
       }
-      if (placeholder) placeholder.style.display = "none";
     }
 
     modal.classList.add("active");
@@ -415,10 +471,12 @@
     if (!modal) return;
     const iframe = qs("[data-modal-iframe]");
     if (iframe) iframe.src = "";
+    const media = qs(".modal-media");
     const coverImg = qs("[data-modal-cover]");
-    if (coverImg) coverImg.src = "";
     const coverSource = qs("[data-modal-cover-webp]");
-    if (coverSource) coverSource.setAttribute("srcset", "");
+    const coverPicture = coverImg ? coverImg.closest("picture") : null;
+    const placeholder = qs("[data-modal-placeholder]");
+    resetModalCover(media, coverImg, coverSource, coverPicture, placeholder);
     modal.classList.remove("active");
   }
 

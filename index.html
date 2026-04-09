@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/style.min.css?v=20260301" />
+    <link rel="stylesheet" href="assets/css/style.min.css?v=20260409" />
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -332,7 +332,11 @@ var _hmt = _hmt || [];
       <div class="modal-card">
         <div class="modal-media">
           <iframe data-modal-iframe title="work"></iframe>
-          <img data-modal-cover alt="cover" class="modal-cover-img" loading="lazy" />
+          <picture class="modal-cover-picture">
+            <source data-modal-cover-webp type="image/webp" />
+            <img data-modal-cover alt="cover" class="modal-cover-img" loading="eager" fetchpriority="high" />
+          </picture>
+          <div class="media-placeholder" data-modal-placeholder>封面加载中 / Loading cover</div>
           <button class="modal-close" data-modal-close>×</button>
         </div>
         <div class="modal-info">
@@ -366,7 +370,7 @@ var _hmt = _hmt || [];
       </div>
     </div>
 
-    <script src="assets/js/data.min.js?v=20260301"></script>
-    <script src="assets/js/main.min.js?v=20260301"></script>
-</body>
+    <script src="assets/js/data.min.js?v=20260409"></script>
+    <script src="assets/js/main.min.js?v=20260409"></script>
+  </body>
 </html>

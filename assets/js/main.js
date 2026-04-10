@@ -21,6 +21,18 @@
   const qs = (sel, ctx = document) => ctx.querySelector(sel);
   const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+  function normalizeAssetPath(src) {
+    const map = {
+      "assets/img/第二版-封面.jpg": "assets/img/podcast-cover.jpg",
+      "assets/img/第二版-封面.webp": "assets/img/podcast-cover.webp",
+      "assets/img/播客剪辑截图1.png": "assets/img/podcast-still-1.png",
+      "assets/img/播客剪辑截图1.webp": "assets/img/podcast-still-1.webp",
+      "assets/img/播客剪辑截图2.png": "assets/img/podcast-still-2.png",
+      "assets/img/播客剪辑截图2.webp": "assets/img/podcast-still-2.webp"
+    };
+    return map[src] || src;
+  }
+
   function initParallax() {
     const hero = qs(".hero");
     if (!hero) return;
@@ -148,11 +160,11 @@
 
   function toWebp(src) {
     if (!src) return "";
-    return src.replace(/\.(png|jpe?g)$/i, ".webp");
+    return normalizeAssetPath(src).replace(/\.(png|jpe?g)$/i, ".webp");
   }
 
   function getMime(src) {
-    const ext = (src || "").split(".").pop().toLowerCase();
+    const ext = normalizeAssetPath(src || "").split(".").pop().toLowerCase();
     if (ext === "jpg" || ext === "jpeg") return "image/jpeg";
     if (ext === "png") return "image/png";
     if (ext === "webp") return "image/webp";
@@ -167,6 +179,8 @@
 
   function setModalCoverBackground(node, coverSrc, coverWebp) {
     if (!node) return;
+    coverSrc = normalizeAssetPath(coverSrc);
+    coverWebp = normalizeAssetPath(coverWebp);
     if (!coverSrc) {
       node.style.backgroundImage = "";
       return;
@@ -179,7 +193,7 @@
 
   function loadWorkCover(node) {
     if (!node || node.dataset.coverLoaded === "true") return;
-    const coverUrl = node.dataset.cover || "";
+    const coverUrl = normalizeAssetPath(node.dataset.cover || "");
     const coverWebp = node.dataset.coverWebp || toWebp(coverUrl);
     const coverType = node.dataset.coverType || getMime(coverUrl) || "image/png";
     const coverSize = node.dataset.coverSize || "contain";
@@ -242,7 +256,7 @@
 
   function renderWorkCard(work) {
     const coverSize = work.cover_size || "contain";
-    const coverUrl = work.cover || "";
+    const coverUrl = normalizeAssetPath(work.cover || "");
     const coverWebp = work.cover_webp || toWebp(coverUrl);
     const coverType = getMime(coverUrl) || "image/png";
     const coverAttrs = ` data-cover="${coverUrl}" data-cover-webp="${coverWebp}" data-cover-type="${coverType}" data-cover-size="${coverSize}" data-cover-loaded="false"`;
@@ -452,6 +466,7 @@
         ? list
             .map((src, idx) => {
               const webp = toWebp(src);
+              src = normalizeAssetPath(src);
               const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";
               const priority = idx === 0 ? "high" : "auto";
               return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="eager" fetchpriority="${priority}" decoding="async" /></picture></div>`;
@@ -473,7 +488,7 @@
     } else {
       if (iframe) iframe.style.display = "none";
       if (coverImg) {
-        const coverSrc = work.cover || (work.stills && work.stills[0]) || "";
+        const coverSrc = normalizeAssetPath(work.cover || (work.stills && work.stills[0]) || "");
         const coverWebp = work.cover_webp || toWebp(coverSrc);
         const coverTarget = coverPicture || media;
         if (coverSrc) {

@@ -2,9 +2,21 @@
   const works = window.WORKS || [];
   const qs = (sel, ctx = document) => ctx.querySelector(sel);
 
+  function normalizeAssetPath(src) {
+    const map = {
+      "assets/img/第二版-封面.jpg": "assets/img/podcast-cover.jpg",
+      "assets/img/第二版-封面.webp": "assets/img/podcast-cover.webp",
+      "assets/img/播客剪辑截图1.png": "assets/img/podcast-still-1.png",
+      "assets/img/播客剪辑截图1.webp": "assets/img/podcast-still-1.webp",
+      "assets/img/播客剪辑截图2.png": "assets/img/podcast-still-2.png",
+      "assets/img/播客剪辑截图2.webp": "assets/img/podcast-still-2.webp"
+    };
+    return map[src] || src;
+  }
+
   function toWebp(src) {
     if (!src) return "";
-    return src.replace(/\.(png|jpe?g)$/i, ".webp");
+    return normalizeAssetPath(src).replace(/\.(png|jpe?g)$/i, ".webp");
   }
 
   function getSlug() {
@@ -59,6 +71,7 @@
     if (stills.length) {
         stillsWrap.innerHTML = stills
           .map((src, idx) => {
+            src = normalizeAssetPath(src);
             const webp = toWebp(src);
             const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";
             return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="lazy" decoding="async" /></picture></div>`;
@@ -82,7 +95,7 @@
     } else {
       iframe.style.display = "none";
       if (mediaImg) {
-        const mediaSrc = work.media || work.cover || (work.stills && work.stills[0]) || "";
+        const mediaSrc = normalizeAssetPath(work.media || work.cover || (work.stills && work.stills[0]) || "");
         const mediaWebp = work.media_webp || toWebp(mediaSrc);
         if (mediaSrc) {
           mediaImg.src = mediaSrc;
@@ -100,7 +113,7 @@
     }
 
     if (coverImg) {
-      const coverSrc = work.cover || (work.stills && work.stills[0]) || "";
+      const coverSrc = normalizeAssetPath(work.cover || (work.stills && work.stills[0]) || "");
       const coverWebp = work.cover_webp || toWebp(coverSrc);
       if (coverSrc) {
         coverImg.src = coverSrc;

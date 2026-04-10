@@ -51,6 +51,11 @@ img {
   position: relative;
 }
 
+.defer-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 960px;
+}
+
 .section-title {
   display: flex;
   align-items: center;

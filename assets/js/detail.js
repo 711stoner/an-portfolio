@@ -74,7 +74,7 @@
             src = normalizeAssetPath(src);
             const webp = toWebp(src);
             const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";
-            return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="lazy" decoding="async" /></picture></div>`;
+            return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="lazy" fetchpriority="low" decoding="async" /></picture></div>`;
           })
           .join("");
       }
@@ -100,6 +100,9 @@
         if (mediaSrc) {
           mediaImg.src = mediaSrc;
           mediaImg.alt = `${work.title_zh} / ${work.title_en}`;
+          mediaImg.loading = "lazy";
+          mediaImg.setAttribute("fetchpriority", "low");
+          mediaImg.decoding = "async";
           mediaImg.style.display = "block";
           if (mediaSource && mediaWebp && mediaWebp !== mediaSrc) {
             mediaSource.setAttribute("srcset", mediaWebp);
@@ -118,6 +121,9 @@
       if (coverSrc) {
         coverImg.src = coverSrc;
         coverImg.alt = `${work.title_zh} / ${work.title_en}`;
+        coverImg.loading = "eager";
+        coverImg.setAttribute("fetchpriority", "high");
+        coverImg.decoding = "async";
         coverImg.style.display = "block";
         if (coverSource && coverWebp && coverWebp !== coverSrc) {
           coverSource.setAttribute("srcset", coverWebp);

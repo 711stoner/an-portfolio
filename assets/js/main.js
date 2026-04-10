@@ -17,6 +17,10 @@
     : (categories.find((c) => c.key !== "All") || categories[0] || { key: "All" }).key;
   let selectedCategory = defaultCategory;
   let workCoverObserver = null;
+  const supportsImageSet =
+    typeof CSS !== "undefined" &&
+    typeof CSS.supports === "function" &&
+    CSS.supports("background-image", "image-set(url('x.webp') type('image/webp'), url('x.png') type('image/png'))");
 
   const qs = (sel, ctx = document) => ctx.querySelector(sel);
   const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -186,9 +190,9 @@
       return;
     }
     const coverType = getMime(coverSrc) || "image/png";
-    node.style.backgroundImage = coverWebp && coverWebp !== coverSrc
-      ? `image-set(url('${coverWebp}') type('image/webp'), url('${coverSrc}') type('${coverType}'))`
-      : `url('${coverSrc}')`;
+    const fallback = `url('${coverSrc}')`;
+    const optimized = `image-set(url('${coverWebp}') type('image/webp'), url('${coverSrc}') type('${coverType}'))`;
+    node.style.backgroundImage = supportsImageSet && coverWebp && coverWebp !== coverSrc ? optimized : fallback;
   }
 
   function loadWorkCover(node) {
@@ -199,11 +203,8 @@
     const coverSize = node.dataset.coverSize || "contain";
     if (coverUrl) {
       const bgBase = `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), url('${coverUrl}')`;
-      const bgWebp = coverWebp && coverWebp !== coverUrl
-        ? `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), image-set(url('${coverWebp}') type('image/webp'), url('${coverUrl}') type('${coverType}'))`
-        : bgBase;
-      node.style.backgroundImage = bgBase;
-      node.style.backgroundImage = bgWebp;
+      const bgWebp = `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), image-set(url('${coverWebp}') type('image/webp'), url('${coverUrl}') type('${coverType}'))`;
+      node.style.backgroundImage = supportsImageSet && coverWebp && coverWebp !== coverUrl ? bgWebp : bgBase;
       node.style.backgroundSize = coverSize;
       node.style.backgroundPosition = "center";
       node.style.backgroundRepeat = "no-repeat";
@@ -468,8 +469,9 @@
               const webp = toWebp(src);
               src = normalizeAssetPath(src);
               const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";
-              const priority = idx === 0 ? "high" : "auto";
-              return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="eager" fetchpriority="${priority}" decoding="async" /></picture></div>`;
+              const priority = idx === 0 ? "high" : "low";
+              const loading = idx === 0 ? "eager" : "lazy";
+              return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="${loading}" fetchpriority="${priority}" decoding="async" /></picture></div>`;
             })
             .join("")
         : `<div class="still-card">画面待补充 / Stills pending</div>`;

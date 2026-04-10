@@ -104,7 +104,7 @@ window.WORKS = [
     title_en: "Commercial Video Podcast",
     role_zh: "剪辑/文稿脚本整理",
     role_en: "Editing / Script Organization",
-    year: "2025",
+    year: "2026",
     category: "Documentary",
     one_line_zh: "商业视频对谈播客试播集的双机位剪辑和根据视频素材整理后期文稿脚本。",
     one_line_en: "Two‑camera edit for a commercial video talk‑show podcast pilot, plus a post‑production script compiled from the video footage.",

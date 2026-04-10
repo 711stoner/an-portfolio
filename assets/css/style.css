@@ -325,8 +325,8 @@ img {
 }
 
 .work-cover {
-  flex: 0 0 auto;
-  aspect-ratio: 16 / 10;
+  flex: 1;
+  min-height: clamp(180px, 18vw, 240px);
   background: linear-gradient(120deg, rgba(75, 123, 255, 0.2), rgba(15, 23, 42, 0.05));
   display: flex;
   align-items: flex-end;

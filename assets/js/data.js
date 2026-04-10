@@ -20,7 +20,7 @@ window.WORKS = [
       "剪辑与调色 / Edit & Color"
     ],
     tools: ["Premiere Pro", "DaVinci Resolve"],
-    stills: ["assets/img/播客剪辑截图2.png", "assets/img/播客剪辑截图1.png"]
+    stills: ["assets/img/podcast-still-2.png", "assets/img/podcast-still-1.png"]
   },
   {
     slug: "nanyang-city",
@@ -111,11 +111,11 @@ window.WORKS = [
     platform: "新片场",
     embed: "",
     link: "https://www.xinpianchang.com/a13610114",
-    cover: "assets/img/第二版-封面.jpg",
+    cover: "assets/img/podcast-cover.jpg",
     credits: ["剪辑 / 文稿脚本整理 / Editing / Script Organization"],
     process: ["整理文稿脚本 / Script Organization", "后期剪辑 / Two‑camera edit"],
     tools: ["Premiere"],
-    stills: ["assets/img/播客剪辑截图1.png", "assets/img/播客剪辑截图2.png"]
+    stills: ["assets/img/podcast-still-1.png", "assets/img/podcast-still-2.png"]
   },
   {
     slug: "documentary-placeholder-02",

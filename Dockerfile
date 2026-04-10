@@ -1,31 +1,11 @@
-# Multi-stage build: first compress assets, then serve with nginx
-FROM node:20-alpine AS builder
-
-WORKDIR /app
-
-# Copy package files
-COPY package.json package-lock.json ./
-
-# Install dependencies
-RUN npm ci
-
-# Copy source files
-COPY . .
-
-# Run compression without relying on executable bin permissions
-RUN node node_modules/terser/bin/terser assets/js/main.js -c -m -o assets/js/main.min.js && \
-    node node_modules/terser/bin/terser assets/js/data.js -c -m -o assets/js/data.min.js && \
-    node node_modules/terser/bin/terser assets/js/detail.js -c -m -o assets/js/detail.min.js && \
-    node node_modules/csso-cli/bin/csso assets/css/style.css -o assets/css/style.min.css && \
-    node node_modules/csso-cli/bin/csso assets/css/fonts.css -o assets/css/fonts.min.css
-
-# Final stage: nginx server
 FROM nginx:alpine
 
-# Copy compressed assets from builder
-COPY --from=builder /app /usr/share/nginx/html/
+WORKDIR /usr/share/nginx/html
 
-# Copy nginx configuration
+# Ship prebuilt static files from the repository to avoid build-time npm issues.
+COPY . /usr/share/nginx/html/
+
+# Use the custom nginx config for SPA-style routing and cache headers.
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

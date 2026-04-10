@@ -12,12 +12,12 @@ RUN npm ci
 # Copy source files
 COPY . .
 
-# Run compression
-RUN npx terser assets/js/main.js -c -m -o assets/js/main.min.js && \
-    npx terser assets/js/data.js -c -m -o assets/js/data.min.js && \
-    npx terser assets/js/detail.js -c -m -o assets/js/detail.min.js && \
-    npx csso assets/css/style.css -o assets/css/style.min.css && \
-    npx csso assets/css/fonts.css -o assets/css/fonts.min.css
+# Run compression without relying on executable bin permissions
+RUN node node_modules/terser/bin/terser assets/js/main.js -c -m -o assets/js/main.min.js && \
+    node node_modules/terser/bin/terser assets/js/data.js -c -m -o assets/js/data.min.js && \
+    node node_modules/terser/bin/terser assets/js/detail.js -c -m -o assets/js/detail.min.js && \
+    node node_modules/csso-cli/bin/csso assets/css/style.css -o assets/css/style.min.css && \
+    node node_modules/csso-cli/bin/csso assets/css/fonts.css -o assets/css/fonts.min.css
 
 # Final stage: nginx server
 FROM nginx:alpine
@@ -31,4 +31,3 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
-

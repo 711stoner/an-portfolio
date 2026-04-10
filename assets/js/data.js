@@ -118,6 +118,34 @@ window.WORKS = [
     stills: []
   },
   {
+    slug: "documentary-placeholder-02",
+    title_zh: "科技企业家对谈节目",
+    title_en: "Tech Founder Interview Program",
+    role_zh: "剪辑/策划",
+    role_en: "Editing / Planning",
+    year: "2026",
+    category: "Documentary",
+    one_line_zh: "为苏州某材料科技企业家双人访谈节目完成后期制作，基于结构较散的原始素材梳理内容脉络与表达重点，统筹脚本整理、剪辑节奏与画面调色，提升人物表达的专业感与节目成片的传播完成度。",
+    one_line_en: "Handled post-production for a two-person interview program featuring a Suzhou materials-tech entrepreneur, restructuring loosely organized source footage into a clear narrative while leading script consolidation, edit pacing, and color finishing to strengthen executive presence and delivery quality.",
+    summary_zh: "为苏州某材料科技企业家双人访谈节目完成后期制作，基于结构较散的原始素材梳理内容脉络与表达重点，统筹脚本整理、剪辑节奏与画面调色，提升人物表达的专业感与节目成片的传播完成度。",
+    summary_en: "Handled post-production for a two-person interview program featuring a Suzhou materials-tech entrepreneur, restructuring loosely organized source footage into a clear narrative while leading script consolidation, edit pacing, and color finishing to strengthen executive presence and delivery quality.",
+    modal_full: true,
+    platform: "新片场",
+    embed: "",
+    link: "https://www.xinpianchang.com/a13650805?from=webShare&channel=copyLink",
+    cover: "assets/img/su5-cover.jpg",
+    cover_webp: "assets/img/su5-cover.webp",
+    credits: ["剪辑 / 策划 / Editing / Planning"],
+    process: ["整理脚本框架 / Script Structuring", "后期剪辑 / Editing", "调色统一 / Color Finishing"],
+    tools: ["Premiere"],
+    stills: [
+      "assets/img/su1.png",
+      "assets/img/su2.png",
+      "assets/img/su3.png",
+      "assets/img/su4.png"
+    ]
+  },
+  {
     slug: "color-reel",
     title_zh: "商业调色作品",
     title_en: "Commercial Color Grading",

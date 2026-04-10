@@ -26,7 +26,7 @@ html, body {
 }
 
 body {
-  font-family: "Noto Sans SC", "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans, "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, -apple-system, sans-serif);
   color: var(--text);
   background: linear-gradient(180deg, var(--bg-soft), var(--bg-ghost) 25%, var(--bg) 60%);
 }
@@ -327,6 +327,21 @@ img {
   position: relative;
   overflow: hidden;
 }
+
+.work-cover.work-cover-pending::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.22) 45%, transparent 100%);
+  transform: translateX(-100%);
+  animation: coverSweep 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.work-cover.is-loaded::after {
+  display: none;
+}
+
 .work-cover.media-frame {
   background: #eef2ff;
   align-items: center;
@@ -357,6 +372,12 @@ img {
   border-radius: 999px;
   font-size: 12px;
   color: var(--muted);
+}
+
+@keyframes coverSweep {
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .detail-cover-img {
@@ -790,6 +811,7 @@ img {
   align-items: center;
   justify-content: center;
   padding: 24px;
+  background-image: none !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

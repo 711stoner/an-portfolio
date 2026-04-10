@@ -16,6 +16,7 @@
     ? "All"
     : (categories[0] && categories[0].key) || "All";
   let selectedCategory = defaultCategory;
+  let workCoverObserver = null;
 
   const qs = (sel, ctx = document) => ctx.querySelector(sel);
   const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -176,6 +177,53 @@
       : `url('${coverSrc}')`;
   }
 
+  function loadWorkCover(node) {
+    if (!node || node.dataset.coverLoaded === "true") return;
+    const coverUrl = node.dataset.cover || "";
+    const coverWebp = node.dataset.coverWebp || toWebp(coverUrl);
+    const coverType = node.dataset.coverType || getMime(coverUrl) || "image/png";
+    const coverSize = node.dataset.coverSize || "contain";
+    if (coverUrl) {
+      const bgBase = `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), url('${coverUrl}')`;
+      const bgWebp = coverWebp && coverWebp !== coverUrl
+        ? `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), image-set(url('${coverWebp}') type('image/webp'), url('${coverUrl}') type('${coverType}'))`
+        : bgBase;
+      node.style.backgroundImage = bgBase;
+      node.style.backgroundImage = bgWebp;
+      node.style.backgroundSize = coverSize;
+      node.style.backgroundPosition = "center";
+      node.style.backgroundRepeat = "no-repeat";
+    }
+    node.dataset.coverLoaded = "true";
+    node.classList.remove("work-cover-pending");
+    node.classList.add("is-loaded");
+  }
+
+  function initWorkCoverLazyLoad(scope = document) {
+    const covers = qsa(".work-cover[data-cover]", scope);
+    if (!covers.length) return;
+    if (workCoverObserver) workCoverObserver.disconnect();
+    if (!("IntersectionObserver" in window)) {
+      covers.forEach(loadWorkCover);
+      return;
+    }
+    workCoverObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting || entry.intersectionRatio > 0) {
+            loadWorkCover(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "240px 0px", threshold: 0.01 }
+    );
+    covers.forEach((cover) => {
+      if (cover.dataset.coverLoaded === "true") return;
+      workCoverObserver.observe(cover);
+    });
+  }
+
   function resetModalCover(media, coverImg, coverSource, coverPicture, placeholder) {
     if (media) media.style.backgroundImage = "";
     if (coverPicture) {
@@ -197,16 +245,10 @@
     const coverUrl = work.cover || "";
     const coverWebp = work.cover_webp || toWebp(coverUrl);
     const coverType = getMime(coverUrl) || "image/png";
-    const bgBase = `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), url('${coverUrl}')`;
-    const bgWebp = coverWebp && coverWebp !== coverUrl
-      ? `linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.2)), image-set(url('${coverWebp}') type('image/webp'), url('${coverUrl}') type('${coverType}'))`
-      : bgBase;
-    const coverStyle = coverUrl
-      ? ` style="background-image: ${bgBase}; background-image: ${bgWebp}; background-size: ${coverSize}; background-position: center; background-repeat: no-repeat;"`
-      : "";
+    const coverAttrs = ` data-cover="${coverUrl}" data-cover-webp="${coverWebp}" data-cover-type="${coverType}" data-cover-size="${coverSize}" data-cover-loaded="false"`;
     return `
       <article class="work-card" data-slug="${work.slug}">
-        <div class="work-cover"${coverStyle}>
+        <div class="work-cover work-cover-pending"${coverAttrs}>
           <div class="cover-shift" data-parallax></div>
         </div>
         <div class="work-info">
@@ -225,6 +267,7 @@
 
   function renderWorksGrid(container, list) {
     container.innerHTML = list.map(renderWorkCard).join("");
+    initWorkCoverLazyLoad(container);
     qsa(".work-card", container).forEach((card) => {
       card.addEventListener("click", () => openModal(card.dataset.slug));
     });
@@ -253,13 +296,15 @@
     });
 
     container.innerHTML = sections.join("");
+    initWorkCoverLazyLoad(container);
     qsa(".work-card", container).forEach((card) => {
       card.addEventListener("click", () => openModal(card.dataset.slug));
     });
   }
 
   function renderFilters(container) {
-    container.innerHTML = categories
+    const visibleCategories = categories.filter((cat) => cat.key !== "All");
+    container.innerHTML = visibleCategories
       .map(
         (cat) =>
           `<button class="filter-btn ${cat.key === selectedCategory ? "active" : ""}" data-key="${cat.key}">${cat.label}</button>`

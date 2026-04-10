@@ -399,24 +399,27 @@ img {
   padding: 16px;
   display: grid;
   gap: 6px;
+  height: 100%;
 }
 
 .work-info h3 {
   margin: 0;
   font-size: 18px;
   color: var(--ink);
+  min-height: 120px;
 }
 
 .work-info p {
   margin: 0;
   font-size: 13px;
   color: var(--muted);
+  min-height: 84px;
 }
 
 .platform-row {
   display: flex;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: auto;
 }
 
 .platform-pill {

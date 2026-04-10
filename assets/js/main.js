@@ -12,9 +12,9 @@
       { key: "2021", label: "2021 / 2021" }
     ];
 
-  const defaultCategory = categories.find((c) => c.key === "All")
-    ? "All"
-    : (categories[0] && categories[0].key) || "All";
+  const defaultCategory = categories.find((c) => c.key === "Documentary")
+    ? "Documentary"
+    : (categories.find((c) => c.key !== "All") || categories[0] || { key: "All" }).key;
   let selectedCategory = defaultCategory;
   let workCoverObserver = null;
 

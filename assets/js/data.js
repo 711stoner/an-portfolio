@@ -115,7 +115,7 @@ window.WORKS = [
     credits: ["剪辑 / 文稿脚本整理 / Editing / Script Organization"],
     process: ["整理文稿脚本 / Script Organization", "后期剪辑 / Two‑camera edit"],
     tools: ["Premiere"],
-    stills: []
+    stills: ["assets/img/播客剪辑截图1.png", "assets/img/播客剪辑截图2.png"]
   },
   {
     slug: "documentary-placeholder-02",

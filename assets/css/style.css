@@ -971,6 +971,58 @@ img {
   .hero-cta { justify-content: center; }
   .timeline-item { grid-template-columns: 1fr; }
   .skill-grid { grid-template-columns: 1fr; }
+  .detail-page .section {
+    padding: 36px 0;
+  }
+  .detail-page .section-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .detail-page .section-title h2 {
+    font-size: clamp(24px, 7vw, 30px);
+    line-height: 1.15;
+  }
+  .detail-page .section-title .tag {
+    max-width: 100%;
+  }
+  .detail-page .detail-page-hero-grid,
+  .detail-page .detail-page-meta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .detail-page .detail-page-hero-cover {
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .detail-page .detail-page-summary-card,
+  .detail-page .detail-page-meta-grid .contact-card {
+    padding: 18px;
+  }
+  .detail-page .detail-page-summary-text,
+  .detail-page [data-detail-desc] {
+    margin-bottom: 16px !important;
+    font-size: 15px;
+    line-height: 1.7 !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .detail-page .detail-page-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px !important;
+  }
+  .detail-page .detail-page-action-row .btn {
+    width: 100%;
+  }
+  .detail-page .info-list,
+  .detail-page .chip-list {
+    gap: 8px;
+  }
   .modal-card { height: auto; max-height: 90vh; overflow: auto; }
   .modal-media {
     min-height: 0;

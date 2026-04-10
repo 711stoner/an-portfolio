@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://zhanganeditor.online/work.html" />
 <meta name="description" content="作品详情页 / Project detail page" />
     <link rel="stylesheet" href="assets/css/fonts.min.css?v=20260409b" />
-    <link rel="stylesheet" href="assets/css/style.min.css?v=20260410h" />
+    <link rel="stylesheet" href="assets/css/style.min.css?v=20260411a" />
     <script src="assets/js/analytics.min.js?v=20260409b" defer></script>
   </head>
   <body class="detail-page">
@@ -40,18 +40,18 @@
             <span class="tag" data-detail-year>年份 / Year</span>
           </div>
 
-          <div class="grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 24px;">
-            <div class="work-cover" style="min-height: 360px; border-radius: 12px;">
+          <div class="grid detail-page-hero-grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 24px;">
+            <div class="work-cover detail-page-hero-cover" style="min-height: 360px; border-radius: 12px;">
               <picture class="detail-cover-picture">
                 <source data-detail-cover-webp type="image/webp" />
                 <img data-detail-cover alt="cover" class="detail-cover-img" loading="lazy" />
               </picture>
             </div>
             <div>
-              <div class="contact-card" style="box-shadow: none; border: 1px solid #e5e7eb;">
+              <div class="contact-card detail-page-summary-card" style="box-shadow: none; border: 1px solid #e5e7eb;">
                 <h3 style="margin: 0 0 12px; color: #0f172a;">项目简介 / Summary</h3>
-                <p data-detail-desc style="margin: 0 0 18px; color: #6b7280; line-height: 1.6;">项目简介占位 / Summary placeholder</p>
-                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <p class="detail-page-summary-text" data-detail-desc style="margin: 0 0 18px; color: #6b7280; line-height: 1.6;">项目简介占位 / Summary placeholder</p>
+                <div class="detail-page-action-row" style="display: flex; gap: 12px; flex-wrap: wrap;">
                   <a class="btn btn-primary" data-detail-link href="#">在线播放</a>
                   <a class="btn btn-ghost" href="works.html">返回列表 / Back</a>
                 </div>
@@ -68,7 +68,7 @@
               <h2>职责与工具 Roles & Tools</h2>
             </div>
           </div>
-          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div class="grid detail-page-meta-grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
             <div class="contact-card" style="box-shadow: none; border: 1px solid #e5e7eb;">
               <h3 style="margin: 0 0 12px; color: #0f172a;">职责 / Credits</h3>
               <ul class="info-list" data-detail-credits></ul>

@@ -32,7 +32,11 @@
       "assets/img/播客剪辑截图1.png": "assets/img/podcast-still-1.png",
       "assets/img/播客剪辑截图1.webp": "assets/img/podcast-still-1.webp",
       "assets/img/播客剪辑截图2.png": "assets/img/podcast-still-2.png",
-      "assets/img/播客剪辑截图2.webp": "assets/img/podcast-still-2.webp"
+      "assets/img/播客剪辑截图2.webp": "assets/img/podcast-still-2.webp",
+      "assets/img/李雪3-1400.jpg": "assets/img/lixue3-1400.jpg",
+      "assets/img/李雪4-1400.jpg": "assets/img/lixue4-1400.jpg",
+      "assets/img/李雪5-1400.jpg": "assets/img/lixue5-1400.jpg",
+      "assets/img/李雪5-1400.webp": "assets/img/lixue5-1400.webp"
     };
     return map[src] || src;
   }

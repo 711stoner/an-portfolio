@@ -398,8 +398,8 @@ window.WORKS = [
     link_label: "穆桂英雪姐（视频号）",
     embed: "",
     link: "",
-    cover: "assets/img/李雪5-1400.jpg",
-    cover_webp: "assets/img/李雪5-1400.webp",
+    cover: "assets/img/lixue5-1400.jpg",
+    cover_webp: "assets/img/lixue5-1400.webp",
     cover_size: "80% auto",
     credits: ["文案 / 拍摄 / 剪辑"],
     process: [
@@ -409,8 +409,8 @@ window.WORKS = [
     ],
     tools: ["剪映"],
     stills: [
-      "assets/img/李雪4-1400.jpg",
-      "assets/img/李雪3-1400.jpg"
+      "assets/img/lixue4-1400.jpg",
+      "assets/img/lixue3-1400.jpg"
     ]
   },
   {

@@ -1,0 +1,11 @@
+.git
+.gitignore
+.DS_Store
+
+node_modules
+.venv
+
+local-preview
+services.backup.html
+
+*.log

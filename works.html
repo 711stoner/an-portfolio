@@ -10,8 +10,29 @@
     <link rel="stylesheet" href="assets/css/fonts.min.css?v=20260409b" />
     <link rel="stylesheet" href="assets/css/style.min.css?v=20260411b" />
     <script src="assets/js/analytics.min.js?v=20260409b" defer></script>
+    <style>
+      .works-page [data-grid="works"] .work-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 100%;
+      }
+      .works-page [data-grid="works"] .work-info h3 {
+        min-height: auto;
+        margin: 0;
+        line-height: 1.22;
+      }
+      .works-page [data-grid="works"] .work-info p {
+        min-height: auto;
+        margin: 0;
+        line-height: 1.45;
+      }
+      .works-page [data-grid="works"] .platform-row {
+        display: none !important;
+      }
+    </style>
   </head>
-  <body>
+  <body class="works-page">
     <header class="nav">
       <div class="container nav-inner">
         <div>

@@ -114,11 +114,16 @@
   function initStickyFilters() {
     const filters = qs(".filters");
     if (!filters) return;
+    const mobileQuery = window.matchMedia("(max-width: 720px)");
     const offset = 68;
     let ticking = false;
 
     const update = () => {
       ticking = false;
+      if (mobileQuery.matches) {
+        filters.classList.remove("is-stuck");
+        return;
+      }
       const top = filters.getBoundingClientRect().top;
       filters.classList.toggle("is-stuck", top <= offset + 1);
     };
@@ -133,6 +138,9 @@
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", update);
+    if (typeof mobileQuery.addEventListener === "function") {
+      mobileQuery.addEventListener("change", update);
+    }
   }
 
   function initReveal() {

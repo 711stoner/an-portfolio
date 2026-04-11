@@ -969,6 +969,21 @@ img {
   .nav-links { flex-wrap: wrap; justify-content: center; }
   .hero-content { text-align: center; margin: 0 auto; }
   .hero-cta { justify-content: center; }
+  .filters {
+    position: static;
+    top: auto;
+    z-index: auto;
+    padding: 0;
+    margin-bottom: 16px;
+    background: transparent;
+    backdrop-filter: none;
+  }
+  .filters.is-stuck {
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
   .timeline-item { grid-template-columns: 1fr; }
   .skill-grid { grid-template-columns: 1fr; }
   .detail-page .section {

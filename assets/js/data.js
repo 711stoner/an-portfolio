@@ -110,7 +110,7 @@ window.WORKS = [
     one_line_en: "Two‑camera edit for a commercial video talk‑show podcast pilot, plus a post‑production script compiled from the video footage.",
     platform: "新片场",
     embed: "",
-    link: "https://www.xinpianchang.com/a13610114",
+    link: "https://www.xinpianchang.com/a13610114?from=webShare&channel=copyLink",
     cover: "assets/img/podcast-cover.jpg",
     credits: ["剪辑 / 文稿脚本整理 / Editing / Script Organization"],
     process: ["整理文稿脚本 / Script Organization", "后期剪辑 / Two‑camera edit"],

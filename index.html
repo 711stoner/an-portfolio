@@ -14,13 +14,89 @@
     <script src="assets/js/analytics.min.js?v=20260409b" defer></script>
     <style>
       body.home-cd {
-        background:
-          radial-gradient(circle at 18% 12%, rgba(148, 163, 184, 0.15), transparent 24%),
-          radial-gradient(circle at 82% 22%, rgba(96, 165, 250, 0.1), transparent 20%),
-          linear-gradient(180deg, #f7f8fb 0%, #eef2f7 100%);
+        background: #d3d8df;
       }
       .home-cd main {
         position: relative;
+        background: #d3d8df;
+      }
+      .home-cd .nav {
+        background: #d3d8df;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+        backdrop-filter: none;
+      }
+      .home-cd .hero {
+        background: #d3d8df;
+      }
+      .home-cd .hero-layer,
+      .home-cd .hero-grain {
+        display: none;
+      }
+      .home-cd .hero-content {
+        max-width: 460px;
+        margin-left: 20px;
+      }
+      .home-cd .hero-content h1 {
+        font-size: clamp(34px, 5.8vw, 64px);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+        transition:
+          transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+          letter-spacing 320ms cubic-bezier(0.22, 1, 0.36, 1),
+          color 260ms ease,
+          filter 320ms ease;
+        cursor: default;
+        will-change: transform, filter;
+        transform: translateZ(0);
+      }
+      .home-cd .hero-content h1:hover {
+        transform: translate3d(4px, -2px, 0);
+        letter-spacing: -0.048em;
+        color: #10203c;
+        filter: saturate(1.08);
+      }
+      .home-cd .hero-content h1 .line {
+        display: block;
+        position: relative;
+        width: fit-content;
+        will-change: transform, opacity, letter-spacing;
+        transition:
+          transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 260ms ease,
+          color 260ms ease,
+          letter-spacing 320ms cubic-bezier(0.22, 1, 0.36, 1);
+        transform: translate3d(0, 0, 0);
+      }
+      .home-cd .hero-content h1 .line::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.08em;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(75, 123, 255, 0), rgba(75, 123, 255, 0.46), rgba(75, 123, 255, 0));
+        opacity: 0;
+        transform: scaleX(0.82);
+        transform-origin: left center;
+        transition:
+          opacity 260ms ease,
+          transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .home-cd .hero-content h1:hover .line:nth-child(2) {
+        transform: translate3d(8px, 0, 0);
+      }
+      .home-cd .hero-content h1:hover .line:nth-child(3) {
+        transform: translate3d(14px, 0, 0);
+      }
+      .home-cd .hero-content h1:hover .line:nth-child(4) {
+        transform: translate3d(20px, 0, 0);
+      }
+      .home-cd .hero-content h1:hover .line:nth-child(5) {
+        transform: translate3d(26px, 0, 0);
+      }
+      .home-cd .hero-content h1:hover .line::after {
+        opacity: 1;
+        transform: scaleX(1);
       }
       .home-cd-stage {
         position: relative;
@@ -29,38 +105,16 @@
         padding: clamp(20px, 3vw, 34px);
         border-radius: 34px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.85), rgba(224, 230, 238, 0.95) 58%, rgba(205, 213, 225, 0.92) 100%);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.35),
-          0 26px 70px rgba(15, 23, 42, 0.12);
+        border: 0;
+        background: #d3d8df;
+        box-shadow: none;
       }
       .home-cd-stage::before,
       .home-cd-stage::after {
         content: "";
         position: absolute;
         pointer-events: none;
-      }
-      .home-cd-stage::before {
-        top: -12%;
-        right: -8%;
-        width: 42%;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.02) 68%);
-        filter: blur(10px);
-      }
-      .home-cd-stage::after {
-        left: 4%;
-        bottom: 10%;
-        width: 38%;
-        height: 46%;
-        border-radius: 24px;
-        background:
-          linear-gradient(180deg, rgba(148, 163, 184, 0.1), rgba(15, 23, 42, 0.03)),
-          repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.08) 0 1px, transparent 1px 18px);
-        opacity: 0.75;
+        display: none;
       }
       .home-cd-frame {
         position: relative;
@@ -68,15 +122,7 @@
         margin: 0 auto;
       }
       .home-cd-frame::before {
-        content: "";
-        position: absolute;
-        inset: 8% 6% 10%;
-        border-radius: 28px;
-        background:
-          radial-gradient(circle at 72% 42%, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.02) 34%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(203, 213, 225, 0.14));
-        filter: blur(2px);
-        pointer-events: none;
+        display: none;
       }
       .home-cd-canvas {
         display: block;
@@ -85,6 +131,15 @@
         border-radius: 26px;
         background: transparent;
         filter: drop-shadow(0 22px 34px rgba(15, 23, 42, 0.14));
+      }
+      .home-cd .section {
+        background: #d3d8df;
+      }
+      @media (max-width: 900px) {
+        .home-cd .hero-content {
+          margin-left: 0;
+          max-width: 540px;
+        }
       }
     </style>
   
@@ -123,7 +178,13 @@
         <div class="hero-layer layer-front"></div>
         <div class="hero-grain"></div>
         <div class="container hero-content">
-          <h1>视频制作与商业运营作品集 / Portfolio of Video Production & Commercial Operations</h1>
+          <h1>
+            <span class="line">Zhang An</span>
+            <span class="line">moving through</span>
+            <span class="line">image, memory,</span>
+            <span class="line">editorial rhythm,</span>
+            <span class="line">and atmosphere</span>
+          </h1>
           <div class="hero-cta">
             <a class="btn btn-primary" href="works.html">查看作品集 / View Works</a>
             <a class="btn btn-ghost" href="contact.html">合作咨询 / Project Inquiry</a>

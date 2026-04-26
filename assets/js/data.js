@@ -119,7 +119,7 @@ window.WORKS = [
   },
   {
     slug: "documentary-placeholder-02",
-    title_zh: "科技企业家对谈节目",
+    title_zh: "【访谈】具身智能行业技术纪实对谈",
     title_en: "Tech Founder Interview Program",
     role_zh: "剪辑/策划",
     role_en: "Editing / Planning",

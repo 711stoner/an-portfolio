@@ -174,7 +174,7 @@ window.WORKS = [
   },
   {
     "slug": "documentary-placeholder-02",
-    "title_zh": "【访谈】具身智能行业技术纪实对谈",
+    "title_zh": "【访谈】具身智能行业技术",
     "title_en": "",
     "role_zh": "",
     "role_en": "Tech Founder Interview Program",

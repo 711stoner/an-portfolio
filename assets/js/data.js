@@ -135,7 +135,7 @@ window.WORKS = [
     link: "https://www.xinpianchang.com/a13650805?from=webShare&channel=copyLink",
     cover: "assets/img/ju.png",
     cover_webp: "assets/img/ju.png",
-    cover_size: "80% auto",
+    cover_size: "100% 100%",
     credits: ["剪辑 / 策划 / Editing / Planning"],
     process: ["整理脚本框架 / Script Structuring", "后期剪辑 / Editing", "调色统一 / Color Finishing"],
     tools: ["Premiere"],

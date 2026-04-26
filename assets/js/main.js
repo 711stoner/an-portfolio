@@ -243,7 +243,7 @@
           }
         });
       },
-      { rootMargin: "240px 0px", threshold: 0.01 }
+      { rootMargin: "400px 0px", threshold: 0.01 }
     );
     covers.forEach((cover) => {
       if (cover.dataset.coverLoaded === "true") return;
@@ -295,10 +295,28 @@
   function renderWorksGrid(container, list) {
     container.innerHTML = list.map(renderWorkCard).join("");
     initWorkCoverLazyLoad(container);
+    preloadFirstScreenCovers(list.slice(0, 4));
     qsa(".work-card", container).forEach((card) => {
       card.addEventListener("click", () => {
         window.location.href = `work.html?slug=${encodeURIComponent(card.dataset.slug)}`;
       });
+    });
+  }
+
+  function preloadFirstScreenCovers(works) {
+    if (!works || !works.length) return;
+    works.forEach((work, index) => {
+      const coverUrl = normalizeAssetPath(work.cover || "");
+      const coverWebp = work.cover_webp || toWebp(coverUrl);
+      if (!coverUrl) return;
+      
+      const link = document.createElement('link');
+      link.rel = index === 0 ? 'preload' : 'prefetch';
+      link.as = 'image';
+      link.type = 'image/webp';
+      link.href = coverWebp;
+      link.fetchpriority = index === 0 ? 'high' : 'auto';
+      document.head.appendChild(link);
     });
   }
 
@@ -326,6 +344,7 @@
 
     container.innerHTML = sections.join("");
     initWorkCoverLazyLoad(container);
+    preloadFirstScreenCovers(list.slice(0, 4));
     qsa(".work-card", container).forEach((card) => {
       card.addEventListener("click", () => {
         window.location.href = `work.html?slug=${encodeURIComponent(card.dataset.slug)}`;

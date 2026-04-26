@@ -189,7 +189,7 @@ window.WORKS = [
     "embed": "https://player.xinpianchang.com/?aid=13650805&mid=NK0mw6RqdY8wW1na",
     "link": "https://www.xinpianchang.com/a13650805?from=webShare&channel=copyLink",
     "cover": "assets/img/ju.png",
-    "cover_webp": "assets/img/ju.png",
+    "cover_webp": "assets/img/ju.webp",
     "credits": [
       "剪辑 / 策划 / Editing / Planning"
     ],

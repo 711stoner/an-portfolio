@@ -1221,10 +1221,17 @@ img {
     height: auto !important;
     aspect-ratio: 16 / 9;
     width: 100%;
-    max-width: 560px;
+    max-width: 1120px;
     margin: 0 auto;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    align-items: unset;
+    justify-content: unset;
+  }
+  .detail-page .work-cover.media-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
   .detail-page .detail-media-picture { padding: 0; }
   .detail-page .detail-media-img {

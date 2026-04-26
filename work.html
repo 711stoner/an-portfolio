@@ -9,6 +9,321 @@
 <meta name="description" content="作品详情页 / Project detail page" />
     <link rel="stylesheet" href="assets/css/fonts.min.css?v=20260409b" />
     <link rel="stylesheet" href="assets/css/style.min.css?v=20260411a" />
+    <style>
+      .detail-page .work-cover.media-frame {
+        min-height: 0 !important;
+        display: block;
+        padding: 0;
+      }
+
+      .detail-page .work-cover.media-frame iframe {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border: 0;
+      }
+
+      .detail-page .detail-media-picture {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 24px;
+        transform: none;
+      }
+
+      .detail-page .detail-media-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+        margin: 0 auto;
+        object-fit: contain;
+        object-position: center;
+        background: transparent;
+      }
+
+      .detail-page .detail-page-hero-grid {
+        gap: 24px;
+      }
+
+      .detail-page .section-title {
+        position: relative;
+        margin-bottom: 30px;
+        padding-bottom: 18px;
+      }
+
+      .detail-page .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: min(180px, 32vw);
+        height: 2px;
+        background: linear-gradient(90deg, rgba(75, 123, 255, 0.9), rgba(75, 123, 255, 0.12));
+      }
+
+      .detail-page .section-title h2[data-detail-title] {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        letter-spacing: -0.03em;
+        transition: transform 220ms ease, color 220ms ease;
+      }
+
+      .detail-page .section-title h2[data-detail-title]::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 14px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(75, 123, 255, 0.14));
+        border-radius: 999px;
+        transform: scaleX(0.32);
+        transform-origin: left center;
+        transition: transform 260ms ease;
+        z-index: -1;
+      }
+
+      .detail-page .section-title:hover h2[data-detail-title] {
+        transform: translateX(4px);
+        color: #203a8f;
+      }
+
+      .detail-page .section-title:hover h2[data-detail-title]::after {
+        transform: scaleX(1);
+      }
+
+      .detail-page [data-detail-role] {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(248, 250, 255, 0.95);
+        border: 1px solid rgba(213, 222, 255, 0.95);
+        color: #5b6b86;
+        transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+      }
+
+      .detail-page [data-detail-role]::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #4b7bff;
+        box-shadow: 0 0 0 5px rgba(75, 123, 255, 0.12);
+      }
+
+      .detail-page .section-title:hover [data-detail-role] {
+        transform: translateX(6px);
+        border-color: rgba(160, 181, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .detail-page [data-detail-year] {
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+
+      .detail-page [data-detail-year]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(75, 123, 255, 0.15);
+      }
+
+      .detail-page .detail-page-summary-wrap {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(206, 216, 255, 0.9);
+        background:
+          radial-gradient(circle at top left, rgba(84, 122, 255, 0.12), transparent 28%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 255, 0.96));
+        box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+      }
+
+      .detail-page .detail-page-summary-wrap::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(115deg, transparent 22%, rgba(255, 255, 255, 0.55) 50%, transparent 78%);
+        transform: translateX(-120%);
+        transition: transform 520ms ease;
+        pointer-events: none;
+      }
+
+      .detail-page .detail-page-summary-wrap:hover::after {
+        transform: translateX(120%);
+      }
+
+      .detail-page .detail-page-summary-card {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+        gap: 32px;
+        padding: 34px 36px;
+        box-shadow: none;
+        border: 0;
+        background: transparent;
+      }
+
+      .detail-page .detail-page-summary-side {
+        display: grid;
+        align-content: space-between;
+        gap: 20px;
+      }
+
+      .detail-page .detail-page-summary-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(75, 123, 255, 0.1);
+        color: #3155c6;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .detail-page .detail-page-summary-eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: currentColor;
+        box-shadow: 0 0 0 6px rgba(75, 123, 255, 0.12);
+      }
+
+      .detail-page .detail-page-summary-heading {
+        margin: 0;
+        color: #0f172a;
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+      }
+
+      .detail-page .detail-page-summary-kicker {
+        margin: 12px 0 0;
+        max-width: 20em;
+        color: #64748b;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .detail-page .detail-page-summary-main {
+        display: grid;
+        align-content: center;
+        gap: 18px;
+        position: relative;
+        padding-left: 26px;
+      }
+
+      .detail-page .detail-page-summary-main::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        bottom: 4px;
+        width: 1px;
+        background: linear-gradient(180deg, rgba(75, 123, 255, 0.05), rgba(75, 123, 255, 0.38), rgba(75, 123, 255, 0.06));
+      }
+
+      .detail-page .detail-page-summary-main::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: 18px;
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: #4b7bff;
+        box-shadow: 0 0 0 8px rgba(75, 123, 255, 0.09);
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+
+      .detail-page .detail-page-summary-text {
+        margin: 0;
+        max-width: 62ch;
+        color: #475569;
+        font-size: 18px;
+        line-height: 1.95;
+        white-space: pre-line;
+        text-wrap: pretty;
+        transition: transform 240ms ease, color 240ms ease;
+      }
+
+      .detail-page .detail-page-summary-wrap:hover .detail-page-summary-main::after {
+        transform: translateY(8px);
+        box-shadow: 0 0 0 10px rgba(75, 123, 255, 0.12);
+      }
+
+      .detail-page .detail-page-summary-wrap:hover .detail-page-summary-text {
+        transform: translateX(4px);
+        color: #334155;
+      }
+
+      .detail-page .detail-page-action-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .detail-page .detail-page-action-row .btn {
+        min-width: 152px;
+      }
+
+      .detail-page .detail-page-action-row .btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.22s ease;
+      }
+
+      .detail-page .detail-page-action-row .btn span::after {
+        content: "→";
+        font-size: 14px;
+      }
+
+      .detail-page .detail-page-action-row .btn:hover span {
+        transform: translateX(4px);
+      }
+
+      .detail-page .detail-page-summary-note {
+        margin: 0;
+        color: #94a3b8;
+        font-size: 12px;
+        line-height: 1.6;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 720px) {
+        .detail-page .detail-page-summary-card {
+          grid-template-columns: 1fr;
+          gap: 22px;
+          padding: 24px 20px;
+        }
+
+        .detail-page .detail-page-summary-main {
+          padding-left: 20px;
+        }
+
+        .detail-page .detail-page-summary-heading {
+          font-size: clamp(24px, 9vw, 34px);
+        }
+
+        .detail-page .detail-page-summary-text {
+          font-size: 16px;
+          line-height: 1.8;
+        }
+
+        .detail-page .detail-media-picture {
+          padding: 16px;
+        }
+      }
+    </style>
     <script src="assets/js/analytics.min.js?v=20260409b" defer></script>
   </head>
   <body class="detail-page">
@@ -40,20 +355,27 @@
             <span class="tag" data-detail-year>年份 / Year</span>
           </div>
 
-          <div class="grid detail-page-hero-grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 24px;">
-            <div class="work-cover detail-page-hero-cover" style="min-height: 360px; border-radius: 12px;">
-              <picture class="detail-cover-picture">
-                <source data-detail-cover-webp type="image/webp" />
-                <img data-detail-cover alt="cover" class="detail-cover-img" loading="lazy" />
-              </picture>
-            </div>
+          <div class="grid detail-page-hero-grid" style="grid-template-columns: 1fr; gap: 24px;">
             <div>
-              <div class="contact-card detail-page-summary-card" style="box-shadow: none; border: 1px solid #e5e7eb;">
-                <h3 style="margin: 0 0 12px; color: #0f172a;">项目简介 / Summary</h3>
-                <p class="detail-page-summary-text" data-detail-desc style="margin: 0 0 18px; color: #6b7280; line-height: 1.6;">项目简介占位 / Summary placeholder</p>
-                <div class="detail-page-action-row" style="display: flex; gap: 12px; flex-wrap: wrap;">
-                  <a class="btn btn-primary" data-detail-link href="#">在线播放</a>
-                  <a class="btn btn-ghost" href="works.html">返回列表 / Back</a>
+              <div class="contact-card detail-page-summary-wrap">
+                <div class="detail-page-summary-card">
+                  <div class="detail-page-summary-side">
+                    <div>
+                      <span class="detail-page-summary-eyebrow">Project Overview</span>
+                      <h3 class="detail-page-summary-heading">项目简介 / Summary</h3>
+                      <p class="detail-page-summary-kicker">聚焦项目定位、剪辑表达与最终成片完成度。</p>
+                    </div>
+                    <div>
+                      <div class="detail-page-action-row">
+                        <a class="btn btn-primary" data-detail-link href="#"><span>在线播放</span></a>
+                        <a class="btn btn-ghost" href="works.html"><span>返回列表</span></a>
+                      </div>
+                      <p class="detail-page-summary-note">Hover for motion · Read with focus</p>
+                    </div>
+                  </div>
+                  <div class="detail-page-summary-main">
+                    <p class="detail-page-summary-text" data-detail-desc>项目简介占位 / Summary placeholder</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,8 +410,15 @@
               <h2>素材</h2>
             </div>
           </div>
-          <div class="work-cover media-frame" style="min-height: 420px; border-radius: 12px; overflow: hidden;">
-            <iframe data-detail-iframe title="work" style="width: 100%; height: 100%; border: none;"></iframe>
+          <div class="work-cover media-frame" style="min-height: 0; border-radius: 12px; overflow: hidden;">
+            <iframe
+              data-detail-iframe
+              title="work"
+              allowfullscreen
+              allow="fullscreen"
+              frameborder="0"
+              style="width: 100%; height: 100%; border: none;"
+            ></iframe>
             <picture class="detail-media-picture">
               <source data-detail-media-webp type="image/webp" />
               <img data-detail-media alt="media" class="detail-media-img" loading="lazy" />

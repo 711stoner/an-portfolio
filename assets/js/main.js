@@ -170,7 +170,7 @@
   function formatOneLine(work) {
     const zh = work.one_line_zh || work.one_line || "";
     const en = work.one_line_en || "";
-    if (zh && en) return `${zh} ${en}`;
+    if (zh && en) return `${zh}\n\n${en}`;
     return zh || en || "";
   }
 
@@ -403,7 +403,7 @@
     const fallback = formatOneLine(work);
     let text = summaryZh || fallback;
     if (summaryZh && summaryEn) {
-      text = `${summaryZh} ${summaryEn}`;
+      text = `${summaryZh}\n\n${summaryEn}`;
     } else if (!summaryZh && summaryEn) {
       text = summaryEn;
     }
@@ -414,7 +414,7 @@
       const en = work.one_line_en || "";
       const zhShort = firstSentence(zh);
       const enShort = firstSentence(en);
-      text = zhShort && enShort ? `${zhShort} ${enShort}` : (zhShort || enShort || text);
+      text = zhShort && enShort ? `${zhShort}\n\n${enShort}` : (zhShort || enShort || text);
     }
     return text;
   }

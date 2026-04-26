@@ -34,7 +34,7 @@
     const role = `${work.role_zh || ""}${work.role_zh && work.role_en ? " / " : ""}${work.role_en || ""}`;
     qs("[data-detail-role]").textContent = role || "";
     qs("[data-detail-year]").textContent = work.year;
-    const desc = `${work.one_line_zh || ""}${work.one_line_en ? " " + work.one_line_en : ""}`;
+    const desc = `${work.one_line_zh || ""}${work.one_line_zh && work.one_line_en ? "\n\n" : ""}${work.one_line_en || ""}`;
     qs("[data-detail-desc]").textContent = desc || "";
 
     const creditList = qs("[data-detail-credits]");

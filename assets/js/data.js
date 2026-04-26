@@ -131,7 +131,7 @@ window.WORKS = [
     summary_en: "Handled post-production for a two-person interview program featuring a Suzhou materials-tech entrepreneur, restructuring loosely organized source footage into a clear narrative while leading script consolidation, edit pacing, and color finishing to strengthen executive presence and delivery quality.",
     modal_full: true,
     platform: "新片场",
-    embed: "",
+    embed: "https://player.xinpianchang.com/?aid=13650805&mid=NK0mw6RqdY8wW1na",
     link: "https://www.xinpianchang.com/a13650805?from=webShare&channel=copyLink",
     cover: "assets/img/su5-cover.jpg",
     cover_webp: "assets/img/su5-cover.webp",

@@ -296,7 +296,9 @@
     container.innerHTML = list.map(renderWorkCard).join("");
     initWorkCoverLazyLoad(container);
     qsa(".work-card", container).forEach((card) => {
-      card.addEventListener("click", () => openModal(card.dataset.slug));
+      card.addEventListener("click", () => {
+        window.location.href = `work.html?slug=${encodeURIComponent(card.dataset.slug)}`;
+      });
     });
   }
 
@@ -325,7 +327,9 @@
     container.innerHTML = sections.join("");
     initWorkCoverLazyLoad(container);
     qsa(".work-card", container).forEach((card) => {
-      card.addEventListener("click", () => openModal(card.dataset.slug));
+      card.addEventListener("click", () => {
+        window.location.href = `work.html?slug=${encodeURIComponent(card.dataset.slug)}`;
+      });
     });
   }
 

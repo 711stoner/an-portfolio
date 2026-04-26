@@ -295,7 +295,34 @@ img {
   height: 100%;
   min-height: 320px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transform: translateY(0) scale(1);
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.work-card::before,
+.timeline-item::before,
+.skill-card::before,
+.contact-card::before,
+.service-card::before,
+.still-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.work-card::before {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0) 42%),
+    radial-gradient(circle at 18% 18%, rgba(75, 123, 255, 0.12), transparent 34%);
 }
 
 .ai-card {
@@ -320,8 +347,30 @@ img {
 }
 
 .work-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+  transform: translateY(-8px) scale(1.012);
+  box-shadow:
+    0 22px 44px rgba(15, 23, 42, 0.14),
+    0 0 0 1px rgba(75, 123, 255, 0.12);
+  border-color: rgba(75, 123, 255, 0.28);
+}
+
+.work-card:hover::before {
+  opacity: 1;
+}
+
+.work-card:active {
+  transform: translateY(-3px) scale(0.996);
+}
+
+.work-card:focus-visible,
+.timeline-item:focus-within,
+.skill-card:focus-within,
+.contact-card:focus-within,
+.service-card:focus-within {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(75, 123, 255, 0.2),
+    0 22px 44px rgba(15, 23, 42, 0.12);
 }
 
 .work-cover {
@@ -360,8 +409,12 @@ img {
   background: radial-gradient(circle at 20% 20%, rgba(75, 123, 255, 0.22), transparent 40%),
     radial-gradient(circle at 80% 80%, rgba(15, 23, 42, 0.08), transparent 45%);
   transform: translateY(0);
-  transition: transform 0.2s ease-out;
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease;
   z-index: 0;
+}
+
+.work-card:hover .cover-shift {
+  transform: translate3d(0, -10px, 0) scale(1.03);
 }
 
 .media-frame {
@@ -534,6 +587,27 @@ img {
   border-radius: 14px;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
   width: min(820px, 100%);
+  position: relative;
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease;
+}
+
+.timeline-item::before {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0) 40%),
+    radial-gradient(circle at 16% 18%, rgba(75, 123, 255, 0.08), transparent 30%);
+}
+
+.timeline-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(75, 123, 255, 0.22);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.1);
+}
+
+.timeline-item:hover::before {
+  opacity: 1;
 }
 
 .timeline-item > div {
@@ -577,6 +651,8 @@ img {
   padding: 12px;
   border: 1px solid #eef2ff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 .skill-card strong {
   font-size: 13px;
@@ -587,8 +663,17 @@ img {
 }
 
 .skill-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.1);
+  border-color: rgba(75, 123, 255, 0.24);
+}
+
+.skill-card::before {
+  background: linear-gradient(135deg, rgba(75, 123, 255, 0.08), rgba(75, 123, 255, 0) 42%);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
 }
 
 .contact-grid {
@@ -603,6 +688,27 @@ img {
   border-radius: var(--radius);
   padding: 24px;
   box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease;
+}
+
+.contact-card::before {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0) 38%),
+    radial-gradient(circle at 14% 18%, rgba(75, 123, 255, 0.08), transparent 28%);
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.1);
+}
+
+.contact-card:hover::before {
+  opacity: 1;
 }
 
 .contact-lines {
@@ -658,6 +764,24 @@ img {
   justify-content: center;
   font-size: 12px;
   color: rgba(15, 23, 42, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.still-card::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 44%);
+}
+
+.still-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.12);
+}
+
+.still-card:hover::before {
+  opacity: 1;
 }
 
 .still-card img {
@@ -703,6 +827,40 @@ img {
   display: grid;
   gap: 10px;
   box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease;
+}
+
+.service-card::before {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0) 38%),
+    radial-gradient(circle at 18% 18%, rgba(75, 123, 255, 0.08), transparent 28%);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(75, 123, 255, 0.22);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.11);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card,
+  .timeline-item,
+  .skill-card,
+  .contact-card,
+  .service-card,
+  .still-card,
+  .cover-shift {
+    transition: none;
+  }
 }
 
 .service-card span {

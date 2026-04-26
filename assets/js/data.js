@@ -154,7 +154,7 @@ window.WORKS = [
     "one_line_zh": "商业视频对谈播客试播集的双机位剪辑和根据视频素材整理后期文稿脚本。",
     "one_line_en": "Two‑camera edit for a commercial video talk‑show podcast pilot, plus a post‑production script compiled from the video footage.",
     "platform": "新片场",
-    "embed": "",
+    "embed": "https://player.xinpianchang.com/?aid=13610114&mid=GKL87NyD5xlQojJz",
     "link": "https://www.xinpianchang.com/a13610114?from=webShare&channel=copyLink",
     "cover": "assets/img/podcast-cover.jpg",
     "credits": [

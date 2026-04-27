@@ -142,7 +142,9 @@ window.WORKS = [
     "tools": [
       "Premiere Pro"
     ],
-    "stills": []
+    "stills": [
+      "assets/img/doc-bookstore-1.png"
+    ]
   },
   {
     "slug": "documentary-placeholder-01",

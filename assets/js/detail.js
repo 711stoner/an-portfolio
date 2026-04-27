@@ -68,10 +68,8 @@
   if (stillsWrap) {
     const stills = work.stills && work.stills.length ? work.stills : [];
     if (stills.length) {
-      // 根据stills数量动态设置网格样式：单张图片使用单列，多张图片使用多列
-      stillsWrap.classList.toggle("stills-grid-single", stills.length === 1);
-      stillsWrap.innerHTML = stills
-        .map((src, idx) => {
+        stillsWrap.innerHTML = stills
+          .map((src, idx) => {
             src = normalizeAssetPath(src);
             const webp = toWebp(src);
             const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";

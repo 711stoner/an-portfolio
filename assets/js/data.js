@@ -127,7 +127,8 @@ window.WORKS = [
     "platform": "bilibili",
     "embed": "https://player.bilibili.com/player.html?isOutside=true&aid=562788453&bvid=BV1Tv4y1U79v&cid=943403902&p=1",
     "link": "https://www.bilibili.com/video/BV1Tv4y1U79v",
-    "cover": "assets/img/doc-bookstore-1.png",
+    "cover": "assets/img/bu1.png",
+    "cover_webp": "assets/img/bu1.webp",
     "credits": [
       "导演 / Director",
       "摄影 / DP",

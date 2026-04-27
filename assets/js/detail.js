@@ -66,7 +66,6 @@
 
   const stillsWrap = qs("[data-detail-stills]");
   if (stillsWrap) {
-    stillsWrap.classList.toggle("stills-large", work.slug === "bookstore");
     const stills = work.stills && work.stills.length ? work.stills : [];
     if (stills.length) {
         stillsWrap.innerHTML = stills

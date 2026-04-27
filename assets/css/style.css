@@ -755,13 +755,23 @@ img {
   grid-template-columns: 1fr;
 }
 
-/* 2张图时使用2列网格，图片更大更美观 */
+/* 2张图时分行居中排列，图片更大更美观 */
 .stills-grid:not(.stills-grid-single):has(.still-card:nth-child(2)):not(:has(.still-card:nth-child(3))) {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+}
+
+.stills-grid:not(.stills-grid-single):has(.still-card:nth-child(2)):not(:has(.still-card:nth-child(3))) .still-card {
+  width: 100%;
+  min-height: 200px;
 }
 
 .stills-grid:not(.stills-grid-single):has(.still-card:nth-child(2)):not(:has(.still-card:nth-child(3))) .still-card img {
-  width: 85%;
+  width: 90%;
+  height: auto;
 }
 
 .still-card {

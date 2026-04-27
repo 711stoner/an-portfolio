@@ -116,7 +116,7 @@ window.WORKS = [
   },
   {
     "slug": "bookstore",
-    "title_zh": "不平凡的书店",
+    "title_zh": "【纪实】不平凡的书店",
     "title_en": "",
     "role_zh": "",
     "role_en": "The Uncommon Bookstore",

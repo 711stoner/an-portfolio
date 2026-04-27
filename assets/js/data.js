@@ -159,7 +159,9 @@ window.WORKS = [
     "platform": "新片场",
     "embed": "https://player.xinpianchang.com/?aid=13610114&mid=GKL87NyD5xlQojJz",
     "link": "https://www.xinpianchang.com/a13610114?from=webShare&channel=copyLink",
-    "cover": "assets/img/podcast-cover.jpg",
+    "cover": "assets/img/ai1.png",
+    "cover_webp": "assets/img/ai1.webp",
+    "cover_size": "cover",
     "credits": [
       "剪辑 / 文稿脚本整理 / Editing / Script Organization"
     ],

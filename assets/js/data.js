@@ -125,7 +125,7 @@ window.WORKS = [
     "one_line_zh": "纪录片以书店为切入点，围绕空间与人、阅读与城市记忆展开叙事，涵盖选题策划、访谈设计、拍摄与后期制作等环节，系统呈现书店作为文化公共空间的意义与价值。",
     "one_line_en": "A documentary that uses a bookstore as the entry point to examine the ties between space, people, reading, and urban memory, covering topic development, interview design, production, and post‑production to articulate the cultural value of bookstores as public spaces.",
     "platform": "bilibili",
-    "embed": "",
+    "embed": "https://player.bilibili.com/player.html?isOutside=true&aid=562788453&bvid=BV1Tv4y1U79v&cid=943403902&p=1",
     "link": "https://www.bilibili.com/video/BV1Tv4y1U79v",
     "cover": "assets/img/doc-bookstore-1.png",
     "credits": [

@@ -143,6 +143,7 @@ window.WORKS = [
       "Premiere Pro"
     ],
     "stills": [
+      "assets/img/bu1.png",
       "assets/img/doc-bookstore-1.png"
     ]
   },

@@ -161,7 +161,6 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13610114?from=webShare&channel=copyLink",
     "cover": "assets/img/ai1.png",
     "cover_webp": "assets/img/ai1.webp",
-    "cover_size": "cover",
     "credits": [
       "剪辑 / 文稿脚本整理 / Editing / Script Organization"
     ],
@@ -227,7 +226,6 @@ window.WORKS = [
     "embed": "",
     "link": "https://www.xinpianchang.com/a13056017",
     "cover": "assets/img/color-commercial-2.png",
-    "cover_size": "95% auto",
     "credits": [
       "调色 / Colorist"
     ],
@@ -254,7 +252,6 @@ window.WORKS = [
     "embed": "",
     "link": "https://music.163.com/mv/?id=14597578&userid=292743521",
     "cover": "assets/img/machine-mv-1.png",
-    "cover_size": "90% auto",
     "credits": [
       "拍摄 / DP",
       "剪辑 / Editor"
@@ -336,7 +333,6 @@ window.WORKS = [
     "embed": "",
     "link": "https://www.xinpianchang.com/a13135917",
     "cover": "assets/img/color-short-2.png",
-    "cover_size": "95% auto",
     "credits": [
       "调色 / Colorist"
     ],
@@ -557,7 +553,6 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/lixue5-1400.jpg",
     "cover_webp": "assets/img/lixue5-1400.webp",
-    "cover_size": "80% auto",
     "credits": [
       "文案 / 拍摄 / 剪辑"
     ],
@@ -597,7 +592,6 @@ window.WORKS = [
     "media_webp": "assets/img/qiche2.webp",
     "cover": "assets/img/qiche2.jpg",
     "cover_webp": "assets/img/qiche2.webp",
-    "cover_size": "80% auto",
     "credits": [
       "后期剪辑和调色"
     ],
@@ -633,7 +627,6 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13640128?from=webShare&channel=copyLink&token=cQ2M23IUYEg1vhKDq4v9IGQ",
     "cover": "assets/img/xuebi3.JPG",
     "cover_webp": "assets/img/xuebi3.webp",
-    "cover_size": "80% auto",
     "credits": [
       "后期剪辑"
     ],
@@ -669,7 +662,6 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13640243?from=webShare&channel=copyLink&token=1xxvsq3AbMlm37DeYh3zaSn3",
     "cover": "assets/img/gao4.png",
     "cover_webp": "assets/img/gao4.webp",
-    "cover_size": "80% auto",
     "credits": [
       "故事脚本策划和后期剪辑"
     ],
@@ -706,7 +698,6 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/tu14-1400.jpg",
     "cover_webp": "assets/img/tu14-1400.webp",
-    "cover_size": "80% auto",
     "credits": [
       "文案 / 拍摄 / 剪辑"
     ],
@@ -744,7 +735,6 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/yezishuo-1.jpg",
     "cover_webp": "assets/img/yezishuo-1.webp",
-    "cover_size": "80% auto",
     "credits": [
       "短视频项目制作 / Short-video Project Production"
     ],
@@ -778,7 +768,6 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/huangpu-fxj-1.jpg",
     "cover_webp": "assets/img/huangpu-fxj-1.webp",
-    "cover_size": "80% auto",
     "credits": [
       "后期剪辑"
     ],

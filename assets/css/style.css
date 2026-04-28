@@ -1122,6 +1122,39 @@ img {
   .stills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+@media (min-width: 721px) {
+  .detail-page .stills-grid-single {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 22px;
+  }
+
+  .detail-page .stills-grid-single .still-card {
+    width: min(760px, 100%);
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(226, 232, 255, 0.92), rgba(248, 250, 252, 0.98));
+    box-shadow:
+      inset 0 0 0 1px rgba(213, 222, 255, 0.88),
+      0 18px 38px rgba(15, 23, 42, 0.08);
+  }
+
+  .detail-page .stills-grid-single .still-card picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .detail-page .stills-grid-single .still-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+  }
+}
+
 @media (max-width: 720px) {
   .nav-inner { flex-direction: column; gap: 12px; }
   .nav-links { flex-wrap: wrap; justify-content: center; }

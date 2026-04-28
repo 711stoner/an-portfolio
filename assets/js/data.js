@@ -792,7 +792,7 @@ window.WORK_CATEGORIES = [
   { key: "Documentary", label: "纪录/访谈 / Documentary" },
   { key: "ShortVideo", label: "短视频 / Short Video" },
   { key: "Commercial", label: "商业广告 / Commercial" },
-  { key: "Short", label: "短片 / Short" },
+  { key: "Short", label: "短片 / Videos" },
 ];
 
 window.WORK_YEARS = [

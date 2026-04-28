@@ -60,6 +60,36 @@
       .intro-card:hover p:first-of-type {
         color: rgb(30 41 59);
       }
+      .home-back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border: 1px solid rgba(148, 163, 184, 0.45);
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 249, 0.92));
+        color: rgb(30 41 59);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          border-color 220ms ease,
+          background-color 220ms ease;
+      }
+      .home-back-btn:hover {
+        transform: translateY(-2px);
+        border-color: rgba(59, 130, 246, 0.45);
+        box-shadow:
+          0 12px 22px rgba(15, 23, 42, 0.12),
+          0 0 0 1px rgba(59, 130, 246, 0.16);
+      }
+      .home-back-btn .arrow {
+        font-size: 13px;
+        opacity: 0.75;
+      }
 
       /* 卡片基础样式 */
       .ai-card-surface {
@@ -178,22 +208,6 @@
         transform: scaleX(1);
       }
       
-      /* 标签悬浮效果 */
-      .ai-card-surface .tag-item {
-        display: inline-block;
-        padding: 4px 10px;
-        background: rgba(59, 130, 246, 0.08);
-        border-radius: 12px;
-        font-size: 11px;
-        color: rgba(59, 130, 246, 0.8);
-        margin: 2px;
-        transition: all 200ms ease;
-      }
-      
-      .ai-card-surface:hover .tag-item {
-        background: rgba(59, 130, 246, 0.15);
-        transform: translateY(-2px);
-      }
     </style>
   </head>
   <body class="text-slate-800">
@@ -202,9 +216,10 @@
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <div>
           <h1 class="text-xl font-semibold">AI 项目 / AI Projects</h1>
-          <p class="text-sm text-slate-500">独立开发者 / AI 工作流探索者 · Independent Developer / AI Workflow Explorer</p>
         </div>
-        <nav class="flex flex-wrap items-center gap-4 text-sm text-slate-600 md:gap-5"></nav>
+        <nav class="flex flex-wrap items-center gap-4 text-sm text-slate-600 md:gap-5">
+          <a href="index.html" class="home-back-btn"><span class="arrow">←</span>返回主页 / Back Home</a>
+        </nav>
       </div>
     </header>
 
@@ -255,12 +270,6 @@
               <p class="text-sm text-slate-700">利用脚本自动化排版生成海报图片，提升走失宠物信息的传播效率。</p>
               <p class="mt-1 text-sm text-slate-500">Automated poster generation via scripting to improve missing‑pet info distribution.</p>
             </div>
-            <div class="mt-3 flex flex-wrap gap-1">
-              <span class="tag-item">Python</span>
-              <span class="tag-item">Pillow</span>
-              <span class="tag-item">OpenCV</span>
-              <span class="tag-item">Automation</span>
-            </div>
           </div>
           <div class="mt-4 text-xs text-slate-500">自动化脚本 / Automation</div>
           <div class="card-highlight"></div>
@@ -299,12 +308,6 @@
               <p class="text-sm text-slate-700">面向海外平台的一键翻译与发布流程。</p>
               <p class="mt-1 text-sm text-slate-500">One‑click translation and publishing workflow for global platforms.</p>
             </div>
-            <div class="mt-3 flex flex-wrap gap-1">
-              <span class="tag-item">Midjourney</span>
-              <span class="tag-item">Runway</span>
-              <span class="tag-item">LLM</span>
-              <span class="tag-item">Workflow</span>
-            </div>
           </div>
           <div class="mt-4 text-xs text-slate-500">内容工作流 / Content Workflow</div>
           <div class="card-highlight"></div>
@@ -339,12 +342,6 @@
             <div class="mt-3 rounded-2xl bg-slate-50 p-4">
               <p class="text-sm text-slate-700">利用 AI 辅助手搓个人静态网站，实现低成本、高效率的数字化展示。</p>
               <p class="mt-1 text-sm text-slate-500">AI‑assisted static site building for fast, low‑cost digital presence.</p>
-            </div>
-            <div class="mt-3 flex flex-wrap gap-1">
-              <span class="tag-item">HTML</span>
-              <span class="tag-item">CSS</span>
-              <span class="tag-item">JavaScript</span>
-              <span class="tag-item">AI Assist</span>
             </div>
           </div>
           <div class="mt-4 text-xs text-slate-500">网站搭建 / Web Build</div>
@@ -383,11 +380,6 @@
             <div class="mt-3 rounded-2xl bg-slate-50 p-4">
               <p class="text-sm text-slate-700">以“高频句子”为核心的英语学习网站。</p>
               <p class="mt-1 text-sm text-slate-500">An English learning site built around high‑frequency sentences for speaking‑ready practice.</p>
-            </div>
-            <div class="mt-3 flex flex-wrap gap-1">
-              <span class="tag-item">English Learning</span>
-              <span class="tag-item">Context Memory</span>
-              <span class="tag-item">Web App</span>
             </div>
           </div>
           <div class="mt-4 text-xs text-slate-500">英语学习工具 / English Learning Tool</div>

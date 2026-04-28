@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="assets/css/ai-projects.min.css?v=20260427h" />
     <script src="assets/js/analytics.min.js?v=20260427h" defer></script>
     <style>
+      body {
+        background: linear-gradient(180deg, #e8ecf7 0%, #edf2fb 30%, #e6ebf5 100%);
+      }
+
       /* 卡片基础样式 */
       .ai-card-surface {
         position: relative;
@@ -149,7 +153,7 @@
       }
     </style>
   </head>
-  <body class="bg-gradient-to-b from-slate-100 via-slate-100 to-slate-200 text-slate-800">
+  <body class="text-slate-800">
     <!-- 顶部标题栏 / Header -->
     <header class="border-b border-slate-200 bg-white/90 backdrop-blur">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
@@ -157,12 +161,14 @@
           <h1 class="text-xl font-semibold">AI 项目 / AI Projects</h1>
           <p class="text-sm text-slate-500">独立开发者 / AI 工作流探索者 · Independent Developer / AI Workflow Explorer</p>
         </div>
-        <a
-          href="index.html"
-          class="rounded-full border border-slate-300 px-4 py-2 text-sm hover:border-slate-500"
-        >
-          返回首页 / Back Home
-        </a>
+        <nav class="flex flex-wrap items-center gap-4 text-sm text-slate-600 md:gap-5">
+          <a href="index.html" class="hover:text-slate-900">首页 / Home</a>
+          <a href="works.html" class="hover:text-slate-900">视频 / Works</a>
+          <a href="ai-projects.html" class="font-semibold text-slate-900">AI / AI Projects</a>
+          <a href="https://www.anfilm.club/get-back" class="hover:text-slate-900">创作 / Film</a>
+          <a href="about.html" class="hover:text-slate-900">履历 / Bio</a>
+          <a href="contact.html" class="hover:text-slate-900">联系 / Contact</a>
+        </nav>
       </div>
     </header>
 

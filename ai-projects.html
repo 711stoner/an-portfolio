@@ -17,6 +17,49 @@
       body {
         background: linear-gradient(180deg, #e8ecf7 0%, #edf2fb 30%, #e6ebf5 100%);
       }
+      .intro-card {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 220ms ease,
+          background-color 220ms ease;
+      }
+      .intro-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0;
+        background:
+          radial-gradient(circle at 14% 18%, rgba(59, 130, 246, 0.15), transparent 35%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0) 42%);
+        transition: opacity 240ms ease;
+      }
+      .intro-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(71, 85, 105, 0.42);
+        box-shadow:
+          0 20px 42px rgba(15, 23, 42, 0.12),
+          0 0 0 1px rgba(59, 130, 246, 0.12);
+      }
+      .intro-card:hover::before {
+        opacity: 1;
+      }
+      .intro-card h2 {
+        transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), color 220ms ease;
+      }
+      .intro-card:hover h2 {
+        transform: translateX(6px);
+        color: rgb(15 23 42);
+      }
+      .intro-card p {
+        transition: color 220ms ease;
+      }
+      .intro-card:hover p:first-of-type {
+        color: rgb(30 41 59);
+      }
 
       /* 卡片基础样式 */
       .ai-card-surface {
@@ -167,7 +210,7 @@
 
     <!-- 主内容区 / Main -->
     <main class="mx-auto max-w-6xl px-6 py-12">
-      <section class="mb-10 rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm">
+      <section class="intro-card mb-10 rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm">
         <h2 class="text-3xl font-semibold">跨领域 AI 项目 / Cross‑Domain AI Projects</h2>
         <p class="mt-3 text-slate-700">
           2026年开始学习AI工具并将应用在具体的场景中提供给用户使用。链用于效率工具、视频制作与公益，形成可落地的生产力体系。下面的项目是我个人完全利用AI工具做的。

@@ -149,7 +149,7 @@ window.WORKS = [
   },
   {
     "slug": "documentary-placeholder-01",
-    "title_zh": "商业视频播客",
+    "title_zh": "【视频播客】失业与营销",
     "title_en": "",
     "role_zh": "",
     "role_en": "Commercial Video Podcast",
@@ -157,10 +157,14 @@ window.WORKS = [
     "category": "Documentary",
     "one_line_zh": "商业视频对谈播客试播集的双机位剪辑和根据视频素材整理后期文稿脚本。",
     "one_line_en": "Two‑camera edit for a commercial video talk‑show podcast pilot, plus a post‑production script compiled from the video footage.",
+    "summary_zh": "商业视频对谈播客试播集的双机位剪辑和根据视频素材整理后期文稿脚本。",
+    "summary_en": "Two‑camera edit for a commercial video talk‑show podcast pilot, plus a post‑production script compiled from the video footage.",
+    "modal_full": true,
     "platform": "新片场",
-    "embed": "",
+    "embed": "https://player.xinpianchang.com/?aid=13610114&mid=GKL87NyD5xlQojJz",
     "link": "https://www.xinpianchang.com/a13610114?from=webShare&channel=copyLink",
-    "cover": "assets/img/podcast-cover.jpg",
+    "cover": "assets/img/ai1.png",
+    "cover_webp": "assets/img/ai1.webp",
     "credits": [
       "剪辑 / 文稿脚本整理 / Editing / Script Organization"
     ],

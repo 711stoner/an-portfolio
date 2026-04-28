@@ -244,7 +244,7 @@ window.WORKS = [
   },
   {
     "slug": "mv-machine",
-    "title_zh": "《机器》MV",
+    "title_zh": "【音乐】《机器》-MV",
     "title_en": "",
     "role_zh": "",
     "role_en": "Machine MV",

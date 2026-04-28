@@ -1,2 +1,7 @@
 node_modules/
 about-copy.html
+._*
+assets/**/._*
+exports/
+tmp_pdf_pages/
+*求职版简历*.pdf

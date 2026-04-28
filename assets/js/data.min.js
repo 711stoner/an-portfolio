@@ -244,36 +244,6 @@ window.WORKS = [
     "stills": []
   },
   {
-    "slug": "mv-machine",
-    "title_zh": "【音乐】《机器》-MV",
-    "title_en": "",
-    "role_zh": "",
-    "role_en": "Machine MV",
-    "year": "2023",
-    "category": "Short",
-    "one_line_zh": "与团队合作完成这部音乐影像的制作。",
-    "one_line_en": "Collaborated with the team on the production of this music video.",
-    "summary_zh": "与团队合作完成这部音乐影像的制作。",
-    "summary_en": "Participated as part of the team in the production and post-production of this music video.",
-    "platform": "xinpianchang",
-    "embed": "https://player.xinpianchang.com/?aid=12414794&mid=Mk6B4xPjNZE49LAP",
-    "link": "https://music.163.com/mv/?id=14597578&userid=292743521",
-    "cover": "assets/img/machine-mv-1.png",
-    "cover_size": "90% auto",
-    "credits": [
-      "拍摄 / DP",
-      "剪辑 / Editor"
-    ],
-    "process": [
-      "镜头设计 / Shot Design",
-      "节奏剪辑 / Rhythm Edit"
-    ],
-    "tools": [
-      "Premiere Pro"
-    ],
-    "stills": []
-  },
-  {
     "slug": "wanjia-zongheng",
     "title_zh": "万家《纵横四海》",
     "title_en": "",

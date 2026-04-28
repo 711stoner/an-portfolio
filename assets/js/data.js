@@ -826,6 +826,39 @@ window.WORKS = [
     "stills": [
       "assets/img/huangpu-fxj-1.jpg"
     ]
+  },
+  {
+    "slug": "shortvideo-empty-placeholder",
+    "sort_order": 999,
+    "title_zh": "（占位）待更新",
+    "title_en": "",
+    "detail_title_en": "",
+    "role_zh": "",
+    "role_en": "",
+    "year": "2026",
+    "category": "ShortVideo",
+    "one_line_zh": "短视频项目占位卡片，内容待补充。",
+    "one_line_en": "",
+    "summary_zh": "短视频项目占位卡片，内容待补充。",
+    "summary_en": "",
+    "modal_full": true,
+    "platform": "待补充",
+    "link_label": "",
+    "embed": "",
+    "link": "",
+    "cover": "assets/img/huangpu-fxj-1.jpg",
+    "cover_webp": "assets/img/huangpu-fxj-1.webp",
+    "cover_size": "80% auto",
+    "credits": [
+      "待补充"
+    ],
+    "process": [
+      "待补充"
+    ],
+    "tools": [
+      "待补充"
+    ],
+    "stills": []
   }
 ];
 

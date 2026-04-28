@@ -929,13 +929,13 @@ img {
 }
 
 .modal-card {
-  width: min(1000px, 92vw);
-  height: min(80vh, 900px);
+  width: min(1200px, 95vw);
+  max-height: 90vh;
   background: #fff;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  display: grid;
-  grid-template-columns: 1.4fr 0.6fr;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -947,6 +947,8 @@ img {
   position: relative;
   padding: 16px;
   overflow: hidden;
+  flex: 1;
+  min-height: 500px;
 }
 
 .media-placeholder {
@@ -1021,6 +1023,7 @@ img {
   align-content: start;
   overflow: auto;
   min-width: 0;
+  max-height: 250px;
 }
 
 .modal-info h3 {

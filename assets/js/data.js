@@ -533,6 +533,34 @@ window.WORKS = [
     ]
   },
   {
+    "slug": "short-placeholder-machine",
+    "title_zh": "《机器》MV",
+    "title_en": "",
+    "role_zh": "",
+    "role_en": "Machine MV",
+    "year": "2022",
+    "category": "Short",
+    "one_line_zh": "音乐影像的节奏与视觉实验。",
+    "one_line_en": "A rhythmic visual experiment in music video.",
+    "platform": "music",
+    "embed": "",
+    "link": "https://music.163.com/mv/?id=14597578&userid=292743521",
+    "cover": "assets/img/machine-mv-1.png",
+    "cover_size": "90% auto",
+    "credits": [
+      "拍摄 / DP",
+      "剪辑 / Editor"
+    ],
+    "process": [
+      "镜头设计 / Shot Design",
+      "节奏剪辑 / Rhythm Edit"
+    ],
+    "tools": [
+      "Premiere Pro"
+    ],
+    "stills": []
+  },
+  {
     "slug": "placeholder-01",
     "title_zh": "商业穆桂英",
     "title_en": "",

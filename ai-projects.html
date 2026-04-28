@@ -1,4 +1,4 @@
-<!doctype html>
+啊<<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -14,16 +14,20 @@
     <link rel="stylesheet" href="assets/css/ai-projects.min.css?v=20260427h" />
     <script src="assets/js/analytics.min.js?v=20260427h" defer></script>
     <style>
+      /* 卡片基础样式 */
       .ai-card-surface {
         position: relative;
         overflow: hidden;
-        transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1) perspective(1000px);
         transition:
-          transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
-          box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1),
+          transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
           border-color 220ms ease,
           background-color 220ms ease;
+        transform-style: preserve-3d;
       }
+      
+      /* 光效遮罩 */
       .ai-card-surface::before {
         content: "";
         position: absolute;
@@ -34,24 +38,114 @@
           linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0) 42%),
           radial-gradient(circle at 16% 18%, rgba(59, 130, 246, 0.1), transparent 30%);
         transition: opacity 220ms ease;
+        z-index: 1;
       }
+      
+      /* 鼠标跟随光效 */
+      .ai-card-surface::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 300ms ease;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+      }
+      
+      /* 悬浮效果 */
       .ai-card-surface:hover {
-        transform: translateY(-8px) scale(1.014);
+        transform: translateY(-12px) scale(1.02) perspective(1000px);
         border-color: rgba(71, 85, 105, 0.45) !important;
         box-shadow:
-          0 22px 42px rgba(15, 23, 42, 0.12),
-          0 0 0 1px rgba(59, 130, 246, 0.1);
+          0 25px 50px rgba(15, 23, 42, 0.15),
+          0 0 0 1px rgba(59, 130, 246, 0.15),
+          0 10px 20px rgba(59, 130, 246, 0.1);
       }
+      
       .ai-card-surface:hover::before {
         opacity: 1;
       }
+      
+      .ai-card-surface:hover::after {
+        opacity: 1;
+      }
+      
+      /* 图片容器 */
       .ai-card-surface picture,
       .ai-card-surface .rounded-2xl {
-        transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+        transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+        position: relative;
+        z-index: 2;
       }
+      
       .ai-card-surface:hover picture,
       .ai-card-surface:hover .rounded-2xl {
-        transform: translateY(-4px);
+        transform: translateY(-6px) scale(1.05);
+      }
+      
+      /* 点击反馈效果 */
+      .ai-card-surface:active {
+        transform: translateY(-4px) scale(0.98);
+        transition-duration: 100ms;
+      }
+      
+      /* 滚动渐入动画 */
+      .ai-card-surface {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+      
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* 为不同卡片设置不同的延迟 */
+      .ai-card-surface:nth-child(1) { animation-delay: 0.1s; }
+      .ai-card-surface:nth-child(2) { animation-delay: 0.2s; }
+      .ai-card-surface:nth-child(3) { animation-delay: 0.3s; }
+      .ai-card-surface:nth-child(4) { animation-delay: 0.4s; }
+      .ai-card-surface:nth-child(5) { animation-delay: 0.5s; }
+      .ai-card-surface:nth-child(6) { animation-delay: 0.6s; }
+      
+      /* 底部高亮条 */
+      .ai-card-surface .card-highlight {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), transparent);
+        transform: scaleX(0);
+        transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      
+      .ai-card-surface:hover .card-highlight {
+        transform: scaleX(1);
+      }
+      
+      /* 标签悬浮效果 */
+      .ai-card-surface .tag-item {
+        display: inline-block;
+        padding: 4px 10px;
+        background: rgba(59, 130, 246, 0.08);
+        border-radius: 12px;
+        font-size: 11px;
+        color: rgba(59, 130, 246, 0.8);
+        margin: 2px;
+        transition: all 200ms ease;
+      }
+      
+      .ai-card-surface:hover .tag-item {
+        background: rgba(59, 130, 246, 0.15);
+        transform: translateY(-2px);
       }
     </style>
   </head>
@@ -100,7 +194,7 @@
         >
           <!-- 这里可以替换图片链接 / Replace image URL here -->
           <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
-            <source srcset="./assets/img/diu.webp" type="image/webp" />
+            <source srcset="./assets/img/diu.jpg" type="image/webp" />
             <img
               src="./assets/img/diu.jpg"
               alt="丢了么：寻物海报 / Lost & Found Poster"
@@ -119,8 +213,15 @@
               <p class="text-sm text-slate-700">利用脚本自动化排版生成海报图片，提升走失宠物信息的传播效率。</p>
               <p class="mt-1 text-sm text-slate-500">Automated poster generation via scripting to improve missing‑pet info distribution.</p>
             </div>
+            <div class="mt-3 flex flex-wrap gap-1">
+              <span class="tag-item">Python</span>
+              <span class="tag-item">Pillow</span>
+              <span class="tag-item">OpenCV</span>
+              <span class="tag-item">Automation</span>
+            </div>
           </div>
           <div class="mt-4 text-xs text-slate-500">自动化脚本 / Automation</div>
+          <div class="card-highlight"></div>
         </button>
 
         <!-- 卡片 2 / Card 2 -->
@@ -156,8 +257,15 @@
               <p class="text-sm text-slate-700">面向海外平台的一键翻译与发布流程。</p>
               <p class="mt-1 text-sm text-slate-500">One‑click translation and publishing workflow for global platforms.</p>
             </div>
+            <div class="mt-3 flex flex-wrap gap-1">
+              <span class="tag-item">Midjourney</span>
+              <span class="tag-item">Runway</span>
+              <span class="tag-item">LLM</span>
+              <span class="tag-item">Workflow</span>
+            </div>
           </div>
           <div class="mt-4 text-xs text-slate-500">内容工作流 / Content Workflow</div>
+          <div class="card-highlight"></div>
         </button>
 
         <!-- 卡片 3 / Card 3 -->
@@ -190,8 +298,15 @@
               <p class="text-sm text-slate-700">利用 AI 辅助手搓个人静态网站，实现低成本、高效率的数字化展示。</p>
               <p class="mt-1 text-sm text-slate-500">AI‑assisted static site building for fast, low‑cost digital presence.</p>
             </div>
+            <div class="mt-3 flex flex-wrap gap-1">
+              <span class="tag-item">HTML</span>
+              <span class="tag-item">CSS</span>
+              <span class="tag-item">JavaScript</span>
+              <span class="tag-item">AI Assist</span>
+            </div>
           </div>
           <div class="mt-4 text-xs text-slate-500">网站搭建 / Web Build</div>
+          <div class="card-highlight"></div>
         </button>
 
         <!-- 卡片 4 / Card 4 -->
@@ -227,8 +342,14 @@
               <p class="text-sm text-slate-700">以“高频句子”为核心的英语学习网站。</p>
               <p class="mt-1 text-sm text-slate-500">An English learning site built around high‑frequency sentences for speaking‑ready practice.</p>
             </div>
+            <div class="mt-3 flex flex-wrap gap-1">
+              <span class="tag-item">English Learning</span>
+              <span class="tag-item">Context Memory</span>
+              <span class="tag-item">Web App</span>
+            </div>
           </div>
           <div class="mt-4 text-xs text-slate-500">英语学习工具 / English Learning Tool</div>
+          <div class="card-highlight"></div>
         </button>
 
         <!-- 你可以复制下面这段卡片模板，新增项目 / Copy this card template to add more -->
@@ -646,71 +767,97 @@
     </template>
 
     <script>
-      // 基础弹窗逻辑 / Simple modal logic
-      const modal = document.getElementById("modal");
-      const modalTitle = document.getElementById("modal-title");
-      const modalDesc = document.getElementById("modal-desc");
-      const modalStack = document.getElementById("modal-stack");
-      const modalClose = document.getElementById("modal-close");
-      const modalCoverSource = document.getElementById("modal-cover-source");
-      const modalCoverImg = document.getElementById("modal-cover-img");
-
-      document.querySelectorAll("button[data-title-zh]").forEach((card) => {
-        card.addEventListener("click", () => {
-          const titleZh = card.getAttribute("data-title-zh") || "";
-          const titleEn = card.getAttribute("data-title-en") || "";
-          const descZh = card.getAttribute("data-desc-zh") || "";
-          const descEn = card.getAttribute("data-desc-en") || "";
-          const cover = card.getAttribute("data-cover") || "";
-          const coverWebp = card.getAttribute("data-cover-webp") || "";
-          const detailImage = card.getAttribute("data-detail-image") || "";
-          const detailImageWebp = card.getAttribute("data-detail-image-webp") || "";
-          modalTitle.innerHTML = `<span class="block">${titleZh}</span><span class="block text-sm font-normal text-slate-500">${titleEn}</span>`;
-          modalDesc.innerHTML = "";
-          modalStack.textContent = "";
-          if (coverWebp) {
-            modalCoverSource.setAttribute("srcset", coverWebp);
+      // 卡片3D倾斜和鼠标跟随光效
+      document.querySelectorAll('.ai-card-surface').forEach(card => {
+        let isHovering = false;
+        
+        // 鼠标移动时的3D倾斜效果
+        card.addEventListener('mousemove', (e) => {
+          if (!isHovering) isHovering = true;
+          
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          // 计算旋转角度（最大±8度，更微妙）
+          const rotateX = ((y - centerY) / centerY) * -8;
+          const rotateY = ((x - centerX) / centerX) * 8;
+          
+          card.style.transform = `translateY(-12px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          
+          // 动态更新光效位置
+          const styleId = `card-style-${card.id}`;
+          let styleEl = document.getElementById(styleId);
+          if (!styleEl) {
+            styleEl = document.createElement('style');
+            styleEl.id = styleId;
+            document.head.appendChild(styleEl);
           }
-          if (cover) {
-            modalCoverImg.setAttribute("src", cover);
-            modalCoverImg.setAttribute("alt", `${titleZh} / ${titleEn}`);
-          }
-          const detailId = card.getAttribute("data-detail");
-          const detailWrap = document.getElementById("modal-detail");
-          const detailBottom = document.getElementById("modal-detail-bottom");
-          detailWrap.textContent = "";
-          detailBottom.textContent = "";
-          if (detailId) {
-            const tpl = document.getElementById("detail-" + detailId);
-            if (tpl && tpl.content) {
-              const clone = tpl.content.cloneNode(true);
-              detailBottom.appendChild(clone);
+          styleEl.textContent = `
+            #${card.id}::after {
+              left: ${x}px !important;
+              top: ${y}px !important;
             }
-          } else if (descZh || descEn || detailImage) {
-            const imageMarkup = detailImage
-              ? `<picture>
-                  ${detailImageWebp ? `<source srcset="${detailImageWebp}" type="image/webp" />` : ""}
-                  <img src="${detailImage}" alt="${titleZh} / ${titleEn}" loading="lazy" decoding="async" class="mt-4 w-full max-w-[720px] mx-auto h-auto object-contain rounded-2xl" />
-                </picture>`
-              : "";
-            detailWrap.innerHTML = `<span class="block">${descZh}</span><span class="block text-slate-500">${descEn}</span>${imageMarkup}`;
-          }
-          modal.classList.remove("hidden");
-          modal.classList.add("flex");
+          `;
+        });
+        
+        // 鼠标离开时恢复
+        card.addEventListener('mouseleave', () => {
+          isHovering = false;
+          card.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0) rotateY(0)';
+          card.style.transition = 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)';
+        });
+        
+        // 鼠标进入时
+        card.addEventListener('mouseenter', () => {
+          card.style.transition = 'none';
+        });
+        
+        // 点击反馈
+        card.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          card.style.transform = 'translateY(-4px) scale(0.97)';
+          card.style.transition = 'transform 100ms ease';
+        });
+        
+        card.addEventListener('mouseup', () => {
+          card.style.transform = 'translateY(-12px) scale(1.02)';
+          card.style.transition = 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)';
+        });
+        
+        // 触摸设备支持
+        card.addEventListener('touchstart', () => {
+          card.style.transform = 'translateY(-8px) scale(1.01)';
+        }, { passive: true });
+        
+        card.addEventListener('touchend', () => {
+          setTimeout(() => {
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 300);
         });
       });
-
-      modalClose.addEventListener("click", () => {
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-      });
-
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.classList.add("hidden");
-          modal.classList.remove("flex");
-        }
+      
+      // 滚动渐入动画
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.ai-card-surface').forEach(card => {
+        card.style.animationPlayState = 'paused';
+        observer.observe(card);
       });
     </script>
-</body>
+  </body>
 </html>

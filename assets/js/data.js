@@ -116,7 +116,7 @@ window.WORKS = [
   },
   {
     "slug": "bookstore",
-    "title_zh": "【纪实】不平凡的书店",
+    "title_zh": "不平凡的书店",
     "title_en": "",
     "role_zh": "",
     "role_en": "The Uncommon Bookstore",
@@ -125,10 +125,9 @@ window.WORKS = [
     "one_line_zh": "纪录片以书店为切入点，围绕空间与人、阅读与城市记忆展开叙事，涵盖选题策划、访谈设计、拍摄与后期制作等环节，系统呈现书店作为文化公共空间的意义与价值。",
     "one_line_en": "A documentary that uses a bookstore as the entry point to examine the ties between space, people, reading, and urban memory, covering topic development, interview design, production, and post‑production to articulate the cultural value of bookstores as public spaces.",
     "platform": "bilibili",
-    "embed": "https://player.bilibili.com/player.html?isOutside=true&aid=562788453&bvid=BV1Tv4y1U79v&cid=943403902&p=1",
+    "embed": "",
     "link": "https://www.bilibili.com/video/BV1Tv4y1U79v",
-    "cover": "assets/img/bu1.png",
-    "cover_webp": "assets/img/bu1.webp",
+    "cover": "assets/img/doc-bookstore-1.png",
     "credits": [
       "导演 / Director",
       "摄影 / DP",
@@ -142,14 +141,11 @@ window.WORKS = [
     "tools": [
       "Premiere Pro"
     ],
-    "stills": [
-      "assets/img/bu1.png",
-      "assets/img/doc-bookstore-1.png"
-    ]
+    "stills": []
   },
   {
     "slug": "documentary-placeholder-01",
-    "title_zh": "【视频播客】失业与营销",
+    "title_zh": "商业视频播客",
     "title_en": "",
     "role_zh": "",
     "role_en": "Commercial Video Podcast",
@@ -157,14 +153,10 @@ window.WORKS = [
     "category": "Documentary",
     "one_line_zh": "商业视频对谈播客试播集的双机位剪辑和根据视频素材整理后期文稿脚本。",
     "one_line_en": "Two‑camera edit for a commercial video talk‑show podcast pilot, plus a post‑production script compiled from the video footage.",
-    "summary_zh": "商业视频对谈播客试播集的双机位剪辑和根据视频素材整理后期文稿脚本。",
-    "summary_en": "Two‑camera edit for a commercial video talk‑show podcast pilot, plus a post‑production script compiled from the video footage.",
-    "modal_full": true,
     "platform": "新片场",
-    "embed": "https://player.xinpianchang.com/?aid=13610114&mid=GKL87NyD5xlQojJz",
+    "embed": "",
     "link": "https://www.xinpianchang.com/a13610114?from=webShare&channel=copyLink",
-    "cover": "assets/img/ai1.png",
-    "cover_webp": "assets/img/ai1.webp",
+    "cover": "assets/img/podcast-cover.jpg",
     "credits": [
       "剪辑 / 文稿脚本整理 / Editing / Script Organization"
     ],
@@ -197,7 +189,7 @@ window.WORKS = [
     "embed": "https://player.xinpianchang.com/?aid=13650805&mid=NK0mw6RqdY8wW1na",
     "link": "https://www.xinpianchang.com/a13650805?from=webShare&channel=copyLink",
     "cover": "assets/img/ju.png",
-    "cover_webp": "assets/img/ju.webp",
+    "cover_webp": "assets/img/ju.png",
     "credits": [
       "剪辑 / 策划 / Editing / Planning"
     ],
@@ -230,6 +222,7 @@ window.WORKS = [
     "embed": "",
     "link": "https://www.xinpianchang.com/a13056017",
     "cover": "assets/img/color-commercial-2.png",
+    "cover_size": "95% auto",
     "credits": [
       "调色 / Colorist"
     ],
@@ -244,20 +237,19 @@ window.WORKS = [
   },
   {
     "slug": "mv-machine",
-    "title_zh": "【音乐】《机器》-MV",
+    "title_zh": "《机器》MV",
     "title_en": "",
     "role_zh": "",
     "role_en": "Machine MV",
-    "year": "2023",
-    "category": "Short",
-    "one_line_zh": "与团队合作完成这部音乐影像的制作。",
-    "one_line_en": "Collaborated with the team on the production of this music video.",
-    "summary_zh": "与团队合作完成这部音乐影像的制作。",
-    "summary_en": "Participated as part of the team in the production and post-production of this music video.",
+    "year": "2022",
+    "category": "MV",
+    "one_line_zh": "音乐影像的节奏与视觉实验。",
+    "one_line_en": "A rhythmic visual experiment in music video.",
     "platform": "music",
-    "embed": "https://player.xinpianchang.com/?aid=12414794&mid=Mk6B4xPjNZE49LAP",
+    "embed": "",
     "link": "https://music.163.com/mv/?id=14597578&userid=292743521",
     "cover": "assets/img/machine-mv-1.png",
+    "cover_size": "90% auto",
     "credits": [
       "拍摄 / DP",
       "剪辑 / Editor"
@@ -339,6 +331,7 @@ window.WORKS = [
     "embed": "",
     "link": "https://www.xinpianchang.com/a13135917",
     "cover": "assets/img/color-short-2.png",
+    "cover_size": "95% auto",
     "credits": [
       "调色 / Colorist"
     ],
@@ -559,6 +552,7 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/lixue5-1400.jpg",
     "cover_webp": "assets/img/lixue5-1400.webp",
+    "cover_size": "80% auto",
     "credits": [
       "文案 / 拍摄 / 剪辑"
     ],
@@ -584,7 +578,7 @@ window.WORKS = [
     "role_zh": "",
     "role_en": "Brand Promotion",
     "year": "2026",
-    "category": "Commercial",
+    "category": "ShortVideo",
     "one_line_zh": "2026年参与苏州 GT Show 汽车展特驰品牌总结品宣视频后期制作，围绕品牌调性与展会传播目标完成内容整合、节奏强化与色彩统一，提升现场氛围表达与品牌记忆点。",
     "one_line_en": "Handled post-production for Tesche's brand recap video at Suzhou GT Show 2026, shaping edit rhythm, content structure, and color consistency around the brand tone and event communication goals to amplify atmosphere and brand recall.",
     "summary_zh": "2026年参与苏州 GT Show 汽车展特驰品牌总结品宣视频后期制作，围绕品牌调性与展会传播目标完成内容整合、节奏强化与色彩统一，提升现场氛围表达与品牌记忆点。",
@@ -598,6 +592,7 @@ window.WORKS = [
     "media_webp": "assets/img/qiche2.webp",
     "cover": "assets/img/qiche2.jpg",
     "cover_webp": "assets/img/qiche2.webp",
+    "cover_size": "80% auto",
     "credits": [
       "后期剪辑和调色"
     ],
@@ -621,7 +616,7 @@ window.WORKS = [
     "role_zh": "",
     "role_en": "Brand Promotion",
     "year": "2026",
-    "category": "Commercial",
+    "category": "ShortVideo",
     "one_line_zh": "2026年3月，参与雪碧线下营销活动品宣视频后期剪辑，强化活动节奏与品牌露出，提升传播完成度。",
     "one_line_en": "In March 2026, edited a Sprite offline campaign video to sharpen pacing, strengthen brand visibility, and improve delivery impact.",
     "summary_zh": "2026年3月，参与雪碧线下营销活动品宣视频后期剪辑，强化活动节奏与品牌露出，提升传播完成度。",
@@ -633,6 +628,7 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13640128?from=webShare&channel=copyLink&token=cQ2M23IUYEg1vhKDq4v9IGQ",
     "cover": "assets/img/xuebi3.JPG",
     "cover_webp": "assets/img/xuebi3.webp",
+    "cover_size": "80% auto",
     "credits": [
       "后期剪辑"
     ],
@@ -668,6 +664,7 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13640243?from=webShare&channel=copyLink&token=1xxvsq3AbMlm37DeYh3zaSn3",
     "cover": "assets/img/gao4.png",
     "cover_webp": "assets/img/gao4.webp",
+    "cover_size": "80% auto",
     "credits": [
       "故事脚本策划和后期剪辑"
     ],
@@ -704,6 +701,7 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/tu14-1400.jpg",
     "cover_webp": "assets/img/tu14-1400.webp",
+    "cover_size": "80% auto",
     "credits": [
       "文案 / 拍摄 / 剪辑"
     ],
@@ -741,6 +739,7 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/yezishuo-1.jpg",
     "cover_webp": "assets/img/yezishuo-1.webp",
+    "cover_size": "80% auto",
     "credits": [
       "短视频项目制作 / Short-video Project Production"
     ],
@@ -774,6 +773,7 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/huangpu-fxj-1.jpg",
     "cover_webp": "assets/img/huangpu-fxj-1.webp",
+    "cover_size": "80% auto",
     "credits": [
       "后期剪辑"
     ],
@@ -792,9 +792,11 @@ window.WORKS = [
 window.WORK_CATEGORIES = [
   { key: "All", label: "全部 / All" },
   { key: "Documentary", label: "纪录/访谈 / Documentary" },
-  { key: "Commercial", label: "广告 / Commercial" },
-  { key: "Short", label: "短片 / Videos" },
   { key: "ShortVideo", label: "短视频 / Short Video" },
+  { key: "Commercial", label: "商业广告 / Commercial" },
+  { key: "Short", label: "短片 / Short" },
+  { key: "MV", label: "MV / Music Video" },
+  { key: "Color", label: "调色 / Color" },
 ];
 
 window.WORK_YEARS = [

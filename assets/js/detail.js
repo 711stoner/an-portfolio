@@ -66,6 +66,7 @@
 
   const stillsWrap = qs("[data-detail-stills]");
   if (stillsWrap) {
+    stillsWrap.classList.toggle("stills-large", work.slug === "bookstore");
     const stills = work.stills && work.stills.length ? work.stills : [];
     if (stills.length) {
         stillsWrap.innerHTML = stills
@@ -135,17 +136,8 @@
     }
 
     const link = qs("[data-detail-link]");
-    const vimeoLink = qs("[data-detail-vimeo-link]");
     link.href = work.link || "#";
     link.textContent = work.link_label || (work.link ? "在线播放" : "链接待补充（未上线流媒体）");
-    if (vimeoLink) {
-      if (work.link && work.link.includes("vimeo.com")) {
-        vimeoLink.href = work.link;
-        vimeoLink.style.display = "inline-flex";
-      } else {
-        vimeoLink.style.display = "none";
-      }
-    }
   }
 
   renderDetail();

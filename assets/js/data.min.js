@@ -544,7 +544,7 @@ window.WORKS = [
   },
   {
     "slug": "short-placeholder-machine",
-    "title_zh": "【音乐】《机器》-MV",
+    "title_zh": "【音乐】《天王巨星》-MV",
     "title_en": "",
     "role_zh": "",
     "role_en": "Machine MV",

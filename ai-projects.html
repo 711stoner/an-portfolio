@@ -1,4 +1,4 @@
-啊<<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -194,7 +194,7 @@
         >
           <!-- 这里可以替换图片链接 / Replace image URL here -->
           <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
-            <source srcset="./assets/img/diu.jpg" type="image/webp" />
+            <source srcset="./assets/img/diu.webp" type="image/webp" />
             <img
               src="./assets/img/diu.jpg"
               alt="丢了么：寻物海报 / Lost & Found Poster"
@@ -767,6 +767,80 @@
     </template>
 
     <script>
+      // 卡片点击打开模态框
+      document.querySelectorAll('.ai-card-surface').forEach(card => {
+        card.addEventListener('click', () => {
+          const detailId = card.getAttribute('data-detail');
+          if (detailId) {
+            openModal(detailId, card);
+          }
+        });
+      });
+      
+      // 打开模态框函数
+      function openModal(detailId, cardElement) {
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalStack = document.getElementById('modal-stack');
+        const modalCoverImg = document.getElementById('modal-cover-img');
+        const modalCoverSource = document.getElementById('modal-cover-source');
+        const modalDetail = document.getElementById('modal-detail');
+        
+        // 设置标题和描述
+        modalTitle.innerHTML = `
+          <span class="block">${cardElement.getAttribute('data-title-zh')}</span>
+          <span class="block text-lg font-normal text-slate-500">${cardElement.getAttribute('data-title-en')}</span>
+        `;
+        modalDesc.innerHTML = `
+          ${cardElement.getAttribute('data-desc-zh')}<br/>
+          <span class="text-slate-500">${cardElement.getAttribute('data-desc-en')}</span>
+        `;
+        modalStack.textContent = cardElement.getAttribute('data-stack');
+        
+        // 设置封面图片
+        const coverWebp = cardElement.getAttribute('data-cover-webp');
+        const cover = cardElement.getAttribute('data-cover');
+        if (coverWebp && modalCoverSource) {
+          modalCoverSource.srcset = coverWebp;
+        }
+        if (cover && modalCoverImg) {
+          modalCoverImg.src = cover;
+        }
+        
+        // 加载详情模板
+        const template = document.getElementById(`detail-${detailId}`);
+        if (template && modalDetail) {
+          modalDetail.innerHTML = '';
+          modalDetail.appendChild(template.content.cloneNode(true));
+        }
+        
+        // 显示模态框
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      // 关闭模态框
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      document.getElementById('modal').addEventListener('click', (e) => {
+        if (e.target.id === 'modal') {
+          closeModal();
+        }
+      });
+      
+      function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      
+      // ESC键关闭模态框
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+      
       // 卡片3D倾斜和鼠标跟随光效
       document.querySelectorAll('.ai-card-surface').forEach(card => {
         let isHovering = false;

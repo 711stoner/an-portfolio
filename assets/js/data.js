@@ -249,7 +249,7 @@ window.WORKS = [
     "role_zh": "",
     "role_en": "Machine MV",
     "year": "2022",
-    "category": "MV",
+    "category": "Short",
     "one_line_zh": "音乐影像的节奏与视觉实验。",
     "one_line_en": "A rhythmic visual experiment in music video.",
     "platform": "music",
@@ -793,7 +793,6 @@ window.WORK_CATEGORIES = [
   { key: "ShortVideo", label: "短视频 / Short Video" },
   { key: "Commercial", label: "商业广告 / Commercial" },
   { key: "Short", label: "短片 / Short" },
-  { key: "MV", label: "MV / Music Video" },
 ];
 
 window.WORK_YEARS = [

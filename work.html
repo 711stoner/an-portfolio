@@ -18,11 +18,11 @@
 
       .detail-page .work-cover.media-frame iframe {
         display: block;
-        width: min(calc(100% - 180px), 860px) !important;
-        height: auto !important;
-        aspect-ratio: 16 / 9;
+        width: min(calc(100% - 80px), 960px) !important;
+        height: clamp(420px, 70vh, 860px) !important;
+        aspect-ratio: auto;
         border: 0;
-        margin: 28px auto;
+        margin: 20px auto;
         border-radius: 16px;
         overflow: hidden;
       }
@@ -315,8 +315,9 @@
 
       @media (max-width: 720px) {
         .detail-page .work-cover.media-frame iframe {
-          width: calc(100% - 32px) !important;
-          margin: 16px auto;
+          width: calc(100% - 24px) !important;
+          height: clamp(320px, 62vh, 680px) !important;
+          margin: 12px auto;
           border-radius: 12px;
         }
 

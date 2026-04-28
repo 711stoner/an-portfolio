@@ -37,14 +37,25 @@
 
       .detail-page .detail-media-img {
         display: block;
-        width: 100%;
+        width: auto;
         height: auto;
-        max-width: 100%;
-        max-height: none;
+        max-width: min(100%, 520px);
+        max-height: 78vh;
         margin: 0 auto;
         object-fit: contain;
         object-position: center;
         background: transparent;
+      }
+
+      .detail-page .stills-grid-single .still-card {
+        min-height: 0;
+        padding: 24px;
+      }
+
+      .detail-page .stills-grid-single .still-card img {
+        width: auto;
+        max-width: min(100%, 520px);
+        max-height: 78vh;
       }
 
       .detail-page .detail-page-hero-grid {
@@ -330,6 +341,12 @@
 
         .detail-page .detail-media-picture {
           padding: 16px;
+        }
+
+        .detail-page .detail-media-img,
+        .detail-page .stills-grid-single .still-card img {
+          max-width: min(100%, 420px);
+          max-height: 70vh;
         }
       }
     </style>

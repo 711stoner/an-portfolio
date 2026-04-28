@@ -821,7 +821,7 @@ window.WORK_CATEGORIES = [
   { key: "All", label: "全部 / All" },
   { key: "Documentary", label: "纪录/访谈 / Documentary" },
   { key: "ShortVideo", label: "短视频 / Short Video" },
-  { key: "Commercial", label: "商业广告 / Commercial" },
+  { key: "Commercial", label: "广告 / Commercial" },
   { key: "Short", label: "短片 / Short" }
 ];
 

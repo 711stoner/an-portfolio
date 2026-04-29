@@ -546,6 +546,38 @@ window.WORKS = [
     "stills": []
   },
   {
+    "slug": "short-placeholder-tianwang",
+    "title_zh": "【音乐】《天王巨星》-MV",
+    "title_en": "",
+    "role_zh": "",
+    "role_en": "Machine MV",
+    "year": "2024",
+    "category": "Short",
+    "one_line_zh": "与团队合作完成为独立乐队制作的这部音乐影像。",
+    "one_line_en": "Collaborated with the team on the production of this music video.",
+    "summary_zh": "与团队合作完成为独立乐队制作的这部音乐影像。",
+    "summary_en": "Participated as part of the team in the production and post-production of this music video.",
+    "platform": "bilibili",
+    "embed": "https://player.bilibili.com/player.html?isOutside=true&aid=113016427250391&bvid=BV1jbWZekEbG&cid=500001660686570&p=1",
+    "embed_ratio": "16 / 9",
+    "link": "https://www.bilibili.com/video/BV1jbWZekEbG",
+    "cover": "assets/img/tianwang-mv-cover.jpg",
+    "cover_webp": "assets/img/tianwang-mv-cover.webp",
+    "cover_size": "90% auto",
+    "credits": [
+      "拍摄 / DP",
+      "剪辑 / Editor"
+    ],
+    "process": [
+      "镜头设计 / Shot Design",
+      "节奏剪辑 / Rhythm Edit"
+    ],
+    "tools": [
+      "Premiere Pro"
+    ],
+    "stills": []
+  },
+  {
     "slug": "placeholder-01",
     "title_zh": "商业穆桂英",
     "title_en": "",

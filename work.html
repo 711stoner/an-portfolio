@@ -19,12 +19,12 @@
       .detail-page .work-cover.media-frame iframe {
         display: block;
         width: 100% !important;
-        height: clamp(680px, 86vh, 1240px) !important;
-        aspect-ratio: auto;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
         border: 0;
-        margin: 28px 0;
+        margin: 20px 0;
         border-radius: 16px;
-        overflow: hidden;
+        background: #000;
       }
 
       .detail-page .defer-section .container {
@@ -320,8 +320,9 @@
       @media (max-width: 720px) {
         .detail-page .work-cover.media-frame iframe {
           width: 100% !important;
-          height: clamp(540px, 82vh, 980px) !important;
-          margin: 18px 0;
+          height: auto !important;
+          aspect-ratio: 16 / 9;
+          margin: 12px 0;
           border-radius: 12px;
         }
 

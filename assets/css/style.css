@@ -929,13 +929,13 @@ img {
 }
 
 .modal-card {
-  width: min(1200px, 95vw);
-  max-height: 90vh;
+  width: min(1000px, 92vw);
+  height: min(70vh, 720px);
   background: #fff;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
   overflow: hidden;
 }
 
@@ -947,8 +947,6 @@ img {
   position: relative;
   padding: 16px;
   overflow: hidden;
-  flex: 1;
-  min-height: 500px;
 }
 
 .media-placeholder {
@@ -1023,7 +1021,6 @@ img {
   align-content: start;
   overflow: auto;
   min-width: 0;
-  max-height: 250px;
 }
 
 .modal-info h3 {
@@ -1129,7 +1126,7 @@ img {
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .modal-card { grid-template-columns: 1fr; height: 80vh; }
+  .modal-card { grid-template-columns: 1fr; height: 80vh; width: 90vw; }
   .stills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -1207,7 +1204,7 @@ img {
   .detail-page .chip-list {
     gap: 8px;
   }
-  .modal-card { height: auto; max-height: 90vh; overflow: auto; }
+  .modal-card { height: auto; max-height: 90vh; overflow: auto; display: flex; flex-direction: column; }
   .modal-media {
     min-height: 0;
     max-height: none;

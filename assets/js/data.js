@@ -314,14 +314,9 @@ window.WORKS = [
     "cover": "assets/img/tianwang-mv-cover.jpg",
     "cover_webp": "assets/img/tianwang-mv-cover.webp",
     "cover_size": "90% auto",
-    "credits": [
-      "拍摄 / DP",
-      "剪辑 / Editor"
-    ],
-    "process": [
-      "镜头设计 / Shot Design",
-      "节奏剪辑 / Rhythm Edit"
-    ],
+    "hide_credits_process": true,
+    "credits": [],
+    "process": [],
     "tools": [
       "Premiere Pro"
     ],

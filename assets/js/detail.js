@@ -37,6 +37,11 @@
     const desc = `${work.one_line_zh || ""}${work.one_line_zh && work.one_line_en ? "\n\n" : ""}${work.one_line_en || ""}`;
     qs("[data-detail-desc]").textContent = desc || "";
 
+    const creditsProcessSection = qs("[data-detail-credits-process-section]");
+    if (creditsProcessSection) {
+      creditsProcessSection.style.display = work.hide_credits_process ? "none" : "";
+    }
+
     const creditList = qs("[data-detail-credits]");
     if (creditList) {
       const credits = work.credits && work.credits.length ? work.credits : ["待补充 / To be updated"];

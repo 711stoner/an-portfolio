@@ -195,6 +195,7 @@ window.WORKS = [
     "modal_full": true,
     "platform": "新片场",
     "embed": "https://player.xinpianchang.com/?aid=13650805&mid=NK0mw6RqdY8wW1na",
+    "embed_ratio": "4 / 3",
     "link": "https://www.xinpianchang.com/a13650805?from=webShare&channel=copyLink",
     "cover": "assets/img/ju.png",
     "cover_webp": "assets/img/ju.png",

@@ -539,40 +539,6 @@ window.WORKS = [
     ]
   },
   {
-    "slug": "shortvideo-placeholder-03",
-    "title_zh": "某公安分局系列反邪教宣传",
-    "title_en": "",
-    "detail_title_en": "Anti-Cult Awareness Campaign Series",
-    "role_zh": "",
-    "role_en": "Post-production Editor",
-    "year": "2023",
-    "category": "ShortVideo",
-    "one_line_zh": "2023年为某公安分局系列反邪教宣传视频比赛做的后期剪辑。",
-    "one_line_en": "",
-    "summary_zh": "2023年为某公安分局系列反邪教宣传视频比赛做的后期剪辑。",
-    "summary_en": "",
-    "modal_full": true,
-    "platform": "短视频",
-    "link_label": "作品链接待补充",
-    "embed": "",
-    "link": "",
-    "cover": "assets/img/huangpu-fxj-1.jpg",
-    "cover_webp": "assets/img/huangpu-fxj-1.webp",
-    "cover_size": "80% auto",
-    "credits": [
-      "后期剪辑"
-    ],
-    "process": [
-      "后期剪辑"
-    ],
-    "tools": [
-      "剪映"
-    ],
-    "stills": [
-      "assets/img/huangpu-fxj-1.jpg"
-    ]
-  },
-  {
     "slug": "shortvideo-empty-placeholder",
     "sort_order": 999,
     "title_zh": "（占位）待更新",

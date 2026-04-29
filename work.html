@@ -19,12 +19,16 @@
       .detail-page .work-cover.media-frame iframe {
         display: block;
         width: 100% !important;
-        height: clamp(560px, 80vh, 1080px) !important;
+        height: clamp(680px, 86vh, 1240px) !important;
         aspect-ratio: auto;
         border: 0;
         margin: 28px 0;
         border-radius: 16px;
         overflow: hidden;
+      }
+
+      .detail-page .defer-section .container {
+        width: min(1500px, 96vw);
       }
 
       .detail-page .detail-media-picture {
@@ -315,8 +319,8 @@
 
       @media (max-width: 720px) {
         .detail-page .work-cover.media-frame iframe {
-          width: calc(100% - 8px) !important;
-          height: clamp(460px, 74vh, 900px) !important;
+          width: 100% !important;
+          height: clamp(540px, 82vh, 980px) !important;
           margin: 18px 0;
           border-radius: 12px;
         }

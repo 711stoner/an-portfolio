@@ -20,11 +20,15 @@
         background: transparent !important;
       }
 
+      .detail-page .work-cover.media-frame.is-embed-frame {
+        padding: 0 !important;
+      }
+
       .detail-page .work-cover.media-frame iframe {
         display: block;
         width: 75% !important;
         height: auto !important;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: var(--detail-embed-ratio, 16 / 9);
         border: 0;
         margin: 20px auto;
         border-radius: 16px;
@@ -323,9 +327,9 @@
 
       @media (max-width: 720px) {
         .detail-page .work-cover.media-frame iframe {
-          width: 75% !important;
+          width: 100% !important;
           height: auto !important;
-          aspect-ratio: 16 / 9;
+          aspect-ratio: var(--detail-embed-ratio, 16 / 9);
           margin: 12px auto;
           border-radius: 12px;
         }
@@ -460,8 +464,8 @@
 
     <footer class="footer">© 2026 章安 · All Rights Reserved</footer>
 
-    <script src="assets/js/data.min.js?v=20260428b"></script>
+    <script src="assets/js/data.min.js?v=20260429e"></script>
     <script src="assets/js/main.min.js?v=20260427h"></script>
-    <script src="assets/js/detail.min.js?v=20260427h"></script>
+    <script src="assets/js/detail.min.js?v=20260429e"></script>
 </body>
 </html>

@@ -87,13 +87,25 @@
     const coverImg = qs("[data-detail-cover]");
     const coverSource = qs("[data-detail-cover-webp]");
     const coverPicture = coverImg ? coverImg.closest("picture") : null;
+    const mediaFrame = iframe ? iframe.closest(".media-frame") : null;
     if (work.embed) {
+      const embedRatio = work.embed_ratio || "16 / 9";
+      iframe.style.aspectRatio = embedRatio;
+      iframe.style.setProperty("--detail-embed-ratio", embedRatio);
       iframe.src = work.embed;
       iframe.style.display = "block";
+      if (mediaFrame) {
+        mediaFrame.classList.add("is-embed-frame");
+        mediaFrame.style.setProperty("--detail-embed-ratio", embedRatio);
+      }
       if (mediaImg) mediaImg.style.display = "none";
       if (mediaPicture) mediaPicture.style.display = "none";
     } else {
       iframe.style.display = "none";
+      if (mediaFrame) {
+        mediaFrame.classList.remove("is-embed-frame");
+        mediaFrame.style.removeProperty("--detail-embed-ratio");
+      }
       if (mediaImg) {
         const mediaSrc = normalizeAssetPath(work.media || work.cover || (work.stills && work.stills[0]) || "");
         const mediaWebp = work.media_webp || toWebp(mediaSrc);

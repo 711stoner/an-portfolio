@@ -16,6 +16,7 @@
     <style>
       body {
         background: linear-gradient(180deg, #e8ecf7 0%, #edf2fb 30%, #e6ebf5 100%);
+        overflow-x: hidden;
       }
       .intro-card {
         position: relative;
@@ -95,6 +96,7 @@
       .ai-card-surface {
         position: relative;
         overflow: hidden;
+        width: 100%;
         transform: translateY(0) scale(1) perspective(1000px);
         transition:
           transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -131,6 +133,12 @@
         transition: opacity 300ms ease;
         transform: translate(-50%, -50%);
         z-index: 0;
+      }
+
+      .ai-card-surface,
+      .intro-card,
+      #modal {
+        overflow-wrap: anywhere;
       }
       
       /* 悬浮效果 */
@@ -172,11 +180,17 @@
       
       /* 滚动渐入动画 */
       .ai-card-surface {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 1;
         animation: fadeInUp 0.6s ease forwards;
       }
       
+      @starting-style {
+        .ai-card-surface {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+      }
+
       @keyframes fadeInUp {
         to {
           opacity: 1;
@@ -206,6 +220,173 @@
       
       .ai-card-surface:hover .card-highlight {
         transform: scaleX(1);
+      }
+
+      @media (hover: none), (pointer: coarse) {
+        .intro-card:hover,
+        .ai-card-surface:hover,
+        .ai-card-surface:active {
+          transform: none;
+        }
+
+        .intro-card:hover h2,
+        .ai-card-surface:hover picture,
+        .ai-card-surface:hover .rounded-2xl {
+          transform: none;
+        }
+
+        .ai-card-surface::before,
+        .ai-card-surface::after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        header > div {
+          align-items: flex-start !important;
+          flex-direction: column;
+          gap: 14px;
+          padding: 18px 16px !important;
+        }
+
+        header h1 {
+          font-size: 18px;
+          line-height: 1.35;
+        }
+
+        header nav,
+        .home-back-btn {
+          width: 100%;
+        }
+
+        .home-back-btn {
+          justify-content: center;
+          min-height: 44px;
+          padding: 10px 14px;
+          white-space: normal;
+        }
+
+        main {
+          box-sizing: border-box;
+          max-width: 100% !important;
+          padding: 28px 16px 40px !important;
+          width: 100% !important;
+        }
+
+        main > *,
+        .intro-card,
+        .ai-card-surface,
+        .ai-card-surface *,
+        #modal,
+        #modal * {
+          min-width: 0;
+          max-width: 100%;
+          white-space: normal;
+          word-break: break-word;
+          overflow-wrap: anywhere;
+        }
+
+        .intro-card {
+          margin-bottom: 24px !important;
+          border-radius: 18px !important;
+          padding: 18px !important;
+        }
+
+        .intro-card h2 {
+          font-size: 22px;
+          line-height: 1.22;
+        }
+
+        .intro-card p {
+          font-size: 14px;
+          line-height: 1.65;
+        }
+
+        .ai-card-surface {
+          border-radius: 18px !important;
+          padding: 16px !important;
+        }
+
+        .ai-card-surface picture {
+          height: 132px !important;
+          border-radius: 14px !important;
+        }
+
+        .ai-card-surface h3 {
+          font-size: 17px;
+          line-height: 1.35;
+        }
+
+        .ai-card-surface h3 span:last-child {
+          margin-top: 3px;
+          font-size: 13px;
+          line-height: 1.35;
+        }
+
+        .ai-card-surface .bg-slate-50 {
+          border-radius: 14px !important;
+          padding: 14px !important;
+        }
+
+        #modal {
+          height: 100dvh;
+        }
+
+        #modal > div {
+          height: 100dvh !important;
+          min-height: 0;
+        }
+
+        #modal > div > div:first-child {
+          align-items: stretch !important;
+          flex-direction: column;
+          gap: 14px;
+          padding: 16px !important;
+        }
+
+        #modal-title {
+          font-size: 20px;
+          line-height: 1.3;
+        }
+
+        #modal-title span:last-child {
+          font-size: 14px;
+          line-height: 1.4;
+        }
+
+        #modal-desc {
+          margin-top: 10px !important;
+          font-size: 14px;
+          line-height: 1.55;
+        }
+
+        #modal-close {
+          min-height: 44px;
+          width: 100%;
+          border-radius: 999px;
+        }
+
+        #modal > div > div:last-child {
+          padding: 16px !important;
+        }
+
+        #modal-detail .rounded-2xl,
+        #modal-cover-img {
+          border-radius: 14px !important;
+        }
+
+        #modal-detail .grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        #modal-detail img {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        #modal-detail img[src*="diu7"] {
+          max-width: 280px !important;
+        }
       }
       
     </style>
@@ -875,97 +1056,64 @@
         }
       });
       
-      // 卡片3D倾斜和鼠标跟随光效
-      document.querySelectorAll('.ai-card-surface').forEach(card => {
-        let isHovering = false;
-        
-        // 鼠标移动时的3D倾斜效果
-        card.addEventListener('mousemove', (e) => {
-          if (!isHovering) isHovering = true;
+      // 卡片3D倾斜和鼠标跟随光效，仅用于有鼠标悬浮能力的设备。
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.querySelectorAll('.ai-card-surface').forEach(card => {
+          let isHovering = false;
           
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          // 计算旋转角度（最大±8度，更微妙）
-          const rotateX = ((y - centerY) / centerY) * -8;
-          const rotateY = ((x - centerX) / centerX) * 8;
-          
-          card.style.transform = `translateY(-12px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-          
-          // 动态更新光效位置
-          const styleId = `card-style-${card.id}`;
-          let styleEl = document.getElementById(styleId);
-          if (!styleEl) {
-            styleEl = document.createElement('style');
-            styleEl.id = styleId;
-            document.head.appendChild(styleEl);
-          }
-          styleEl.textContent = `
-            #${card.id}::after {
-              left: ${x}px !important;
-              top: ${y}px !important;
+          card.addEventListener('mousemove', (e) => {
+            if (!isHovering) isHovering = true;
+            
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+            
+            card.style.transform = `translateY(-12px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            
+            const styleId = `card-style-${card.id}`;
+            let styleEl = document.getElementById(styleId);
+            if (!styleEl) {
+              styleEl = document.createElement('style');
+              styleEl.id = styleId;
+              document.head.appendChild(styleEl);
             }
-          `;
+            styleEl.textContent = `
+              #${card.id}::after {
+                left: ${x}px !important;
+                top: ${y}px !important;
+              }
+            `;
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            isHovering = false;
+            card.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0) rotateY(0)';
+            card.style.transition = 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)';
+          });
+          
+          card.addEventListener('mouseenter', () => {
+            card.style.transition = 'none';
+          });
+          
+          card.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            card.style.transform = 'translateY(-4px) scale(0.97)';
+            card.style.transition = 'transform 100ms ease';
+          });
+          
+          card.addEventListener('mouseup', () => {
+            card.style.transform = 'translateY(-12px) scale(1.02)';
+            card.style.transition = 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)';
+          });
         });
-        
-        // 鼠标离开时恢复
-        card.addEventListener('mouseleave', () => {
-          isHovering = false;
-          card.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0) rotateY(0)';
-          card.style.transition = 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)';
-        });
-        
-        // 鼠标进入时
-        card.addEventListener('mouseenter', () => {
-          card.style.transition = 'none';
-        });
-        
-        // 点击反馈
-        card.addEventListener('mousedown', (e) => {
-          e.preventDefault();
-          card.style.transform = 'translateY(-4px) scale(0.97)';
-          card.style.transition = 'transform 100ms ease';
-        });
-        
-        card.addEventListener('mouseup', () => {
-          card.style.transform = 'translateY(-12px) scale(1.02)';
-          card.style.transition = 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)';
-        });
-        
-        // 触摸设备支持
-        card.addEventListener('touchstart', () => {
-          card.style.transform = 'translateY(-8px) scale(1.01)';
-        }, { passive: true });
-        
-        card.addEventListener('touchend', () => {
-          setTimeout(() => {
-            card.style.transform = 'translateY(0) scale(1)';
-          }, 300);
-        });
-      });
+      }
       
-      // 滚动渐入动画
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-      
-      document.querySelectorAll('.ai-card-surface').forEach(card => {
-        card.style.animationPlayState = 'paused';
-        observer.observe(card);
-      });
+      // 卡片保持默认可见；CSS 渐入只是增强效果，避免移动端因观察器延迟出现空白。
     </script>
   </body>
 </html>

@@ -28,6 +28,7 @@ html, body {
   margin: 0;
   height: 100%;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -1209,7 +1210,14 @@ img {
 
 @media (max-width: 720px) {
   .nav-inner { flex-direction: column; gap: 12px; }
-  .nav-links { flex-wrap: wrap; justify-content: center; }
+  .nav-links {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
   .hero-content { text-align: center; margin: 0 auto; }
   .hero-cta { justify-content: center; }
   .filters {
@@ -1429,6 +1437,15 @@ img {
     box-shadow: none;
     background: transparent;
   }
+}
+
+/* ── Very small screens (< 480px) ───────────────────── */
+@media (max-width: 480px) {
+  .grid-4 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .work-card { min-height: 200px; }
+  .work-cover { min-height: clamp(110px, 28vw, 150px); }
+  .contact-line { font-size: 13px; }
 }
 
 /* ── Nav link hover underline ───────────────────────── */

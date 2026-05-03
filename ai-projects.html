@@ -584,7 +584,32 @@
           max-width: 280px !important;
         }
       }
-      
+
+      /* ── Dark mobile overrides (must come after light ones to win) ── */
+      @media (max-width: 640px) {
+        .ai-card-surface {
+          border-color: var(--d-border) !important;
+          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5) !important;
+        }
+        .ai-card-surface picture {
+          height: 132px !important;
+          background: rgba(255, 255, 255, 0.04) !important;
+          border: 1px solid var(--d-border-soft) !important;
+        }
+        .ai-card-surface .bg-slate-50 {
+          background: rgba(255, 255, 255, 0.04) !important;
+          border-color: var(--d-border-soft) !important;
+        }
+        .ai-card-surface .card-highlight {
+          background: linear-gradient(90deg, transparent, rgba(96, 144, 255, 0.7), transparent) !important;
+        }
+        header > div {
+          background: rgba(8, 12, 20, 0.92) !important;
+        }
+        main {
+          padding: 20px 14px 36px !important;
+        }
+      }
     </style>
   </head>
   <body class="text-slate-800">

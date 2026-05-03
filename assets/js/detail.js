@@ -24,6 +24,33 @@
     return params.get("slug");
   }
 
+  function loadIframeWhenNear(iframe, src) {
+    if (!iframe || !src) return;
+    iframe.removeAttribute("src");
+    iframe.dataset.src = src;
+
+    const load = () => {
+      if (iframe.src === src) return;
+      iframe.src = src;
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      load();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting || entry.intersectionRatio > 0)) {
+          load();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "320px 0px", threshold: 0.01 }
+    );
+    observer.observe(iframe);
+  }
+
   function renderDetail() {
     const slug = getSlug();
     const work = works.find((w) => w.slug === slug) || works[0];
@@ -97,7 +124,7 @@
       const embedRatio = work.embed_ratio || "16 / 9";
       iframe.style.aspectRatio = embedRatio;
       iframe.style.setProperty("--detail-embed-ratio", embedRatio);
-      iframe.src = work.embed;
+      loadIframeWhenNear(iframe, work.embed);
       iframe.style.display = "block";
       if (mediaFrame) {
         mediaFrame.classList.add("is-embed-frame");

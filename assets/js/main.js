@@ -495,7 +495,7 @@
 
     resetModalCover(media, coverImg, coverSource, coverPicture, placeholder);
 
-    if (work.embed && (!isMobile || work.embed_mobile)) {
+    if (work.embed) {
       if (iframe) {
         iframe.style.display = "block";
         iframe.src = work.embed;

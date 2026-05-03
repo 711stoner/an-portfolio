@@ -11,6 +11,7 @@
 <meta name="description" content="视频制作与商业运营作品集，呈现视频制作、影像表达与商业项目经验。" />
     <link rel="stylesheet" href="assets/css/fonts.min.css?v=20260427h" />
     <link rel="stylesheet" href="assets/css/style.min.css?v=20260429d" />
+    <link rel="preload" href="assets/img/cd.webp" as="image" type="image/webp" />
     <script src="assets/js/analytics.min.js?v=20260427h" defer></script>
     <style>
       body.home-cd {
@@ -135,6 +136,12 @@
         background: transparent;
         filter: drop-shadow(0 22px 34px rgba(15, 23, 42, 0.14));
       }
+      .home-cd-frame {
+        min-height: clamp(160px, 52vw, 540px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       .home-cd .section {
         background: #d3d8df;
       }
@@ -251,7 +258,8 @@
 
     <script>
       (() => {
-        const imagePath = "assets/img/cd.jpg";
+        const imagePaths = ["assets/img/cd.webp", "assets/img/cd.jpg"];
+        let imagePathIndex = 0;
         const cx = 2083;
         const cy = 1158;
         const r = 487;
@@ -269,34 +277,55 @@
         const hubCtx = hubCanvas.getContext("2d");
 
         const img = new Image();
+        const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const maxRenderWidth = isCoarsePointer ? 1200 : 1800;
+        const targetFps = isCoarsePointer ? 20 : 30;
+        const frameInterval = 1000 / targetFps;
         let lastTime = 0;
+        let lastFrameTime = 0;
         let angle = 0;
+        let rafId = 0;
+        let isVisible = !("IntersectionObserver" in window);
+        let isPageVisible = !document.hidden;
+        let renderScale = 1;
+        let drawCx = cx;
+        let drawCy = cy;
+        let drawR = r;
+        let drawHubR = hubR;
         const speed = Math.PI / 7.5;
 
         img.onload = () => {
           const { naturalWidth: width, naturalHeight: height } = img;
+          renderScale = Math.min(1, maxRenderWidth / width);
+          const renderWidth = Math.round(width * renderScale);
+          const renderHeight = Math.round(height * renderScale);
+          drawCx = cx * renderScale;
+          drawCy = cy * renderScale;
+          drawR = r * renderScale;
+          drawHubR = Math.max(2, Math.round(hubR * renderScale));
 
-          canvas.width = width;
-          canvas.height = height;
+          canvas.width = renderWidth;
+          canvas.height = renderHeight;
 
-          bgCanvas.width = width;
-          bgCanvas.height = height;
-          bgCtx.drawImage(img, 0, 0);
+          bgCanvas.width = renderWidth;
+          bgCanvas.height = renderHeight;
+          bgCtx.drawImage(img, 0, 0, renderWidth, renderHeight);
 
-          discCanvas.width = r * 2;
-          discCanvas.height = r * 2;
+          discCanvas.width = Math.round(drawR * 2);
+          discCanvas.height = Math.round(drawR * 2);
           discCtx.save();
           discCtx.beginPath();
-          discCtx.arc(r, r, r, 0, Math.PI * 2);
+          discCtx.arc(drawR, drawR, drawR, 0, Math.PI * 2);
           discCtx.clip();
-          discCtx.drawImage(img, cx - r, cy - r, r * 2, r * 2, 0, 0, r * 2, r * 2);
+          discCtx.drawImage(img, cx - r, cy - r, r * 2, r * 2, 0, 0, drawR * 2, drawR * 2);
           discCtx.restore();
 
-          hubCanvas.width = hubR * 2;
-          hubCanvas.height = hubR * 2;
+          hubCanvas.width = drawHubR * 2;
+          hubCanvas.height = drawHubR * 2;
           hubCtx.save();
           hubCtx.beginPath();
-          hubCtx.arc(hubR, hubR, hubR, 0, Math.PI * 2);
+          hubCtx.arc(drawHubR, drawHubR, drawHubR, 0, Math.PI * 2);
           hubCtx.clip();
           hubCtx.drawImage(
             img,
@@ -306,15 +335,21 @@
             hubR * 2,
             0,
             0,
-            hubR * 2,
-            hubR * 2
+            drawHubR * 2,
+            drawHubR * 2
           );
           hubCtx.restore();
 
-          requestAnimationFrame(render);
+          drawFrame();
+          if (!reduceMotion) start();
         };
 
         img.onerror = () => {
+          imagePathIndex += 1;
+          if (imagePathIndex < imagePaths.length) {
+            img.src = imagePaths[imagePathIndex];
+            return;
+          }
           canvas.width = 1280;
           canvas.height = 720;
           ctx.fillStyle = "#0f172a";
@@ -324,26 +359,73 @@
           ctx.fillText("cd.jpg 加载失败，请确认图片路径。", canvas.width / 2, canvas.height / 2);
         };
 
-        function render(t) {
-          const delta = lastTime ? (t - lastTime) / 1000 : 0;
-          lastTime = t;
-          angle += delta * speed;
+        function shouldRun() {
+          return isVisible && isPageVisible && !reduceMotion;
+        }
 
+        function start() {
+          if (rafId || !shouldRun()) return;
+          lastTime = 0;
+          lastFrameTime = 0;
+          rafId = requestAnimationFrame(render);
+        }
+
+        function stop() {
+          if (!rafId) return;
+          cancelAnimationFrame(rafId);
+          rafId = 0;
+        }
+
+        function drawFrame() {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.drawImage(bgCanvas, 0, 0);
 
           ctx.save();
-          ctx.translate(cx, cy);
+          ctx.translate(drawCx, drawCy);
           ctx.rotate(angle);
-          ctx.drawImage(discCanvas, -r, -r);
+          ctx.drawImage(discCanvas, -drawR, -drawR);
           ctx.restore();
 
-          ctx.drawImage(hubCanvas, cx - hubR, cy - hubR);
-
-          requestAnimationFrame(render);
+          ctx.drawImage(hubCanvas, drawCx - drawHubR, drawCy - drawHubR);
         }
 
-        img.src = imagePath;
+        function render(t) {
+          rafId = 0;
+          if (!shouldRun()) return;
+          if (lastFrameTime && t - lastFrameTime < frameInterval) {
+            rafId = requestAnimationFrame(render);
+            return;
+          }
+          const delta = lastTime ? (t - lastTime) / 1000 : 0;
+          lastTime = t;
+          lastFrameTime = t;
+          angle += delta * speed;
+
+          drawFrame();
+
+          rafId = requestAnimationFrame(render);
+        }
+
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              isVisible = entries.some((entry) => entry.isIntersecting || entry.intersectionRatio > 0);
+              if (shouldRun()) start();
+              else stop();
+            },
+            { threshold: 0.01 }
+          );
+          observer.observe(canvas);
+        }
+
+        document.addEventListener("visibilitychange", () => {
+          isPageVisible = !document.hidden;
+          if (shouldRun()) start();
+          else stop();
+        });
+
+        img.decoding = "async";
+        img.src = imagePaths[imagePathIndex];
       })();
     </script>
   </body>

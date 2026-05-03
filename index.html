@@ -287,22 +287,39 @@
 
       /* ── Mobile hero & section overrides ──────────────── */
       @media (max-width: 900px) {
-        .home-cd .hero {
-          min-height: 100vh;
-          min-height: 100dvh;
-          align-items: flex-start;
-          padding-top: max(72px, 10vh);
-          padding-bottom: 88px;
-        }
         .home-cd .hero-content {
           margin-left: 0 !important;
           max-width: 100% !important;
         }
-        .home-cd .section {
-          padding: 20px 0 36px;
-        }
         .home-hero-orb-a { filter: blur(60px); }
         .home-hero-orb-b { filter: blur(55px); }
+      }
+      @media (max-width: 720px) {
+        .home-cd .hero {
+          min-height: auto !important;
+          align-items: flex-start;
+          padding-top: 20px;
+          padding-bottom: 28px;
+        }
+        .home-scroll-indicator {
+          display: none;
+        }
+        .home-cd-stage {
+          background: transparent !important;
+          border-radius: 0 !important;
+          padding: 0 !important;
+          box-shadow: none !important;
+        }
+        .home-cd-canvas {
+          border-radius: 18px;
+          filter: drop-shadow(0 12px 22px rgba(15,23,42,0.1));
+        }
+        .home-cd .section {
+          padding: 0 0 28px;
+        }
+        .home-cd-caption {
+          padding: 8px 4px 0;
+        }
       }
     </style>
   

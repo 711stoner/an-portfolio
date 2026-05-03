@@ -28,7 +28,7 @@ html, body {
 body {
   font-family: var(--font-sans, "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, -apple-system, sans-serif);
   color: var(--text);
-  background: linear-gradient(180deg, var(--bg-soft), var(--bg-ghost) 25%, var(--bg) 60%);
+  background: var(--bg-soft);
 }
 
 a {

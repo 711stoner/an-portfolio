@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#080c14" />
     <title>AI 项目 / AI Projects - 章安 / Zhang An</title>
 
     <link rel="canonical" href="https://zhanganeditor.online/ai-projects.html" />
@@ -10,14 +12,188 @@
       name="description"
       content="AI 项目展示 / AI project showcase for automation, video workflow, and personal site architecture"
     />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
     <link rel="stylesheet" href="assets/css/fonts.min.css?v=20260427h" />
     <link rel="stylesheet" href="assets/css/ai-projects.min.css?v=20260427h" />
     <script src="assets/js/analytics.min.js?v=20260427h" defer></script>
     <style>
+      /* ── Dark theme overrides ─────────────────────────── */
+      :root {
+        --d-bg: #080c14;
+        --d-bg-soft: #0d1117;
+        --d-ink: #ffffff;
+        --d-text: #b8c8dc;
+        --d-muted: #7a90a8;
+        --d-dim: #607890;
+        --d-card: rgba(255, 255, 255, 0.06);
+        --d-card-hover: rgba(255, 255, 255, 0.10);
+        --d-border: rgba(255, 255, 255, 0.12);
+        --d-border-soft: rgba(255, 255, 255, 0.08);
+        --d-blue: #6090ff;
+      }
+
       body {
-        background: linear-gradient(180deg, #e8ecf7 0%, #edf2fb 30%, #e6ebf5 100%);
+        background: var(--d-bg) !important;
+        color: var(--d-text) !important;
         overflow-x: hidden;
       }
+
+      /* Header */
+      header.border-b {
+        background: rgba(8, 12, 20, 0.85) !important;
+        border-bottom: 1px solid var(--d-border-soft) !important;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+      header h1 { color: var(--d-ink); }
+      header nav.text-slate-600 { color: var(--d-muted) !important; }
+
+      /* Back button */
+      .home-back-btn {
+        background: rgba(255, 255, 255, 0.06) !important;
+        border-color: var(--d-border) !important;
+        color: var(--d-ink) !important;
+        box-shadow: none !important;
+      }
+      .home-back-btn:hover {
+        background: rgba(96, 144, 255, 0.12) !important;
+        border-color: rgba(96, 144, 255, 0.5) !important;
+        box-shadow: 0 0 0 1px rgba(96, 144, 255, 0.2), 0 12px 28px rgba(0, 0, 0, 0.4) !important;
+      }
+
+      /* Intro card */
+      .intro-card {
+        background: var(--d-card) !important;
+        border-color: var(--d-border) !important;
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5) !important;
+      }
+      .intro-card h2 { color: var(--d-ink) !important; }
+      .intro-card p.text-slate-700 { color: var(--d-text) !important; }
+      .intro-card p.text-slate-600 { color: var(--d-muted) !important; }
+      .intro-card:hover {
+        background: var(--d-card-hover) !important;
+        border-color: rgba(96, 144, 255, 0.4) !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(96, 144, 255, 0.15) !important;
+      }
+      .intro-card:hover h2 { color: var(--d-ink) !important; }
+      .intro-card:hover p:first-of-type { color: var(--d-ink) !important; }
+      .intro-card::before {
+        background:
+          radial-gradient(circle at 14% 18%, rgba(96, 144, 255, 0.18), transparent 38%),
+          linear-gradient(135deg, rgba(96, 144, 255, 0.06), rgba(96, 144, 255, 0) 42%) !important;
+      }
+
+      /* AI cards */
+      .ai-card-surface {
+        background: var(--d-card) !important;
+        border-color: var(--d-border) !important;
+        color: var(--d-text) !important;
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45) !important;
+      }
+      .ai-card-surface:hover {
+        background: var(--d-card-hover) !important;
+        border-color: rgba(96, 144, 255, 0.4) !important;
+        box-shadow:
+          0 25px 50px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(96, 144, 255, 0.25),
+          0 0 40px rgba(96, 144, 255, 0.18) !important;
+      }
+      .ai-card-surface::before {
+        background:
+          linear-gradient(135deg, rgba(96, 144, 255, 0.10), rgba(96, 144, 255, 0) 42%),
+          radial-gradient(circle at 16% 18%, rgba(96, 144, 255, 0.14), transparent 32%) !important;
+      }
+      .ai-card-surface::after {
+        background: radial-gradient(circle, rgba(96, 144, 255, 0.20), transparent 70%) !important;
+      }
+      .ai-card-surface picture,
+      .ai-card-surface .bg-white\\/60 {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid var(--d-border-soft);
+      }
+      .ai-card-surface h3,
+      .ai-card-surface h3 .block:first-child {
+        color: var(--d-ink) !important;
+      }
+      .ai-card-surface .bg-slate-50 {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid var(--d-border-soft);
+      }
+
+      /* Tailwind text color overrides (within main content) */
+      main .text-slate-700,
+      template .text-slate-700,
+      #modal .text-slate-700 { color: var(--d-text) !important; }
+      main .text-slate-600,
+      template .text-slate-600,
+      #modal .text-slate-600 { color: var(--d-muted) !important; }
+      main .text-slate-500,
+      template .text-slate-500,
+      #modal .text-slate-500 { color: var(--d-dim) !important; }
+      body.text-slate-800 { color: var(--d-text) !important; }
+
+      /* Card highlight bar */
+      .ai-card-surface .card-highlight {
+        background: linear-gradient(90deg, transparent, rgba(96, 144, 255, 0.7), transparent) !important;
+      }
+
+      /* Modal */
+      #modal { background: rgba(0, 0, 0, 0.85) !important; }
+      #modal > div.bg-white {
+        background: var(--d-bg-soft) !important;
+        color: var(--d-text);
+      }
+      #modal .border-slate-200 { border-color: var(--d-border-soft) !important; }
+      #modal #modal-title { color: var(--d-ink) !important; }
+      #modal #modal-desc { color: var(--d-text) !important; }
+      #modal #modal-stack { color: var(--d-dim) !important; }
+      #modal-close {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: var(--d-border) !important;
+        color: var(--d-text) !important;
+      }
+      #modal-close:hover {
+        background: rgba(96, 144, 255, 0.14) !important;
+        border-color: rgba(96, 144, 255, 0.5) !important;
+        color: var(--d-ink) !important;
+      }
+      #modal .bg-slate-50 {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid var(--d-border-soft);
+      }
+      #modal .bg-slate-200,
+      #modal .h-px.bg-slate-200 { background: var(--d-border-soft) !important; }
+      #modal h4 { color: var(--d-ink) !important; }
+      #modal .bg-white {
+        background: rgba(255, 255, 255, 0.04) !important;
+      }
+      #modal .border-slate-200.bg-white {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border-color: var(--d-border-soft) !important;
+      }
+
+      /* Mobile dark adjustments */
+      @media (max-width: 640px) {
+        .ai-card-surface {
+          border-color: var(--d-border) !important;
+          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5) !important;
+        }
+        .ai-card-surface picture {
+          background: rgba(255, 255, 255, 0.04) !important;
+          border-color: var(--d-border-soft) !important;
+        }
+        .ai-card-surface .bg-slate-50 {
+          background: rgba(255, 255, 255, 0.04) !important;
+          border-color: var(--d-border-soft) !important;
+        }
+      }
+
+      /* ── Original styles (unmodified base layout) ─────── */
       .intro-card {
         position: relative;
         overflow: hidden;

@@ -3,10 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#080c14" />
     <title>联系方式 / Contact - 章安 / Zhang An</title>
 
     <link rel="canonical" href="https://zhanganeditor.online/contact.html" />
 <meta name="description" content="联系方式与社交入口 / Contact and social links" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
     <link rel="stylesheet" href="assets/css/fonts.min.css?v=20260427h" />
     <link rel="stylesheet" href="assets/css/style.min.css?v=20260503c" />
     <script src="assets/js/analytics.min.js?v=20260427h" defer></script>
@@ -17,21 +25,107 @@
         gap: 18px;
         margin-top: 18px;
       }
+
+      /* 联系卡片 */
+      #contact-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+        transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      #contact-card:hover {
+        background: rgba(255, 255, 255, 0.10);
+        border-color: rgba(96, 144, 255, 0.4);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6), 0 0 40px rgba(96, 144, 255, 0.15);
+      }
+      #contact-card h3 {
+        margin: 0 0 16px;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .pulse-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: #6090ff;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        box-shadow: 0 0 12px rgba(96, 144, 255, 0.6);
+      }
+
+      /* 联系条目 */
+      .contact-line {
+        padding: 12px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        color: #b8c8dc;
+        border-radius: 12px;
+        transition: all 200ms ease;
+        cursor: pointer;
+      }
+      .contact-line:hover {
+        background: rgba(96, 144, 255, 0.10);
+        border-color: rgba(96, 144, 255, 0.4);
+        color: #ffffff;
+        transform: translateX(4px);
+      }
+
+      /* 服务简介卡片 */
+      #service-intro {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-radius: 18px;
+        padding: 32px;
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+        transition: all 300ms ease;
+        overflow: hidden;
+      }
+      #service-intro p {
+        line-height: 1.8;
+      }
+      #service-intro p:first-child {
+        color: #b8c8dc;
+        margin: 0 0 20px;
+      }
+      #service-intro p:last-child {
+        color: #7a90a8;
+        margin: 0;
+      }
+
+      /* 社交按钮 */
       .social-link {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
-        color: #0f172a;
+        width: 44px;
+        height: 44px;
+        color: #b8c8dc;
         border-radius: 999px;
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        transition: transform 180ms ease, box-shadow 180ms ease;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        transition: all 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
       }
       .social-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        transform: translateY(-3px) scale(1.08);
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.10);
+        border-color: rgba(96, 144, 255, 0.45);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 24px rgba(96, 144, 255, 0.25);
+      }
+      .social-link.tiktok:hover {
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 255, 255, 0.18);
+      }
+      .social-link.youtube:hover {
+        border-color: rgba(239, 68, 68, 0.6);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 24px rgba(239, 68, 68, 0.35);
       }
       .social-link svg {
         width: 24px;
@@ -39,7 +133,7 @@
         display: block;
         fill: currentColor;
       }
-       
+
       @keyframes pulse {
         0%, 100% {
           opacity: 1;
@@ -57,7 +151,7 @@
       <div class="container nav-inner">
         <div>
           <strong>联系 / About</strong>
-          <div style="font-size: 12px; color: #6b7280;">Contact / 联系方式</div>
+          <div style="font-size: 12px; color: #7a90a8;">Contact / 联系方式</div>
         </div>
                         <nav class="nav-links">
           <a href="index.html">首页 / Home</a>
@@ -77,44 +171,24 @@
             </div>
           </div>
           <div class="contact-grid reveal">
-            <div id="contact-card" 
-                 class="contact-card" 
-                 style="border: 1px solid #e5e7eb; background: #ffffff; border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px rgba(15,23,42,0.06); cursor: pointer; transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1); position: relative; overflow: hidden;">
-              
-              <h3 style="margin: 0 0 12px; color: #0f172a; display: flex; align-items: center; gap: 10px;">
-                <span style="display: inline-block; width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; animation: pulse 2s infinite;"></span>
+            <div id="contact-card" class="contact-card">
+              <h3>
+                <span class="pulse-dot"></span>
                 联系方式 / Contact
               </h3>
               <div class="contact-lines" style="display: grid; gap: 10px;">
-                <div style="padding: 10px 12px; border: 1px solid #e2e8f0; background: #ffffff; border-radius: 12px; transition: all 200ms ease; cursor: pointer;"
-                     onmouseenter="this.style.background='#eff6ff'; this.style.borderColor='#3b82f6'; this.style.transform='translateX(4px)';"
-                     onmouseleave="this.style.background='#ffffff'; this.style.borderColor='#e2e8f0'; this.style.transform='translateX(0)';">
-                  📧 邮件 / Email: juejiangfm@gmail.com
-                </div>
-                <div style="padding: 10px 12px; border: 1px solid #e2e8f0; background: #ffffff; border-radius: 12px; transition: all 200ms ease; cursor: pointer;"
-                     onmouseenter="this.style.background='#eff6ff'; this.style.borderColor='#3b82f6'; this.style.transform='translateX(4px)';"
-                     onmouseleave="this.style.background='#ffffff'; this.style.borderColor='#e2e8f0'; this.style.transform='translateX(0)';">
-                  💬 Line / WhatsApp: wuhu2026
-                </div>
-                <div style="padding: 10px 12px; border: 1px solid #e2e8f0; background: #ffffff; border-radius: 12px; transition: all 200ms ease; cursor: pointer;"
-                     onmouseenter="this.style.background='#eff6ff'; this.style.borderColor='#3b82f6'; this.style.transform='translateX(4px)';"
-                     onmouseleave="this.style.background='#ffffff'; this.style.borderColor='#e2e8f0'; this.style.transform='translateX(0)';">
-                  👥 微信 / WeChat: thesawen
-                </div>
+                <div class="contact-line">📧 邮件 / Email: juejiangfm@gmail.com</div>
+                <div class="contact-line">💬 Line / WhatsApp: wuhu2026</div>
+                <div class="contact-line">👥 微信 / WeChat: thesawen</div>
               </div>
             </div>
           </div>
           
           <!-- 服务简介 -->
           <div class="reveal" style="max-width: 900px; margin: 20px auto 40px;">
-            <div id="service-intro" 
-                 style="border: 1px solid #e5e7eb; background: #ffffff; border-radius: 18px; padding: 32px; box-shadow: 0 10px 30px rgba(15,23,42,0.06); transition: all 300ms ease; overflow: hidden;">
-              <p style="line-height: 1.8; color: #374151; margin: 0 0 20px;">
-                本人与团队提供商业影像的全流程支持，涵盖品牌广告与宣传片、发布会与活动影像、纪录片与访谈内容，以及专业的剪辑与调色服务。我们提供中英双语的中长视频后期制作、节目策划咨询，以及中国大陆地区的广告与节目制片服务。从需求沟通到最终交付，三步走确保项目高效推进，为您打造优质的视觉呈现。
-              </p>
-              <p style="line-height: 1.8; color: #6b7280; margin: 0;">
-                We provide full-process support for commercial films, including brand commercials, event coverage, documentaries, and professional post-production services. Our team offers bilingual (Chinese & English) mid-to-long form video production, program planning consultation, and production services in Mainland China. From briefing to delivery, our three-step workflow ensures efficient project execution and quality visual output.
-              </p>
+            <div id="service-intro">
+              <p>本人与团队提供商业影像的全流程支持，涵盖品牌广告与宣传片、发布会与活动影像、纪录片与访谈内容，以及专业的剪辑与调色服务。我们提供中英双语的中长视频后期制作、节目策划咨询，以及中国大陆地区的广告与节目制片服务。从需求沟通到最终交付，三步走确保项目高效推进，为您打造优质的视觉呈现。</p>
+              <p>We provide full-process support for commercial films, including brand commercials, event coverage, documentaries, and professional post-production services. Our team offers bilingual (Chinese & English) mid-to-long form video production, program planning consultation, and production services in Mainland China. From briefing to delivery, our three-step workflow ensures efficient project execution and quality visual output.</p>
             </div>
           </div>
         </div>
@@ -122,18 +196,12 @@
       <section class="section" style="padding-top: 0; padding-bottom: 20px;">
         <div class="container">
           <div class="social-strip" aria-label="Social media" style="justify-content: center;">
-            <a class="social-link" href="https://www.tiktok.com/@711stoner" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
-               style="transition: all 250ms cubic-bezier(0.34, 1.56, 0.64, 1);"
-               onmouseenter="this.style.transform='translateY(-4px) scale(1.1)'; this.style.boxShadow='0 12px 28px rgba(0,0,0,0.3)'; this.style.borderColor='#000000'; this.style.background='#f3f4f6';"
-               onmouseleave="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 24px rgba(15, 23, 42, 0.08)'; this.style.borderColor='#e2e8f0'; this.style.background='#ffffff';">
+            <a class="social-link tiktok" href="https://www.tiktok.com/@711stoner" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14.6 2c.2 1.7 1.2 3.2 2.8 4.1 1 .5 2 .8 3.2.8V10c-1.4 0-2.8-.3-4-.9v6.6a6.2 6.2 0 1 1-6.2-6.2c.3 0 .6 0 .9.1v3.3a3 3 0 1 0 2.1 2.8V2h3.2z"/>
               </svg>
             </a>
-            <a class="social-link" href="https://www.youtube.com/@woyongyuangesongaiqing" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
-               style="transition: all 250ms cubic-bezier(0.34, 1.56, 0.64, 1);"
-               onmouseenter="this.style.transform='translateY(-4px) scale(1.1)'; this.style.boxShadow='0 12px 28px rgba(239,68,68,0.3)'; this.style.borderColor='#ef4444'; this.style.background='#fee2e2';"
-               onmouseleave="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 24px rgba(15, 23, 42, 0.08)'; this.style.borderColor='#e2e8f0'; this.style.background='#ffffff';">
+            <a class="social-link youtube" href="https://www.youtube.com/@woyongyuangesongaiqing" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2A30 30 0 0 0 2 12a30 30 0 0 0 .4 4.8 2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2A30 30 0 0 0 22 12a30 30 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"/>
               </svg>

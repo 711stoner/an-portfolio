@@ -185,8 +185,9 @@ img {
 
 .nav-links {
   display: flex;
-  gap: 18px;
-  font-size: 14px;
+  gap: 32px;
+  font-size: 15px;
+  letter-spacing: 0.01em;
   color: var(--muted);
 }
 

@@ -38,8 +38,8 @@ window.WORKS = [
     "platform": "bilibili",
     "embed": "https://player.bilibili.com/player.html?isOutside=true&aid=562788453&bvid=BV1Tv4y1U79v&cid=943403902&p=1",
     "link": "https://www.bilibili.com/video/BV1Tv4y1U79v",
-    "cover": "assets/img/bu1.png",
-    "cover_webp": "assets/img/bu1.webp",
+    "cover": "assets/img/doc-bookstore-1.png",
+    "cover_webp": "assets/img/doc-bookstore-1.webp",
     "credits": [
       "导演 / Director",
       "摄影 / DP",
@@ -281,7 +281,7 @@ window.WORKS = [
     "embed_ratio": "452 / 283",
     "link": "https://music.163.com/mv/?id=14597578&userid=292743521",
     "cover": "assets/img/machine-mv-1.png",
-    "cover_size": "90% auto",
+    "cover_size": "95% auto",
     "hide_credits_process": true,
     "credits": [],
     "process": [],
@@ -308,7 +308,7 @@ window.WORKS = [
     "link": "https://www.bilibili.com/video/BV1jbWZekEbG",
     "cover": "assets/img/tianwang-mv-cover.jpg",
     "cover_webp": "assets/img/tianwang-mv-cover.webp",
-    "cover_size": "90% auto",
+    "cover_size": "95% auto",
     "hide_credits_process": true,
     "credits": [],
     "process": [],
@@ -337,7 +337,7 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/lixue5-1400.jpg",
     "cover_webp": "assets/img/lixue5-1400.webp",
-    "cover_size": "80% auto",
+    "cover_size": "95% auto",
     "credits": [
       "文案 / 拍摄 / 剪辑"
     ],
@@ -378,7 +378,7 @@ window.WORKS = [
     "media_webp": "assets/img/qiche2.webp",
     "cover": "assets/img/qiche2.jpg",
     "cover_webp": "assets/img/qiche2.webp",
-    "cover_size": "80% auto",
+    "cover_size": "auto 90%",
     "credits": [
       "后期剪辑和调色"
     ],
@@ -415,7 +415,7 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13640128?from=webShare&channel=copyLink&token=cQ2M23IUYEg1vhKDq4v9IGQ",
     "cover": "assets/img/xuebi3.JPG",
     "cover_webp": "assets/img/xuebi3.webp",
-    "cover_size": "80% auto",
+    "cover_size": "95% auto",
     "credits": [
       "后期剪辑"
     ],
@@ -452,7 +452,7 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13670921",
     "cover": "assets/img/gao4.png",
     "cover_webp": "assets/img/gao4.webp",
-    "cover_size": "80% auto",
+    "cover_size": "95% auto",
     "credits": [
       "故事脚本策划和后期剪辑"
     ],
@@ -489,7 +489,7 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/tu14-1400.jpg",
     "cover_webp": "assets/img/tu14-1400.webp",
-    "cover_size": "80% auto",
+    "cover_size": "95% auto",
     "credits": [
       "文案 / 拍摄 / 剪辑"
     ],
@@ -527,7 +527,7 @@ window.WORKS = [
     "link": "",
     "cover": "assets/img/yezishuo-1.jpg",
     "cover_webp": "assets/img/yezishuo-1.webp",
-    "cover_size": "80% auto",
+    "cover_size": "95% auto",
     "credits": [
       "短视频项目制作 / Short-video Project Production"
     ],
@@ -563,7 +563,7 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13670922",
     "cover": "assets/img/you1.png",
     "cover_webp": "assets/img/you1.webp",
-    "cover_size": "80% auto",
+    "cover_size": "95% auto",
     "credits": [
       "待补充"
     ],
@@ -582,12 +582,12 @@ window.WORKS = [
     "title_en": "",
     "detail_title_en": "Cultural Tourism Light Festival Performance",
     "role_zh": "",
-    "role_en": "Brand Promotion",
-    "year": "2026",
+    "role_en": "Cultural Performance",
+    "year": "2025",
     "category": "Commercial",
-    "one_line_zh": "内容待补充。",
+    "one_line_zh": "2025年国庆期间上海光影艺术节项目，于静安公园呈现「家园」光影装置艺术表演，参与装置落地执行与现场影像记录。",
     "one_line_en": "",
-    "summary_zh": "内容待补充。",
+    "summary_zh": "2025年国庆期间上海光影艺术节项目，于静安公园呈现「家园」光影装置艺术表演，参与装置落地执行与现场影像记录。",
     "summary_en": "",
     "modal_full": true,
     "platform": "新片场",
@@ -597,9 +597,15 @@ window.WORKS = [
     "link": "https://www.xinpianchang.com/a13674270?from=webShare&channel=copyLink&token=3BNdoKeHrbv4ugU1D4zIZqR",
     "cover": "assets/img/guang1.png",
     "cover_webp": "assets/img/guang1.png",
-    "cover_size": "80% auto",
-    "credits": ["待补充"],
-    "process": ["待补充"],
+    "cover_size": "95% auto",
+    "credits": [
+      "部分装置现场搭建与落地执行",
+      "现场表演影像记录与素材拍摄"
+    ],
+    "process": [
+      "配合团队完成装置现场搭建",
+      "表演期间负责影像记录与素材采集"
+    ],
     "tools": ["待补充"],
     "stills": []
   }

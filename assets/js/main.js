@@ -292,6 +292,26 @@
     `;
   }
 
+  function init3DTilt(card) {
+    const MAX = 7;
+    let raf = null;
+    card.addEventListener("mousemove", (e) => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transition = "box-shadow 280ms, border-color 260ms, background 260ms";
+        card.style.transform = `perspective(900px) rotateX(${-y * MAX}deg) rotateY(${x * MAX}deg) translateY(-10px) scale(1.018)`;
+      });
+    });
+    card.addEventListener("mouseleave", () => {
+      if (raf) cancelAnimationFrame(raf);
+      card.style.transition = "";
+      card.style.transform = "";
+    });
+  }
+
   function renderWorksGrid(container, list) {
     container.innerHTML = list.map(renderWorkCard).join("");
     initWorkCoverLazyLoad(container);
@@ -299,6 +319,7 @@
       card.addEventListener("click", () => {
         window.location.href = `work.html?slug=${encodeURIComponent(card.dataset.slug)}`;
       });
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) init3DTilt(card);
     });
   }
 

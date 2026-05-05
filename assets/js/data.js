@@ -357,7 +357,7 @@ window.WORKS = [
   {
     "slug": "shortvideo-blank-01",
     "sort_order": 1,
-    "title_zh": "汽车展品牌总结视频",
+    "title_zh": "【品宣】GT Show 汽车展",
     "title_en": "",
     "detail_title_en": "Tesche GT Show Brand Recap",
     "role_zh": "",
@@ -396,7 +396,7 @@ window.WORKS = [
   {
     "slug": "shortvideo-blank-02",
     "sort_order": 2,
-    "title_zh": "雪碧线下营销品宣",
+    "title_zh": "【营销】雪碧线下活动",
     "title_en": "",
     "detail_title_en": "Sprite Offline Activation Campaign",
     "role_zh": "",
@@ -573,6 +573,34 @@ window.WORKS = [
     "tools": [
       "待补充"
     ],
+    "stills": []
+  },
+  {
+    "slug": "commercial-blank-01",
+    "sort_order": 99,
+    "title_zh": "【文旅】光影节表演",
+    "title_en": "",
+    "detail_title_en": "Cultural Tourism Light Festival Performance",
+    "role_zh": "",
+    "role_en": "Brand Promotion",
+    "year": "2026",
+    "category": "Commercial",
+    "one_line_zh": "内容待补充。",
+    "one_line_en": "",
+    "summary_zh": "内容待补充。",
+    "summary_en": "",
+    "modal_full": true,
+    "platform": "新片场",
+    "link_label": "",
+    "embed": "https://player.xinpianchang.com/?aid=13674270&mid=KdRx7bZ6Wrr7b2N3",
+    "embed_ratio": "1672 / 941",
+    "link": "https://www.xinpianchang.com/a13674270?from=webShare&channel=copyLink&token=3BNdoKeHrbv4ugU1D4zIZqR",
+    "cover": "assets/img/guang1.png",
+    "cover_webp": "assets/img/guang1.png",
+    "cover_size": "80% auto",
+    "credits": ["待补充"],
+    "process": ["待补充"],
+    "tools": ["待补充"],
     "stills": []
   }
 ];

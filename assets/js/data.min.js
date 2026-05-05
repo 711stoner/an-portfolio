@@ -586,9 +586,9 @@ window.WORKS = [
     "year": "2025",
     "category": "Commercial",
     "one_line_zh": "2025年国庆期间上海光影艺术节项目，于静安公园呈现「家园」光影装置艺术表演，参与装置落地执行与现场影像记录。",
-    "one_line_en": "",
+    "one_line_en": "A Shanghai Light Art Festival project during the 2025 National Holiday, presenting the \"Home\" light installation performance at Jing'an Park — involved in on-site installation setup and live footage documentation.",
     "summary_zh": "2025年国庆期间上海光影艺术节项目，于静安公园呈现「家园」光影装置艺术表演，参与装置落地执行与现场影像记录。",
-    "summary_en": "",
+    "summary_en": "A Shanghai Light Art Festival project during the 2025 National Holiday, presenting the \"Home\" light installation performance at Jing'an Park — involved in on-site installation setup and live footage documentation.",
     "modal_full": true,
     "platform": "新片场",
     "link_label": "",
@@ -599,14 +599,14 @@ window.WORKS = [
     "cover_webp": "assets/img/guang1.png",
     "cover_size": "95% auto",
     "credits": [
-      "部分装置现场搭建与落地执行",
-      "现场表演影像记录与素材拍摄"
+      "部分装置现场搭建与落地执行 / On-site Installation Setup & Execution",
+      "现场表演影像记录与素材拍摄 / Live Performance Documentation & Footage Capture"
     ],
     "process": [
-      "配合团队完成装置现场搭建",
-      "表演期间负责影像记录与素材采集"
+      "配合团队完成装置现场搭建 / Collaborated with team on installation setup",
+      "表演期间负责影像记录与素材采集 / Handled footage documentation during performance"
     ],
-    "tools": ["待补充"],
+    "tools": ["待补充 / TBD"],
     "stills": []
   }
 ];

@@ -237,7 +237,8 @@ window.WORKS = [
     "embed": "https://player.xinpianchang.com/?aid=12901432&mid=3Yn57pvBWlL4dDAa",
     "embed_ratio": "1672 / 941",
     "link": "https://www.xinpianchang.com/a12901432?channel=copyLink&from=webShare",
-    "cover": "assets/img/mix-2.png",
+    "cover": "assets/img/fu1.png",
+    "cover_webp": "assets/img/fu1.webp",
     "credits": [
       "剪辑 / Editor"
     ],

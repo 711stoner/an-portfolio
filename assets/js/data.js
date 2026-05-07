@@ -361,7 +361,7 @@ window.WORKS = [
   },
   {
     "slug": "placeholder-01",
-    "title_zh": "商业穆桂英",
+    "title_zh": "【IP】商业穆桂英",
     "title_en": "",
     "detail_title_en": "Mu Guiying Business IP",
     "role_zh": "",
@@ -513,7 +513,7 @@ window.WORKS = [
   },
   {
     "slug": "shortvideo-placeholder-04",
-    "title_zh": "幸福凝老师",
+    "title_zh": "【IP】幸福凝老师",
     "title_en": "",
     "detail_title_en": "Xingfu Ning IP",
     "role_zh": "",
@@ -551,7 +551,7 @@ window.WORKS = [
   },
   {
     "slug": "shortvideo-placeholder-02",
-    "title_zh": "椰子说国际教育",
+    "title_zh": "【IP】椰子说国际教育",
     "title_en": "",
     "detail_title_en": "Coconut Talks: International Education",
     "role_zh": "",

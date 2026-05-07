@@ -1,28 +1,35 @@
 window.WORKS = [
   {
-    "slug": "nio-et9",
-    "title_zh": "蔚来 ET9 发布会音响测试",
+    "slug": "commercial-blank-01",
+    "title_zh": "【文旅】光影节表演",
     "title_en": "",
+    "detail_title_en": "Cultural Tourism Light Festival Performance",
     "role_zh": "",
-    "role_en": "NIO ET9 Launch Test",
-    "year": "2024",
+    "role_en": "Cultural Performance",
+    "year": "2025",
     "category": "Commercial",
-    "one_line_zh": "发布会音响测试展播剪辑，提炼关键卖点并控制节奏，适配现场大屏播放与展播时长。",
-    "one_line_en": "Launch‑event edit for the audio test, highlighting key selling points with pacing tuned for live screen display.",
-    "platform": "youtube",
-    "embed": "",
-    "link": "https://www.youtube.com/watch?v=_xHFJjDLPCY",
-    "cover": "assets/img/nio-1.png",
+    "one_line_zh": "2025年国庆期间上海光影艺术节项目，于静安公园呈现「家园」光影装置艺术表演，参与装置落地执行与现场影像记录。",
+    "one_line_en": "A Shanghai Light Art Festival project during the 2025 National Holiday, presenting the \"Home\" light installation performance at Jing'an Park — involved in on-site installation setup and live footage documentation.",
+    "summary_zh": "2025年国庆期间上海光影艺术节项目，于静安公园呈现「家园」光影装置艺术表演，参与装置落地执行与现场影像记录。",
+    "summary_en": "A Shanghai Light Art Festival project during the 2025 National Holiday, presenting the \"Home\" light installation performance at Jing'an Park — involved in on-site installation setup and live footage documentation.",
+    "modal_full": true,
+    "platform": "新片场",
+    "link_label": "",
+    "embed": "https://player.xinpianchang.com/?aid=13674270&mid=KdRx7bZ6Wrr7b2N3",
+    "embed_ratio": "1672 / 941",
+    "link": "https://www.xinpianchang.com/a13674270?from=webShare&channel=copyLink&token=3BNdoKeHrbv4ugU1D4zIZqR",
+    "cover": "assets/img/guang1.png",
+    "cover_webp": "assets/img/guang1.png",
+    "cover_size": "95% auto",
     "credits": [
-      "剪辑 / Editor"
+      "部分装置现场搭建与落地执行 / On-site Installation Setup & Execution",
+      "现场表演影像记录与素材拍摄 / Live Performance Documentation & Footage Capture"
     ],
     "process": [
-      "素材精剪 / Highlight Edit",
-      "节奏与信息结构 / Rhythm & Structure"
+      "配合团队完成装置现场搭建 / Collaborated with team on installation setup",
+      "表演期间负责影像记录与素材采集 / Handled footage documentation during performance"
     ],
-    "tools": [
-      "Premiere Pro"
-    ],
+    "tools": ["待补充 / TBD"],
     "stills": []
   },
   {
@@ -608,38 +615,32 @@ window.WORKS = [
     "stills": []
   },
   {
-    "slug": "commercial-blank-01",
+    "slug": "nio-et9",
     "sort_order": 99,
-    "title_zh": "【文旅】光影节表演",
+    "title_zh": "【TVC】蔚来ET9 音响测试",
     "title_en": "",
-    "detail_title_en": "Cultural Tourism Light Festival Performance",
     "role_zh": "",
-    "role_en": "Cultural Performance",
-    "year": "2025",
+    "role_en": "NIO ET9 Launch Test",
+    "year": "2024",
     "category": "Commercial",
-    "one_line_zh": "2025年国庆期间上海光影艺术节项目，于静安公园呈现「家园」光影装置艺术表演，参与装置落地执行与现场影像记录。",
-    "one_line_en": "A Shanghai Light Art Festival project during the 2025 National Holiday, presenting the \"Home\" light installation performance at Jing'an Park — involved in on-site installation setup and live footage documentation.",
-    "summary_zh": "2025年国庆期间上海光影艺术节项目，于静安公园呈现「家园」光影装置艺术表演，参与装置落地执行与现场影像记录。",
-    "summary_en": "A Shanghai Light Art Festival project during the 2025 National Holiday, presenting the \"Home\" light installation performance at Jing'an Park — involved in on-site installation setup and live footage documentation.",
-    "modal_full": true,
-    "platform": "新片场",
-    "link_label": "",
-    "embed": "https://player.xinpianchang.com/?aid=13674270&mid=KdRx7bZ6Wrr7b2N3",
-    "embed_ratio": "1672 / 941",
-    "link": "https://www.xinpianchang.com/a13674270?from=webShare&channel=copyLink&token=3BNdoKeHrbv4ugU1D4zIZqR",
-    "cover": "assets/img/guang1.png",
-    "cover_webp": "assets/img/guang1.png",
-    "cover_size": "95% auto",
+    "one_line_zh": "参与蔚来 ET9 新品发布会现场内容制作，负责音响系统展播片的剪辑执行（不含终混音效与调色和特效），围绕核心卖点提炼内容、编排节奏，适配舞台大屏规格与展播时长。（页面展示的为剪辑内容，非正式产品展示版）\n\n同期担任蔚来创始人自制访谈微综艺《斌哥和他的朋友们・音效工程师篇》剪辑，梳理叙事主线，平衡人物表达与品牌调性。（该节目该集因内部调整未播出）。",
+    "one_line_en": "Edited the NIO ET9 launch audio showcase reel — cut for stage screen, key selling points focused. Also edited an episode of NIO founder's interview series (unreleased).",
+    "platform": "xinpianchang",
+    "embed": "https://player.xinpianchang.com/?aid=13676130&mid=n2k9QAVkpzx718MZ",
+    "link": "https://www.youtube.com/watch?v=_xHFJjDLPCY",
+    "cover": "assets/img/che1.png",
+    "cover_webp": "assets/img/che1.webp",
     "credits": [
-      "部分装置现场搭建与落地执行 / On-site Installation Setup & Execution",
-      "现场表演影像记录与素材拍摄 / Live Performance Documentation & Footage Capture"
+      "剪辑 / Editor"
     ],
     "process": [
-      "配合团队完成装置现场搭建 / Collaborated with team on installation setup",
-      "表演期间负责影像记录与素材采集 / Handled footage documentation during performance"
+      "素材精剪 / Highlight Edit",
+      "节奏与信息结构 / Rhythm & Structure"
     ],
-    "tools": ["待补充 / TBD"],
-    "stills": []
+    "tools": [
+      "Premiere Pro"
+    ],
+    "stills": ["assets/img/nio-1.png"]
   }
 ];
 

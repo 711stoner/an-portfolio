@@ -19,7 +19,7 @@ window.WORKS = [
     "embed_ratio": "1672 / 941",
     "link": "https://www.xinpianchang.com/a13674270?from=webShare&channel=copyLink&token=3BNdoKeHrbv4ugU1D4zIZqR",
     "cover": "assets/img/guang1.png",
-    "cover_webp": "assets/img/guang1.png",
+    "cover_webp": "assets/img/guang1.webp",
     "cover_size": "95% auto",
     "credits": [
       "部分装置现场搭建与落地执行 / On-site Installation Setup & Execution",
@@ -120,7 +120,7 @@ window.WORKS = [
     "embed_ratio": "1672 / 941",
     "link": "https://www.xinpianchang.com/a13650805?from=webShare&channel=copyLink",
     "cover": "assets/img/ju.png",
-    "cover_webp": "assets/img/ju.png",
+    "cover_webp": "assets/img/ju.webp",
     "credits": [
       "剪辑 / 策划 / Editing / Planning"
     ],

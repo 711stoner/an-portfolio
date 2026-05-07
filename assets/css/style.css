@@ -815,7 +815,7 @@ img {
 .stills-grid {
   margin-top: 24px;
   display: grid;
-  gap: 16px;
+  gap: 24px;
   grid-template-columns: 1fr;
 }
 

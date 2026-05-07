@@ -31,7 +31,7 @@ window.WORKS = [
     ],
     "tools": ["待补充 / TBD"],
     "stills": [],
-    "sort_order": 100
+    "sort_order": 101
   },
   {
     "slug": "bookstore",
@@ -224,12 +224,13 @@ window.WORKS = [
   },
   {
     "slug": "mix-2023",
-    "title_zh": "【混剪】-商业广告合集",
+    "title_zh": "【混剪】商业广告合集",
     "title_en": "",
     "role_zh": "",
-    "role_en": "2023 Commercial Reel - Fuyao",
+    "role_en": "Commercial Ad Mix Reel",
     "year": "2023",
     "category": "Commercial",
+    "sort_order": 100,
     "one_line_zh": "年度商业作品混剪，汇总多项目亮点并结构化编排，形成对外展示的传播素材。",
     "one_line_en": "An annual commercial reel that curates highlights across projects into a structured showcase.",
     "platform": "xinpianchang",

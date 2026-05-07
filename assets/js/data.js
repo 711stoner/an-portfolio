@@ -233,7 +233,8 @@ window.WORKS = [
     "one_line_zh": "年度商业作品混剪，汇总多项目亮点并结构化编排，形成对外展示的传播素材。",
     "one_line_en": "An annual commercial reel that curates highlights across projects into a structured showcase.",
     "platform": "xinpianchang",
-    "embed": "",
+    "embed": "https://player.xinpianchang.com/?aid=12901432&mid=3Yn57pvBWlL4dDAa",
+    "embed_ratio": "1672 / 941",
     "link": "https://www.xinpianchang.com/a12901432?channel=copyLink&from=webShare",
     "cover": "assets/img/mix-2.png",
     "credits": [

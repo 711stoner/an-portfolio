@@ -27,6 +27,7 @@ window.WORKS = [
   },
   {
     "slug": "bookstore",
+    "sort_order": 1,
     "title_zh": "【纪实】不平凡的书店",
     "title_en": "",
     "role_zh": "",
@@ -60,6 +61,7 @@ window.WORKS = [
   },
   {
     "slug": "documentary-placeholder-01",
+    "sort_order": 2,
     "title_zh": "【视频播客】失业与营销",
     "title_en": "",
     "role_zh": "",

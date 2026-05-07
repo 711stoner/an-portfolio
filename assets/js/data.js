@@ -224,7 +224,7 @@ window.WORKS = [
   },
   {
     "slug": "mix-2023",
-    "title_zh": "2023 广告作品混剪《扶鳐》",
+    "title_zh": "【混剪】-商业广告合集",
     "title_en": "",
     "role_zh": "",
     "role_en": "2023 Commercial Reel - Fuyao",

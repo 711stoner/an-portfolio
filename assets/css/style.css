@@ -816,7 +816,7 @@ img {
   margin-top: 24px;
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .stills-grid-single {
@@ -1211,7 +1211,7 @@ img {
   .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .modal-card { grid-template-columns: 1fr; height: 80vh; width: 90vw; }
-  .stills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stills-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {

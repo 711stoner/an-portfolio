@@ -30,7 +30,8 @@ window.WORKS = [
       "表演期间负责影像记录与素材采集 / Handled footage documentation during performance"
     ],
     "tools": ["待补充 / TBD"],
-    "stills": []
+    "stills": [],
+    "sort_order": 100
   },
   {
     "slug": "bookstore",
@@ -140,7 +141,6 @@ window.WORKS = [
   },
   {
     "slug": "documentary-placeholder-03",
-    "draft": true,
     "title_zh": "【长视频播客】完美创始人",
     "title_en": "",
     "role_zh": "",

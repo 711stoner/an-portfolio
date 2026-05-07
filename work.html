@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
     <link rel="shortcut icon" href="assets/img/favicon.ico" />
     <link rel="stylesheet" href="assets/css/fonts.min.css?v=20260427h" />
-    <link rel="stylesheet" href="assets/css/style.min.css?v=20260503c" />
+    <link rel="stylesheet" href="assets/css/style.min.css?v=20260507b" />
     <style>
       .detail-page .work-cover.media-frame {
         min-height: 0 !important;
@@ -65,10 +65,19 @@
         min-height: 0;
         padding: 24px;
       }
+      .detail-page .stills-grid-single .still-card {
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+        padding: 0;
+        width: 75%;
+        margin: 0 auto;
+      }
       .detail-page .stills-grid-single .still-card img {
-        width: auto;
-        max-width: min(100%, 520px);
-        max-height: 78vh;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: none;
+        object-fit: contain;
       }
       .detail-page .detail-page-hero-grid {
         gap: 24px;
@@ -328,10 +337,13 @@
         .detail-page .detail-media-picture {
           padding: 16px;
         }
-        .detail-page .detail-media-img,
-        .detail-page .stills-grid-single .still-card img {
+        .detail-page .detail-media-img {
           max-width: min(100%, 420px);
           max-height: 70vh;
+        }
+        .detail-page .stills-grid-single .still-card img {
+          max-width: 100%;
+          max-height: none;
         }
       }
     </style>
@@ -437,6 +449,6 @@
 
     <script src="assets/js/data.min.js?v=20260507a"></script>
     <script src="assets/js/main.min.js?v=20260503a"></script>
-    <script src="assets/js/detail.min.js?v=20260503a"></script>
+    <script src="assets/js/detail.min.js?v=20260507b"></script>
 </body>
 </html>

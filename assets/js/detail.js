@@ -100,13 +100,16 @@
   if (stillsWrap) {
     stillsWrap.classList.toggle("stills-large", work.slug === "bookstore");
     const stills = work.stills && work.stills.length ? work.stills : [];
+    stillsWrap.classList.toggle("stills-grid-single", stills.length === 1);
     if (stills.length) {
+        const isSingle = stills.length === 1;
         stillsWrap.innerHTML = stills
           .map((src, idx) => {
             src = normalizeAssetPath(src);
             const webp = toWebp(src);
             const source = webp && webp !== src ? `<source srcset="${webp}" type="image/webp" />` : "";
-            return `<div class="still-card"><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="lazy" fetchpriority="low" decoding="async" /></picture></div>`;
+            const imgStyle = isSingle ? ' style="width:100%;height:auto;"' : "";
+            return `<div class="still-card"${isSingle ? ' style="min-height:0;"' : ""}><picture>${source}<img alt="still ${idx + 1}" src="${src}" loading="lazy" fetchpriority="low" decoding="async"${imgStyle} /></picture></div>`;
           })
           .join("");
       }

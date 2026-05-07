@@ -132,6 +132,36 @@ window.WORKS = [
     ]
   },
   {
+    "slug": "documentary-placeholder-03",
+    "sort_order": 3,
+    "title_zh": "【长视频播客】完美创始人",
+    "title_en": "Perfect Founder",
+    "role_zh": "",
+    "role_en": "信息资料上线中 / Coming Soon",
+    "year": "2026",
+    "category": "Documentary",
+    "one_line_zh": "信息资料上线中",
+    "one_line_en": "Information coming soon.",
+    "summary_zh": "信息资料上线中",
+    "summary_en": "Information coming soon.",
+    "modal_full": true,
+    "platform": "信息资料上线中",
+    "embed": "",
+    "link": "",
+    "cover": "assets/img/wan1.png",
+    "cover_webp": "assets/img/wan1.png",
+    "credits": [
+      "信息资料上线中 / Coming Soon"
+    ],
+    "process": [
+      "信息资料上线中 / Coming Soon"
+    ],
+    "tools": [
+      "信息资料上线中"
+    ],
+    "stills": []
+  },
+  {
     "slug": "color-reel",
     "title_zh": "商业调色作品",
     "title_en": "",

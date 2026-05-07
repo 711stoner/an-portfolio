@@ -134,12 +134,11 @@ window.WORKS = [
   {
     "slug": "documentary-placeholder-03",
     "draft": true,
-    "sort_order": 3,
     "title_zh": "【长视频播客】完美创始人",
     "title_en": "Perfect Founder",
     "role_zh": "",
     "role_en": "信息资料上线中 / Coming Soon",
-    "year": "2026",
+    "year": "2025",
     "category": "Documentary",
     "one_line_zh": "信息资料上线中",
     "one_line_en": "Information coming soon.",
@@ -150,7 +149,7 @@ window.WORKS = [
     "embed": "",
     "link": "",
     "cover": "assets/img/wan1.png",
-    "cover_webp": "assets/img/wan1.png",
+    "cover_webp": "assets/img/wan1.webp",
     "credits": [
       "信息资料上线中 / Coming Soon"
     ],

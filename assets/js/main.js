@@ -373,10 +373,13 @@
     });
   }
 
+  const isLocalhost = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+
   function applyFilters() {
     const grid = qs("[data-grid='works']");
     if (!grid) return;
     let list = works.slice();
+    if (!isLocalhost) list = list.filter((w) => !w.draft);
     if (selectedCategory !== "All") {
       list = list.filter((w) => w.category === selectedCategory);
     }

@@ -166,7 +166,10 @@ window.WORKS = [
     "tools": [
       "信息资料上线中"
     ],
-    "stills": []
+    "stills": [
+      "assets/img/wanmei1.png",
+      "assets/img/wanmei2.png"
+    ]
   },
   {
     "slug": "color-reel",

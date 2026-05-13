@@ -168,7 +168,8 @@ window.WORKS = [
     ],
     "stills": [
       "assets/img/wanmei1.png",
-      "assets/img/wanmei2.png"
+      "assets/img/wanmei2.png",
+      "assets/img/wanmei3.png"
     ]
   },
   {

@@ -141,6 +141,7 @@ window.WORKS = [
   },
   {
     "slug": "documentary-placeholder-03",
+    "sort_order": 3,
     "title_zh": "【长视频播客】完美创始人",
     "title_en": "",
     "role_zh": "",

@@ -148,10 +148,10 @@ window.WORKS = [
     "role_en": "Long-form Video Podcast: Perfect Founder",
     "year": "2025",
     "category": "Documentary",
-    "one_line_zh": "",
-    "one_line_en": "",
-    "summary_zh": "信息资料上线中",
-    "summary_en": "Information coming soon.",
+    "one_line_zh": "财经访谈视频播客第二期后期制作，2 小时 15 分钟多机位素材剪辑至约 67 分钟成片，覆盖剪辑脚本策划、粗精剪、字幕及包装全流程。",
+    "one_line_en": "Full post-production for a long-form finance interview podcast — restructured 2h 15m of multi-camera footage into a 67-minute final cut, covering script planning, editing, subtitles, and packaging.",
+    "summary_zh": "为财经访谈节目第二期完成长访谈视频播客后期制作。收到约 2 小时 15 分钟原始素材后，先完成完整转录与逻辑梳理，输出带时间码的精细剪辑脚本，再进入多机位粗剪与精剪。整体节奏围绕叙事弧展开，最终成片约 67 分钟，保留节目情感高点与核心信息密度，同期完成字幕制作与包装设计输出交付。",
+    "summary_en": "Handled full post-production for episode 2 of a long-form finance interview podcast. Starting from approximately 2h 15m of raw footage, produced a detailed timecoded edit script after full transcription and narrative structuring, then proceeded through multi-camera rough and fine cut. The final 67-minute cut was shaped around a narrative arc that preserved emotional peaks and core information density, with subtitle production and packaging completed for delivery.",
     "modal_full": true,
     "platform": "信息资料上线中",
     "embed": "",
@@ -159,13 +159,19 @@ window.WORKS = [
     "cover": "assets/img/wan1.png",
     "cover_webp": "assets/img/wan1.webp",
     "credits": [
-      "信息资料上线中 / Coming Soon"
+      "剪辑脚本策划 / Script Planning & Edit",
+      "多机位剪辑 / Multi-camera Editing",
+      "字幕制作 / Subtitles",
+      "包装设计与输出 / Packaging & Delivery"
     ],
     "process": [
-      "信息资料上线中 / Coming Soon"
+      "转录与逻辑梳理 / Transcription & Narrative Structuring",
+      "多机位粗剪与精剪 / Multi-camera Rough & Fine Cut",
+      "字幕制作与时间码校对 / Subtitle Production & Timecode Review",
+      "包装设计与输出交付 / Packaging & Final Delivery"
     ],
     "tools": [
-      "信息资料上线中"
+      "Premiere Pro"
     ],
     "stills": [
       "assets/img/wanmei1.png",

@@ -69,7 +69,7 @@ window.WORKS = [
   },
   {
     "slug": "documentary-placeholder-01",
-    "sort_order": 2,
+    "sort_order": 3,
     "title_zh": "【视频播客】失业与营销",
     "title_en": "",
     "role_zh": "",
@@ -141,7 +141,7 @@ window.WORKS = [
   },
   {
     "slug": "documentary-placeholder-03",
-    "sort_order": 3,
+    "sort_order": 2,
     "title_zh": "【长视频播客】完美创始人",
     "title_en": "",
     "role_zh": "",

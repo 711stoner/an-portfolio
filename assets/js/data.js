@@ -153,9 +153,10 @@ window.WORKS = [
     "summary_zh": "为财经访谈节目第二期完成长访谈视频播客后期制作。收到约 2 小时 15 分钟原始素材后，先完成完整转录与逻辑梳理，输出带时间码的精细剪辑脚本，再进入多机位粗剪与精剪。整体节奏围绕叙事弧展开，最终成片约 67 分钟，保留节目情感高点与核心信息密度，同期完成字幕制作与包装设计输出交付。",
     "summary_en": "Handled full post-production for episode 2 of a long-form finance interview podcast. Starting from approximately 2h 15m of raw footage, produced a detailed timecoded edit script after full transcription and narrative structuring, then proceeded through multi-camera rough and fine cut. The final 67-minute cut was shaped around a narrative arc that preserved emotional peaks and core information density, with subtitle production and packaging completed for delivery.",
     "modal_full": true,
-    "platform": "信息资料上线中",
-    "embed": "",
-    "link": "",
+    "platform": "新片场",
+    "embed": "https://player.xinpianchang.com/?aid=13685338&mid=GmOEQG2My06418bn",
+    "embed_ratio": "1672 / 941",
+    "link": "https://www.xinpianchang.com/a13685338?from=webShare&channel=copyLink",
     "cover": "assets/img/wan1.png",
     "cover_webp": "assets/img/wan1.webp",
     "credits": [

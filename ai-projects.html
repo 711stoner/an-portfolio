@@ -649,6 +649,483 @@
         padding-top: 14px;
         border-top: 1px solid rgba(255, 255, 255, 0.07);
       }
+
+      /* ── 全屏滑动布局 ────────────────────────────── */
+      header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 100 !important;
+      }
+
+      /* 流动光晕动画背景 */
+      #aurora-bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        background: #050607;
+        pointer-events: none;
+      }
+
+      .aurora-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        will-change: transform;
+      }
+
+      .aurora-blob.b1 {
+        width: 720px;
+        height: 720px;
+        background: rgba(96, 144, 255, 0.85);
+        top: -8%;
+        left: -6%;
+        animation: auroraFloat1 22s ease-in-out infinite;
+      }
+
+      .aurora-blob.b2 {
+        width: 600px;
+        height: 600px;
+        background: rgba(150, 90, 255, 0.8);
+        top: 38%;
+        right: -8%;
+        animation: auroraFloat2 27s ease-in-out infinite;
+      }
+
+      .aurora-blob.b3 {
+        width: 560px;
+        height: 560px;
+        background: rgba(60, 200, 255, 0.7);
+        bottom: -10%;
+        left: 18%;
+        animation: auroraFloat3 32s ease-in-out infinite;
+      }
+
+      .aurora-blob.b4 {
+        width: 500px;
+        height: 500px;
+        background: rgba(255, 110, 180, 0.55);
+        top: 12%;
+        left: 42%;
+        animation: auroraFloat4 25s ease-in-out infinite;
+      }
+
+      @keyframes auroraFloat1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(180px, 120px) scale(1.2); }
+        66% { transform: translate(80px, 260px) scale(0.9); }
+      }
+
+      @keyframes auroraFloat2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(-160px, 100px) scale(0.85); }
+        66% { transform: translate(-90px, -140px) scale(1.25); }
+      }
+
+      @keyframes auroraFloat3 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(220px, -160px) scale(1.15); }
+      }
+
+      @keyframes auroraFloat4 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        40% { transform: translate(-200px, 180px) scale(1.1); }
+        70% { transform: translate(140px, -100px) scale(0.8); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .aurora-blob { animation: none !important; }
+      }
+
+      body {
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      #slides-container {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 100vh !important;
+        width: 100% !important;
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+        scroll-snap-type: y mandatory !important;
+        scroll-behavior: smooth !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 1 !important;
+      }
+
+      #slides-container::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      #slides-container::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      #slides-container::-webkit-scrollbar-thumb {
+        background: rgba(96, 144, 255, 0.3);
+        border-radius: 4px;
+      }
+
+      #slides-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(96, 144, 255, 0.5);
+      }
+
+      .slide {
+        position: relative !important;
+        height: 100vh !important;
+        width: 100% !important;
+        scroll-snap-align: start !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(5, 6, 7, 0.35) !important;
+        overflow: hidden !important;
+        padding-top: 72px !important;
+        flex-shrink: 0 !important;
+      }
+
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        background-size: 145px 145px;
+        opacity: 0.45;
+        z-index: 0;
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.3)),
+                    linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.35));
+        z-index: 1;
+      }
+
+      .slide-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 60px 80px;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 80px;
+      }
+
+      .slide-text {
+        flex: 0 0 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .slide-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(96, 144, 255, 0.3);
+        border-radius: 999px;
+        color: rgba(96, 144, 255, 0.8);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        width: fit-content;
+      }
+
+      .slide-title {
+        font-size: 42px;
+        font-weight: 200;
+        line-height: 1.2;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      .slide-title span {
+        display: block;
+        font-size: 18px;
+        font-weight: 400;
+        color: rgba(184, 200, 220, 0.6);
+        margin-top: 8px;
+      }
+
+      .slide-desc {
+        font-size: 16px;
+        line-height: 1.7;
+        color: rgba(184, 200, 220, 0.8);
+        margin: 0;
+      }
+
+      .slide-stack {
+        font-size: 13px;
+        color: rgba(96, 144, 255, 0.6);
+        letter-spacing: 0.5px;
+      }
+
+      .slide-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background: rgba(96, 144, 255, 0.12);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(96, 144, 255, 0.4);
+        border-radius: 999px;
+        color: rgba(96, 144, 255, 0.95);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 300ms ease;
+        width: fit-content;
+      }
+
+      .slide-cta:hover {
+        background: rgba(96, 144, 255, 0.2);
+        border-color: rgba(96, 144, 255, 0.6);
+        color: #ffffff;
+      }
+
+      .slide-image-wrap {
+        flex: 0 0 45%;
+        height: 480px;
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(32px);
+        -webkit-backdrop-filter: blur(32px);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slide-image-wrap::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 50%);
+        border-radius: inherit;
+        pointer-events: none;
+      }
+
+      .slide-image-wrap img {
+        position: relative;
+        z-index: 2;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      /* 右侧导航点 */
+      #slide-nav {
+        position: fixed;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(96, 144, 255, 0.3);
+        border: none;
+        cursor: pointer;
+        transition: all 300ms ease;
+      }
+
+      .dot:hover {
+        background: rgba(96, 144, 255, 0.6);
+      }
+
+      .dot.active {
+        background: rgba(96, 144, 255, 0.95);
+        transform: scale(1.3);
+      }
+
+      /* 介绍页 slide */
+      .slide-intro-content {
+        position: relative;
+        z-index: 10;
+        max-width: 720px;
+        padding: 60px 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .slide-intro .slide-badge {
+        margin: 0 auto;
+        letter-spacing: 1.5px;
+      }
+
+      .slide-intro-title {
+        font-size: 64px;
+        font-weight: 200;
+        line-height: 1.1;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      .slide-intro-title span {
+        display: block;
+        font-size: 24px;
+        font-weight: 400;
+        color: rgba(184, 200, 220, 0.55);
+        margin-top: 10px;
+      }
+
+      .slide-intro-body {
+        font-size: 17px;
+        line-height: 2;
+        color: rgba(184, 200, 220, 0.78);
+        margin: 0;
+      }
+
+      .slide-intro-closing {
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.4);
+        margin: 0;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .slide-scroll-hint {
+        margin-top: 16px;
+        font-size: 13px;
+        color: rgba(96, 144, 255, 0.7);
+        letter-spacing: 1px;
+        animation: scrollHintBounce 2s ease-in-out infinite;
+      }
+
+      @keyframes scrollHintBounce {
+        0%, 100% { transform: translateY(0); opacity: 0.7; }
+        50% { transform: translateY(6px); opacity: 1; }
+      }
+
+      @media (max-width: 640px) {
+        .slide-intro-content {
+          padding: 40px 24px;
+          gap: 18px;
+        }
+
+        .slide-intro-title {
+          font-size: 40px;
+        }
+
+        .slide-intro-title span {
+          font-size: 18px;
+        }
+
+        .slide-intro-body {
+          font-size: 15px;
+          line-height: 1.85;
+        }
+      }
+
+      /* 隐藏原有网格布局和介绍卡片 */
+      main {
+        display: none !important;
+      }
+
+      @media (max-width: 1024px) {
+        .slide-content {
+          flex-direction: column;
+          padding: 60px 40px;
+          gap: 40px;
+          align-items: stretch;
+        }
+
+        .slide-text {
+          flex: 1 0 auto;
+        }
+
+        .slide-image-wrap {
+          flex: 1 0 auto;
+          height: 320px;
+        }
+
+        .slide-title {
+          font-size: 32px;
+        }
+
+        .slide-title span {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .slide {
+          padding-top: 80px;
+        }
+
+        .slide-content {
+          padding: 40px 24px;
+          gap: 32px;
+        }
+
+        .slide-title {
+          font-size: 24px;
+        }
+
+        .slide-title span {
+          font-size: 14px;
+        }
+
+        .slide-desc {
+          font-size: 14px;
+        }
+
+        .slide-image-wrap {
+          height: 240px;
+          padding: 24px;
+        }
+
+        #slide-nav {
+          right: 20px;
+          gap: 12px;
+        }
+
+        .dot {
+          width: 8px;
+          height: 8px;
+        }
+
+        #slides-container {
+          padding-top: 0;
+        }
+      }
     </style>
   </head>
   <body class="text-slate-800">
@@ -664,181 +1141,112 @@
       </div>
     </header>
 
-    <!-- 主内容区 / Main -->
-    <main class="mx-auto max-w-6xl px-6 py-12">
-      <section class="ai-intro-note">
-        <p class="ai-intro-label">ABOUT AI PROJECTS</p>
-        <p class="ai-intro-body">熟练使用主流 AIGC 工具（Midjourney、Runway、可灵、即梦、ChatGPT、Claude 等），<br>持续跟踪海外 AI 工作流发展，<br>可根据实际需求编写自动化脚本，应用于真实内容生产场景。</p>
-        <p class="ai-intro-closing">这里收录的是个人独立完成的 AI 相关项目案例。</p>
+    <!-- 流动光晕动画背景 / Aurora Animated Background -->
+    <div id="aurora-bg">
+      <div class="aurora-blob b1"></div>
+      <div class="aurora-blob b2"></div>
+      <div class="aurora-blob b3"></div>
+      <div class="aurora-blob b4"></div>
+    </div>
+
+    <!-- 全屏滑动容器 / Full-screen Slides Container -->
+    <div id="slides-container">
+      <!-- Slide 0: 介绍页 / Intro -->
+      <section class="slide slide-intro" data-slide="0">
+        <div class="slide-intro-content">
+          <div class="slide-badge">ABOUT AI PROJECTS</div>
+          <h2 class="slide-intro-title">AI 项目<span>AI Projects</span></h2>
+          <p class="slide-intro-body">熟练使用主流 AIGC 工具（Midjourney、Runway、可灵、即梦、ChatGPT、Claude 等），持续跟踪海外 AI 工作流发展，可根据实际需求编写自动化脚本，应用于真实内容生产场景。</p>
+          <p class="slide-intro-closing">这里收录的是个人独立完成的 AI 相关项目案例。</p>
+          <div class="slide-scroll-hint">向下滑动查看项目 ↓</div>
+        </div>
       </section>
 
-      <!-- 项目卡片网格 / Cards Grid -->
-      <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <!-- 卡片 1 / Card 1 -->
-        <button id="lostfound"
-          class="ai-card-surface group flex flex-col rounded-3xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-slate-400 hover:shadow-md"
-          data-title-zh="丢了么：寻物海报自动生成器"
-          data-title-en="Lost & Found Poster Auto Generator"
-          data-desc-zh="利用脚本自动化排版生成海报图片，提升走失宠物信息的传播效率。"
-          data-desc-en="Automated poster generation via scripting to improve missing‑pet info distribution."
-          data-stack="Python · Pillow · OpenCV · Automation"
-          data-detail="lostfound"
-          data-cover="./assets/img/diu.jpg"
-          data-cover-webp="./assets/img/diu.webp"
-        >
-          <!-- 这里可以替换图片链接 / Replace image URL here -->
-          <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
-            <source srcset="./assets/img/diu.webp" type="image/webp" />
-            <img
-              src="./assets/img/diu.jpg"
-              alt="丢了么：寻物海报 / Lost & Found Poster"
-              loading="lazy"
-              decoding="async"
-              fetchpriority="high"
-              class="max-h-full w-auto object-contain"
-            />
-          </picture>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold">
-              <span class="block">丢了么：寻物海报自动生成器</span>
-              <span class="block text-sm font-normal text-slate-500">Lost & Found Poster Auto Generator</span>
-            </h3>
-            <div class="mt-3 rounded-2xl bg-slate-50 p-4">
-              <p class="text-sm text-slate-700">利用脚本自动化排版生成海报图片，提升走失宠物信息的传播效率。</p>
-              <p class="mt-1 text-sm text-slate-500">Automated poster generation via scripting to improve missing‑pet info distribution.</p>
-            </div>
+      <!-- Slide 1: 丢了么 -->
+      <section class="slide" data-slide="1">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">AI Project</div>
+            <h2 class="slide-title">丢了么：寻物海报自动生成器<span>Lost & Found Poster Auto Generator</span></h2>
+            <p class="slide-desc">利用脚本自动化排版生成海报图片，提升走失宠物信息的传播效率。</p>
+            <div class="slide-stack">Python · Pillow · OpenCV · Automation</div>
+            <button class="slide-cta" onclick="openModal('lostfound', 0)">查看详情 →</button>
           </div>
-          <div class="mt-4 text-xs text-slate-500">自动化脚本 / Automation</div>
-          <div class="card-highlight"></div>
-        </button>
-
-        <!-- 卡片 2 / Card 2 -->
-        <button id="globalflow"
-          class="ai-card-surface group flex flex-col rounded-3xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-slate-400 hover:shadow-md"
-          data-title-zh="内容流：海外自媒体自动翻译及发布"
-          data-title-en="Content Flow: Auto Translation & Publishing for Global Social Media"
-          data-desc-zh="面向海外平台的一键翻译与发布流程。"
-          data-desc-en="One‑click translation and publishing workflow for global platforms."
-          data-stack="Midjourney · Runway · LLM · Workflow"
-          data-detail="globalflow"
-          data-cover="./assets/img/wang11.png"
-          data-cover-webp="./assets/img/wang11.webp"
-          data-detail-image="./assets/img/fa1.png"
-          data-detail-image-webp="./assets/img/fa1.webp"
-        >
-          <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
-            <source srcset="./assets/img/wang11.webp" type="image/webp" />
-            <img
-              src="./assets/img/wang11.png"
-              alt="内容流封面 / Content Flow Cover"
-              loading="lazy"
-              decoding="async"
-              class="max-h-full w-auto object-contain"
-            />
-          </picture>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold">
-              <span class="block">内容流：海外自媒体自动翻译及发布</span>
-              <span class="block text-sm font-normal text-slate-500">Content Flow: Auto Translation & Publishing for Global Social Media</span>
-            </h3>
-            <div class="mt-3 rounded-2xl bg-slate-50 p-4">
-              <p class="text-sm text-slate-700">面向海外平台的一键翻译与发布流程。</p>
-              <p class="mt-1 text-sm text-slate-500">One‑click translation and publishing workflow for global platforms.</p>
-            </div>
+          <div class="slide-image-wrap">
+            <picture>
+              <source srcset="./assets/img/diu.webp" type="image/webp" />
+              <img src="./assets/img/diu.jpg" alt="丢了么 / Lost & Found" loading="lazy" decoding="async" />
+            </picture>
           </div>
-          <div class="mt-4 text-xs text-slate-500">内容工作流 / Content Workflow</div>
-          <div class="card-highlight"></div>
-        </button>
-
-        <!-- 卡片 3 / Card 3 -->
-        <button id="ai-site"
-          class="ai-card-surface group flex flex-col rounded-3xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-slate-400 hover:shadow-md"
-          data-title-zh="AI 个人网站架构"
-          data-title-en="AI Personal Site Architecture"
-          data-desc-zh="本网站的静态搭建，全部用的 vibe coding 完成。"
-          data-desc-en="This site’s static build was completed entirely with vibe coding."
-          data-stack="HTML · CSS · JS · AI Assist"
-          data-cover="./assets/img/wang1.png"
-          data-cover-webp="./assets/img/wang1.webp"
-        >
-          <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
-            <source srcset="./assets/img/wang1.webp" type="image/webp" />
-            <img
-              src="./assets/img/wang1.png"
-              alt="AI 个人网站架构封面 / AI Site Cover"
-              loading="lazy"
-              decoding="async"
-              class="max-h-full w-auto object-contain"
-            />
-          </picture>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold">
-              <span class="block">AI 个人网站架构</span>
-              <span class="block text-sm font-normal text-slate-500">AI Personal Site Architecture</span>
-            </h3>
-            <div class="mt-3 rounded-2xl bg-slate-50 p-4">
-              <p class="text-sm text-slate-700">利用 AI 辅助手搓个人静态网站，实现低成本、高效率的数字化展示。</p>
-              <p class="mt-1 text-sm text-slate-500">AI‑assisted static site building for fast, low‑cost digital presence.</p>
-            </div>
-          </div>
-          <div class="mt-4 text-xs text-slate-500">网站搭建 / Web Build</div>
-          <div class="card-highlight"></div>
-        </button>
-
-        <!-- 卡片 4 / Card 4 -->
-        <button id="ai-edit"
-          class="ai-card-surface group flex flex-col rounded-3xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-slate-400 hover:shadow-md"
-          data-title-zh="小猫学英语：带语境的长句记忆工具"
-          data-title-en="Xiaomao Learns English: Context‑Driven Long‑Sentence Memory Tool"
-          data-desc-zh="以“高频句子”为核心的英语学习网站。"
-          data-desc-en="An English learning site built around high‑frequency sentences for speaking‑ready practice."
-          data-stack="英语学习工具 / English Learning Tool"
-          data-cover="./assets/img/xiaomao1-1400.png"
-          data-cover-webp="./assets/img/xiaomao1-1400.webp"
-          data-detail="xiaomao"
-          data-detail-image=""
-          data-detail-image-webp=""
-        >
-          <picture class="mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-white/60">
-            <source srcset="./assets/img/xiaomao1-1400.webp" type="image/webp" />
-            <img
-              src="./assets/img/xiaomao1-1400.png"
-              alt="xiaomao1"
-              loading="lazy"
-              decoding="async"
-              class="max-h-full w-auto object-contain"
-            />
-          </picture>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold">
-              <span class="block">小猫学英语：带语境的长句记忆工具</span>
-              <span class="block text-sm font-normal text-slate-500">Xiaomao Learns English: Context‑Driven Long‑Sentence Memory Tool</span>
-            </h3>
-            <div class="mt-3 rounded-2xl bg-slate-50 p-4">
-              <p class="text-sm text-slate-700">以“高频句子”为核心的英语学习网站。</p>
-              <p class="mt-1 text-sm text-slate-500">An English learning site built around high‑frequency sentences for speaking‑ready practice.</p>
-            </div>
-          </div>
-          <div class="mt-4 text-xs text-slate-500">英语学习工具 / English Learning Tool</div>
-          <div class="card-highlight"></div>
-        </button>
-
-        <!-- 你可以复制下面这段卡片模板，新增项目 / Copy this card template to add more -->
-        <!--
-        <button
-          class="group rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-slate-400"
-          data-title="项目标题 / Project Title"
-          data-desc="项目描述 / Project description"
-          data-stack="Tech1 · Tech2 · Tech3"
-        >
-          <div class="mb-4 h-40 w-full rounded-xl bg-slate-200"></div>
-          <h3 class="text-lg font-semibold">项目标题 / Project Title</h3>
-          <p class="mt-2 text-sm text-slate-600">项目描述 / Project description</p>
-          <div class="mt-4 text-xs text-slate-500">标签 / Tag</div>
-        </button>
-        -->
+        </div>
       </section>
-    </main>
+
+      <!-- Slide 2: GlobalFlow -->
+      <section class="slide" data-slide="2">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">AI Project</div>
+            <h2 class="slide-title">内容流：海外自媒体自动翻译及发布<span>Content Flow: Auto Translation & Publishing</span></h2>
+            <p class="slide-desc">面向海外平台的一键翻译与发布流程。</p>
+            <div class="slide-stack">Midjourney · Runway · LLM · Workflow</div>
+            <button class="slide-cta" onclick="openModal('globalflow', 1)">查看详情 →</button>
+          </div>
+          <div class="slide-image-wrap">
+            <picture>
+              <source srcset="./assets/img/wang11.webp" type="image/webp" />
+              <img src="./assets/img/wang11.png" alt="GlobalFlow / Content Flow" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: AI Site -->
+      <section class="slide" data-slide="3">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">AI Project</div>
+            <h2 class="slide-title">AI 个人网站架构<span>AI Personal Site Architecture</span></h2>
+            <p class="slide-desc">本网站的静态搭建，全部用的 vibe coding 完成。</p>
+            <div class="slide-stack">HTML · CSS · JS · AI Assist</div>
+            <button class="slide-cta" onclick="alert('这个项目没有详情页面，敬请期待～')">查看详情 →</button>
+          </div>
+          <div class="slide-image-wrap">
+            <picture>
+              <source srcset="./assets/img/wang1.webp" type="image/webp" />
+              <img src="./assets/img/wang1.png" alt="AI Site / 网站架构" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Xiaomao -->
+      <section class="slide" data-slide="4">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">AI Project</div>
+            <h2 class="slide-title">小猫学英语：带语境的长句记忆工具<span>Xiaomao Learns English</span></h2>
+            <p class="slide-desc">以"高频句子"为核心的英语学习网站。</p>
+            <div class="slide-stack">英语学习工具 / English Learning Tool</div>
+            <button class="slide-cta" onclick="openModal('xiaomao', 3)">查看详情 →</button>
+          </div>
+          <div class="slide-image-wrap">
+            <picture>
+              <source srcset="./assets/img/xiaomao1-1400.webp" type="image/webp" />
+              <img src="./assets/img/xiaomao1-1400.png" alt="Xiaomao / 小猫学英语" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 右侧导航点 / Side Navigation Dots -->
+    <nav id="slide-nav">
+      <button class="dot active" data-slide="0" onclick="scrollToSlide(0)"></button>
+      <button class="dot" data-slide="1" onclick="scrollToSlide(1)"></button>
+      <button class="dot" data-slide="2" onclick="scrollToSlide(2)"></button>
+      <button class="dot" data-slide="3" onclick="scrollToSlide(3)"></button>
+      <button class="dot" data-slide="4" onclick="scrollToSlide(4)"></button>
+    </nav>
 
     <!-- 弹窗 / Modal -->
     <div id="modal" class="fixed inset-0 z-50 hidden bg-black/70" hidden>
@@ -1025,7 +1433,7 @@
         <section>
           <h4 class="text-lg font-semibold">市场痛点分析 / Market Pain Points</h4>
           <ul class="mt-2 list-none space-y-2 pl-0 text-slate-700">
-            <li>跨语言表达鸿沟：传统翻译缺乏本地社媒“网感”，互动率低。<div class="text-slate-500">Language gap: literal translations fail to match local social tone.</div></li>
+            <li>跨语言表达鸿沟：传统翻译缺乏本地社媒"网感"，互动率低。<div class="text-slate-500">Language gap: literal translations fail to match local social tone.</div></li>
             <li>多平台维护成本：多平台手动定时发布消耗精力，易断更。<div class="text-slate-500">Multi‑platform ops drain time and cause schedule gaps.</div></li>
             <li>高昂运营成本：专业外语运营团队费用高。<div class="text-slate-500">Professional localization teams are expensive for individuals and small studios.</div></li>
           </ul>
@@ -1054,7 +1462,7 @@
             </div>
             <div class="rounded-xl border border-slate-200 bg-white p-4">
               <div class="font-semibold">智能定时任务 / Smart Scheduling</div>
-              <div class="mt-1">内置主要时区模板，解决“深夜守候”痛点。</div>
+              <div class="mt-1">内置主要时区模板，解决"深夜守候"痛点。</div>
               <div class="text-slate-500">Built‑in timezone templates for best posting windows.</div>
             </div>
             <div class="rounded-xl border border-slate-200 bg-white p-4">
@@ -1074,7 +1482,7 @@
         </section>
         <section>
           <h4 class="text-lg font-semibold">项目愿景 / Vision</h4>
-          <p class="mt-2 text-slate-700">让语言不再是思想的边界，让每位创作者都拥有“全天候、多语言、自动化”的海外运营助理。</p>
+          <p class="mt-2 text-slate-700">让语言不再是思想的边界，让每位创作者都拥有"全天候、多语言、自动化"的海外运营助理。</p>
           <p class="mt-1 text-slate-500">Let language never limit ideas — an always‑on, multilingual, automated global ops assistant.</p>
         </section>
         <picture>
@@ -1106,7 +1514,7 @@
         <section>
           <h4 class="text-lg font-semibold">一句话介绍 / One‑liner</h4>
           <p class="mt-2 text-slate-700">
-            以“背诵高频句子”为核心的英语学习网站，帮助用户把可复用表达存入长期记忆，更快获得真实交流能力。
+            以"背诵高频句子"为核心的英语学习网站，帮助用户把可复用表达存入长期记忆，更快获得真实交流能力。
           </p>
           <p class="mt-1 text-slate-500">
             An English learning site centered on high‑frequency sentence memorization, helping learners store reusable expressions for faster real‑world communication.
@@ -1114,9 +1522,9 @@
         </section>
 
         <section>
-          <h4 class="text-lg font-semibold">为什么是“背句子” / Why Sentences</h4>
+          <h4 class="text-lg font-semibold">为什么是"背句子" / Why Sentences</h4>
           <p class="mt-2 text-slate-700">
-            单词缺语境、表达靠句子、输出靠模板。我们把学习单位从“词”升级为“可复用表达”，让“知道”直接变成“能说出口”。
+            单词缺语境、表达靠句子、输出靠模板。我们把学习单位从"词"升级为"可复用表达"，让"知道"直接变成"能说出口"。
           </p>
           <p class="mt-2 text-slate-500">
             Sentences carry structure, collocation, and tone—so learners can speak, not just recognize.
@@ -1136,17 +1544,17 @@
         <section>
           <h4 class="text-lg font-semibold">核心机制 / How It Works</h4>
           <p class="mt-2 text-slate-700">
-            以“句子”为最小学习单位，通过高频场景与表达模板建立语境预演；系统根据回忆难度与正确率动态安排复习间隔，减少遗忘、提升输出稳定性。
+            以"句子"为最小学习单位，通过高频场景与表达模板建立语境预演；系统根据回忆难度与正确率动态安排复习间隔，减少遗忘、提升输出稳定性。
           </p>
           <p class="mt-2 text-slate-500">
-            Sentence‑level learning plus adaptive spaced repetition turns “learned” into “retained” and “spoken.”
+            Sentence‑level learning plus adaptive spaced repetition turns "learned" into "retained" and "spoken."
           </p>
         </section>
 
         <section>
           <h4 class="text-lg font-semibold">科学记忆曲线 / Spaced Repetition</h4>
           <p class="mt-2 text-slate-700">
-            基于艾宾浩斯遗忘曲线，系统会根据“记忆强度”动态调整复习节奏：难句提前复习、熟句延长间隔，用更少次数换取更长久的记忆保持。
+            基于艾宾浩斯遗忘曲线，系统会根据"记忆强度"动态调整复习节奏：难句提前复习、熟句延长间隔，用更少次数换取更长久的记忆保持。
           </p>
           <p class="mt-2 text-slate-500">
             Built on the Ebbinghaus forgetting curve, review intervals adapt to memory strength—hard sentences return sooner, mastered ones space out.
@@ -1237,18 +1645,60 @@
     </template>
 
     <script>
-      // 卡片点击打开模态框
-      document.querySelectorAll('.ai-card-surface').forEach(card => {
-        card.addEventListener('click', () => {
-          const detailId = card.getAttribute('data-detail');
-          if (detailId) {
-            openModal(detailId, card);
+      // 全屏滑动导航与模态框逻辑
+
+      // 项目数据配置
+      const slidesData = [
+        { id: 'lostfound', titleZh: '丢了么：寻物海报自动生成器', titleEn: 'Lost & Found Poster Auto Generator', descZh: '利用脚本自动化排版生成海报图片，提升走失宠物信息的传播效率。', descEn: 'Automated poster generation via scripting to improve missing‑pet info distribution.', stack: 'Python · Pillow · OpenCV · Automation', cover: './assets/img/diu.jpg', coverWebp: './assets/img/diu.webp' },
+        { id: 'globalflow', titleZh: '内容流：海外自媒体自动翻译及发布', titleEn: 'Content Flow: Auto Translation & Publishing for Global Social Media', descZh: '面向海外平台的一键翻译与发布流程。', descEn: 'One‑click translation and publishing workflow for global platforms.', stack: 'Midjourney · Runway · LLM · Workflow', cover: './assets/img/wang11.png', coverWebp: './assets/img/wang11.webp' },
+        { id: 'ai-site', titleZh: 'AI 个人网站架构', titleEn: 'AI Personal Site Architecture', descZh: '本网站的静态搭建，全部用的 vibe coding 完成。', descEn: 'This site\'s static build was completed entirely with vibe coding.', stack: 'HTML · CSS · JS · AI Assist', cover: './assets/img/wang1.png', coverWebp: './assets/img/wang1.webp' },
+        { id: 'xiaomao', titleZh: '小猫学英语：带语境的长句记忆工具', titleEn: 'Xiaomao Learns English: Context‑Driven Long‑Sentence Memory Tool', descZh: '以"高频句子"为核心的英语学习网站。', descEn: 'An English learning site built around high‑frequency sentences for speaking‑ready practice.', stack: '英语学习工具 / English Learning Tool', cover: './assets/img/xiaomao1-1400.png', coverWebp: './assets/img/xiaomao1-1400.webp' }
+      ];
+
+      const slidesContainer = document.getElementById('slides-container');
+      const dots = document.querySelectorAll('#slide-nav .dot');
+      let currentSlide = 0;
+
+      // 监听滚动，更新导航圆点
+      function updateDotsOnScroll() {
+        const slides = document.querySelectorAll('.slide');
+        const scrollTop = slidesContainer.scrollTop;
+        const viewportHeight = slidesContainer.clientHeight;
+
+        slides.forEach((slide, index) => {
+          const slideTop = slide.offsetTop;
+          const slideHeight = slide.offsetHeight;
+          const slideCenter = slideTop + slideHeight / 2;
+          const viewportCenter = scrollTop + viewportHeight / 2;
+
+          // 判断哪个 slide 最接近视口中心
+          if (Math.abs(slideCenter - viewportCenter) < slideHeight / 2) {
+            currentSlide = index;
+            updateDots();
           }
         });
-      });
-      
-      // 打开模态框函数
-      function openModal(detailId, cardElement) {
+      }
+
+      function updateDots() {
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      // 平滑滚动到指定 slide
+      function scrollToSlide(index) {
+        const slides = document.querySelectorAll('.slide');
+        if (slides[index]) {
+          slides[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      // 打开模态框
+      function openModal(detailId, slideIndex) {
         const modal = document.getElementById('modal');
         const modalTitle = document.getElementById('modal-title');
         const modalDesc = document.getElementById('modal-desc');
@@ -1257,128 +1707,85 @@
         const modalCoverSource = document.getElementById('modal-cover-source');
         const modalCoverWrap = document.getElementById('modal-cover-wrap');
         const modalDetail = document.getElementById('modal-detail');
-        
+
+        const data = slidesData[slideIndex] || {};
+
         // 设置标题和描述
         modalTitle.innerHTML = `
-          <span class="block">${cardElement.getAttribute('data-title-zh')}</span>
-          <span class="block text-lg font-normal text-slate-500">${cardElement.getAttribute('data-title-en')}</span>
+          <span class="block">${data.titleZh}</span>
+          <span class="block text-lg font-normal text-slate-500">${data.titleEn}</span>
         `;
         modalDesc.innerHTML = `
-          ${cardElement.getAttribute('data-desc-zh')}<br/>
-          <span class="text-slate-500">${cardElement.getAttribute('data-desc-en')}</span>
+          ${data.descZh}<br/>
+          <span class="text-slate-500">${data.descEn}</span>
         `;
-        modalStack.textContent = cardElement.getAttribute('data-stack');
-        
+        modalStack.textContent = data.stack;
+
         // 设置封面图片
-        const coverWebp = cardElement.getAttribute('data-cover-webp');
-        const cover = cardElement.getAttribute('data-cover');
         if (modalCoverWrap) {
-          modalCoverWrap.hidden = !(cover || coverWebp);
+          modalCoverWrap.hidden = !(data.cover || data.coverWebp);
         }
-        if (coverWebp && modalCoverSource) {
-          modalCoverSource.srcset = coverWebp;
+        if (data.coverWebp && modalCoverSource) {
+          modalCoverSource.srcset = data.coverWebp;
         } else if (modalCoverSource) {
           modalCoverSource.removeAttribute('srcset');
         }
-        if (cover && modalCoverImg) {
-          modalCoverImg.src = cover;
+        if (data.cover && modalCoverImg) {
+          modalCoverImg.src = data.cover;
         } else if (modalCoverImg) {
           modalCoverImg.removeAttribute('src');
         }
-        
+
         // 加载详情模板
         const template = document.getElementById(`detail-${detailId}`);
         if (template && modalDetail) {
           modalDetail.innerHTML = '';
           modalDetail.appendChild(template.content.cloneNode(true));
         }
-        
+
         // 显示模态框
         modal.hidden = false;
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
       }
-      
+
       // 关闭模态框
-      document.getElementById('modal-close').addEventListener('click', closeModal);
-      document.getElementById('modal').addEventListener('click', (e) => {
-        if (e.target.id === 'modal') {
-          closeModal();
-        }
-      });
-      
       function closeModal() {
         const modal = document.getElementById('modal');
         modal.classList.add('hidden');
         modal.hidden = true;
         document.body.style.overflow = '';
       }
-      
+
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      document.getElementById('modal').addEventListener('click', (e) => {
+        if (e.target.id === 'modal') {
+          closeModal();
+        }
+      });
+
       // ESC键关闭模态框
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           closeModal();
         }
       });
-      
-      // 卡片3D倾斜和鼠标跟随光效，仅用于有鼠标悬浮能力的设备。
-      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        document.querySelectorAll('.ai-card-surface').forEach(card => {
-          let isHovering = false;
-          
-          card.addEventListener('mousemove', (e) => {
-            if (!isHovering) isHovering = true;
-            
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = ((y - centerY) / centerY) * -8;
-            const rotateY = ((x - centerX) / centerX) * 8;
-            
-            card.style.transform = `translateY(-12px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            
-            const styleId = `card-style-${card.id}`;
-            let styleEl = document.getElementById(styleId);
-            if (!styleEl) {
-              styleEl = document.createElement('style');
-              styleEl.id = styleId;
-              document.head.appendChild(styleEl);
-            }
-            styleEl.textContent = `
-              #${card.id}::after {
-                left: ${x}px !important;
-                top: ${y}px !important;
-              }
-            `;
-          });
-          
-          card.addEventListener('mouseleave', () => {
-            isHovering = false;
-            card.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0) rotateY(0)';
-            card.style.transition = 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)';
-          });
-          
-          card.addEventListener('mouseenter', () => {
-            card.style.transition = 'none';
-          });
-          
-          card.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            card.style.transform = 'translateY(-4px) scale(0.97)';
-            card.style.transition = 'transform 100ms ease';
-          });
-          
-          card.addEventListener('mouseup', () => {
-            card.style.transform = 'translateY(-12px) scale(1.02)';
-            card.style.transition = 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1)';
-          });
-        });
-      }
-      
-      // 卡片保持默认可见；CSS 渐入只是增强效果，避免移动端因观察器延迟出现空白。
+
+      // 监听 slides-container 滚动
+      slidesContainer.addEventListener('scroll', updateDotsOnScroll, { passive: true });
+
+      // 初始化
+      updateDots();
+
+      // 键盘导航（上下箭头）
+      document.addEventListener('keydown', (e) => {
+        const totalSlides = document.querySelectorAll('.slide').length;
+        if (e.key === 'ArrowDown' && currentSlide < totalSlides - 1) {
+          scrollToSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowUp' && currentSlide > 0) {
+          scrollToSlide(currentSlide - 1);
+        }
+      });
     </script>
   </body>
 </html>

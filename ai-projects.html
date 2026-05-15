@@ -659,7 +659,7 @@
         z-index: 100 !important;
       }
 
-      /* 流动光晕动画背景 */
+      /* 流动光晕 + 3D 粒子动画背景 */
       #aurora-bg {
         position: fixed;
         inset: 0;
@@ -667,6 +667,7 @@
         overflow: hidden;
         background: #050607;
         pointer-events: none;
+        perspective: 700px;
       }
 
       .aurora-blob {
@@ -679,7 +680,7 @@
       .aurora-blob.b1 {
         width: 720px;
         height: 720px;
-        background: rgba(96, 144, 255, 0.85);
+        background: rgba(96, 144, 255, 0.42);
         top: -8%;
         left: -6%;
         animation: auroraFloat1 22s ease-in-out infinite;
@@ -688,7 +689,7 @@
       .aurora-blob.b2 {
         width: 600px;
         height: 600px;
-        background: rgba(150, 90, 255, 0.8);
+        background: rgba(150, 90, 255, 0.38);
         top: 38%;
         right: -8%;
         animation: auroraFloat2 27s ease-in-out infinite;
@@ -697,7 +698,7 @@
       .aurora-blob.b3 {
         width: 560px;
         height: 560px;
-        background: rgba(60, 200, 255, 0.7);
+        background: rgba(60, 200, 255, 0.32);
         bottom: -10%;
         left: 18%;
         animation: auroraFloat3 32s ease-in-out infinite;
@@ -706,7 +707,7 @@
       .aurora-blob.b4 {
         width: 500px;
         height: 500px;
-        background: rgba(255, 110, 180, 0.55);
+        background: rgba(255, 110, 180, 0.26);
         top: 12%;
         left: 42%;
         animation: auroraFloat4 25s ease-in-out infinite;
@@ -735,8 +736,47 @@
         70% { transform: translate(140px, -100px) scale(0.8); }
       }
 
-      @media (prefers-reduced-motion: reduce) {
-        .aurora-blob { animation: none !important; }
+      /* 3D 粒子 */
+      .particles {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+      }
+
+      .particle {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(180, 210, 255, 0.9);
+        box-shadow: 0 0 10px rgba(120, 170, 255, 0.8);
+        will-change: transform, opacity;
+      }
+
+      .particle:nth-child(1)  { top: 14%; left: 12%; animation: pFloat 16s ease-in-out infinite; }
+      .particle:nth-child(2)  { top: 70%; left: 22%; animation: pFloat 21s ease-in-out infinite 2s; }
+      .particle:nth-child(3)  { top: 32%; left: 78%; animation: pFloat 18s ease-in-out infinite 4s; }
+      .particle:nth-child(4)  { top: 82%; left: 64%; animation: pFloat 24s ease-in-out infinite 1s; }
+      .particle:nth-child(5)  { top: 48%; left: 40%; animation: pFloat 19s ease-in-out infinite 6s; }
+      .particle:nth-child(6)  { top: 22%; left: 54%; animation: pFloat 23s ease-in-out infinite 3s; }
+      .particle:nth-child(7)  { top: 60%; left: 88%; animation: pFloat 17s ease-in-out infinite 5s; }
+      .particle:nth-child(8)  { top: 88%; left: 34%; animation: pFloat 26s ease-in-out infinite 0s; }
+      .particle:nth-child(9)  { top: 8%;  left: 84%; animation: pFloat 20s ease-in-out infinite 7s; }
+      .particle:nth-child(10) { top: 54%; left: 8%;  animation: pFloat 22s ease-in-out infinite 2.5s; }
+      .particle:nth-child(11) { top: 38%; left: 28%; animation: pFloat 25s ease-in-out infinite 4.5s; }
+      .particle:nth-child(12) { top: 76%; left: 50%; animation: pFloat 18s ease-in-out infinite 6.5s; }
+      .particle:nth-child(13) { top: 18%; left: 70%; animation: pFloat 21s ease-in-out infinite 1.5s; }
+      .particle:nth-child(14) { top: 64%; left: 60%; animation: pFloat 27s ease-in-out infinite 3.5s; }
+
+      @keyframes pFloat {
+        0%, 100% {
+          transform: translateZ(-120px) translateY(0) scale(0.6);
+          opacity: 0.25;
+        }
+        50% {
+          transform: translateZ(180px) translateY(-60px) scale(1.3);
+          opacity: 1;
+        }
       }
 
       body {
@@ -788,7 +828,7 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        background: rgba(5, 6, 7, 0.35) !important;
+        background: rgba(5, 6, 7, 0.62) !important;
         overflow: hidden !important;
         padding-top: 72px !important;
         flex-shrink: 0 !important;
@@ -809,8 +849,8 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.3)),
-                    linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.35));
+        background: radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.5)),
+                    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
         z-index: 1;
       }
 
@@ -1141,12 +1181,28 @@
       </div>
     </header>
 
-    <!-- 流动光晕动画背景 / Aurora Animated Background -->
+    <!-- 流动光晕 + 3D 粒子动画背景 / Aurora + 3D Particles -->
     <div id="aurora-bg">
       <div class="aurora-blob b1"></div>
       <div class="aurora-blob b2"></div>
       <div class="aurora-blob b3"></div>
       <div class="aurora-blob b4"></div>
+      <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
     </div>
 
     <!-- 全屏滑动容器 / Full-screen Slides Container -->

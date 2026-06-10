@@ -8,7 +8,7 @@
     <title>项目案例 / Selected Works - Zhang An — Portfolio</title>
 
     <link rel="canonical" href="https://zhanganeditor.online/works.html" />
-<meta name="description" content="活动策划 / 视频制作 / AI 项目案例 — 上海光影艺术节、雪碧、GT Show、蔚来等，每个项目标注我负责的范围与交付。" />
+<meta name="description" content="活动策划 / 视频制作 / AI 工具案例 — 上海光影艺术节、雪碧、GT Show、蔚来等，每个项目标注我负责的范围与交付。" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=cd1" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=cd1" />
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png?v=cd1" />
@@ -119,11 +119,10 @@
       /* ── 活动卡片 / Event cards ─────────────────────── */
       .event-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 16px;
         margin-top: 20px;
       }
-      @media (max-width: 760px) { .event-grid { grid-template-columns: 1fr; } }
       .event-card {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.10);
@@ -143,11 +142,10 @@
       }
       .event-card .ec-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
       .event-card h3 { margin: 0; color: #fff; font-size: 19px; line-height: 1.3; }
-      .event-card .ec-year { flex-shrink: 0; color: #6090ff; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
       .event-card .ec-role { margin: 0; color: #8aa0bc; font-size: 13px; }
       .event-card .ec-desc { margin: 0; color: #c4d2e4; line-height: 1.72; font-size: 14.5px; }
-      .event-card .ec-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
-      .event-card .ec-tag { font-size: 12px; color: #9fb2cc; background: rgba(96,144,255,0.10); border: 1px solid rgba(96,144,255,0.22); border-radius: 999px; padding: 4px 11px; }
+      .event-card[data-detail] { cursor: pointer; }
+      .event-card .ec-more { margin: 2px 0 0; color: #6090ff; font-size: 13px; font-weight: 600; }
 
       /* ── AI 卡片 / AI cards ─────────────────────────── */
       .ai-grid {
@@ -171,7 +169,8 @@
         border-color: rgba(96, 144, 255, 0.4);
         box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6), 0 0 36px rgba(96, 144, 255, 0.14);
       }
-      .ai-card img { width: 100%; height: 168px; object-fit: cover; display: block; opacity: 0.92; }
+      .ai-card picture { display: block; background: rgba(8, 12, 20, 0.6); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+      .ai-card img { width: 100%; height: 190px; object-fit: contain; display: block; padding: 10px; box-sizing: border-box; }
       .ai-card .aic-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; }
       .ai-card h3 { margin: 0; color: #fff; font-size: 17px; line-height: 1.32; }
       .ai-card .aic-desc { margin: 0; color: #c4d2e4; font-size: 14px; line-height: 1.62; }
@@ -258,7 +257,7 @@
           <div class="work-tabs" role="tablist" style="display: none;">
             <button class="wtab" data-pane="video">视频制作 <span>Video</span></button>
             <button class="wtab" data-pane="event">活动策划 <span>Events</span></button>
-            <button class="wtab" data-pane="ai">AI <span>AI</span></button>
+            <button class="wtab" data-pane="ai">AI 工具 <span>AI Tools</span></button>
           </div>
 
           <!-- 默认：三分类入口（点哪个展开哪个） -->
@@ -271,13 +270,13 @@
               </button>
               <button class="cat-card" data-go="event">
                 <span class="cc-k">活动策划</span>
-                <span class="cc-d">上海光影艺术节 · 雪碧线下活动 · GT Show 汽车展 · 独立空间运营 · 演出报批，数十场活动从筹备跑到落地。</span>
+                <span class="cc-d">上海光影艺术节 · 独立空间运营 · 演出报批，数十场活动从筹备跑到落地。</span>
                 <span class="cc-go">查看活动案例 →</span>
               </button>
               <button class="cat-card" data-go="ai">
-                <span class="cc-k">AI</span>
+                <span class="cc-k">AI 工具</span>
                 <span class="cc-d">AIGC 与自动化脚本：用工具放大单人执行效率。</span>
-                <span class="cc-go">查看 AI 项目 →</span>
+                <span class="cc-go">查看 AI 工具 →</span>
               </button>
             </div>
           </div>
@@ -295,47 +294,35 @@
           <div class="wpane" data-pane="event" hidden>
             <p class="brand-line">从空间运营、演出报批，到品牌线下活动与商业展会现场——能独立把一场活动从筹备跑到落地，现场内容与传播物料可自产。</p>
             <div class="event-grid">
-              <div class="event-card">
-                <div class="ec-top"><h3>菖璞艺术空间 · 主理人</h3><span class="ec-year">2022 — 2023</span></div>
+              <div class="event-card" data-detail="ev-changpu" data-title="菖璞艺术空间 · 主理人" data-stack="独立运营 · 2022 — 2023">
+                <div class="ec-top"><h3>菖璞艺术空间 · 主理人</h3></div>
                 <p class="ec-role">独立运营 / Independent Operator</p>
                 <p class="ec-desc">从 0 操盘一座城市文化空间。在上海绍兴路 80 号独立运营一家线下文化空间，一年内策划并落地<strong>数十场</strong>音乐演出、电影放映与文本沙龙——选题、招商对接、宣发到现场执行，全程一个人跑通。</p>
-                <div class="ec-tags"><span class="ec-tag">独立运营</span><span class="ec-tag">数十场活动</span><span class="ec-tag">策划 · 宣发 · 落地</span></div>
+                <p class="ec-more">查看详情 →</p>
               </div>
-              <div class="event-card">
-                <div class="ec-top"><h3>上海光影艺术节 · 静安公园主场</h3><span class="ec-year">2025</span></div>
+              <div class="event-card" data-detail="ev-guangying" data-title="上海光影艺术节 · 静安公园主场" data-stack="文旅项目 / 现场执行 · 2025">
+                <div class="ec-top"><h3>上海光影艺术节 · 静安公园主场</h3></div>
                 <p class="ec-role">文旅项目 / 现场执行</p>
                 <p class="ec-desc">2025 国庆期间上海光影艺术节，于静安公园呈现「家园」光影装置艺术表演。参与装置现场落地执行与表演影像记录，配合团队完成大型公共空间项目的落地。</p>
-                <div class="ec-tags"><span class="ec-tag">文旅 · 公共艺术</span><span class="ec-tag">装置落地</span><span class="ec-tag">现场记录</span></div>
+                <p class="ec-more">查看详情 →</p>
               </div>
-              <div class="event-card">
-                <div class="ec-top"><h3>雪碧（Sprite）· 线下营销活动</h3><span class="ec-year">2026</span></div>
-                <p class="ec-role">品牌线下活动 / 品宣内容</p>
-                <p class="ec-desc">头部饮料品牌的线下营销活动，承担活动品宣内容制作——强化活动节奏与品牌露出，把现场热度延续成可传播的内容资产。</p>
-                <div class="ec-tags"><span class="ec-tag">品牌线下</span><span class="ec-tag">快消营销</span><span class="ec-tag">内容自产</span></div>
-              </div>
-              <div class="event-card">
-                <div class="ec-top"><h3>苏州 GT Show 汽车展 · 特驰</h3><span class="ec-year">2026</span></div>
-                <p class="ec-role">商业展会 / 品宣内容</p>
-                <p class="ec-desc">国内头部改装车展 GT Show，为参展品牌特驰完成展会品宣内容——围绕品牌调性与展会传播目标做内容整合与节奏强化，放大展位的现场氛围与品牌记忆点。</p>
-                <div class="ec-tags"><span class="ec-tag">商业展会</span><span class="ec-tag">汽车行业</span><span class="ec-tag">品牌传播</span></div>
-              </div>
-              <div class="event-card">
-                <div class="ec-top"><h3>赫芮琪珠宝 · 商业展会</h3><span class="ec-year">2020 — 2021</span></div>
+              <div class="event-card" data-detail="ev-zhubao" data-title="赫芮琪珠宝 · 商业展会" data-stack="展会执行 / 现场统筹 · 2020 — 2021">
+                <div class="ec-top"><h3>赫芮琪珠宝 · 商业展会</h3></div>
                 <p class="ec-role">展会执行 / 现场统筹</p>
                 <p class="ec-desc">大型珠宝商业展会的策展与现场执行。深度参与展会筹备，统筹展位视觉物料的文字内容与现场沟通，协助品牌形象的精准落地——甲方市场部视角的展会全流程。</p>
-                <div class="ec-tags"><span class="ec-tag">展会策展</span><span class="ec-tag">现场统筹</span><span class="ec-tag">品牌物料</span></div>
+                <p class="ec-more">查看详情 →</p>
               </div>
-              <div class="event-card">
-                <div class="ec-top"><h3>唔哈喜剧 · 演出执行</h3><span class="ec-year">2022</span></div>
+              <div class="event-card" data-detail="ev-wuha" data-title="唔哈喜剧 · 演出执行" data-stack="演出报批 / 现场执行 · 2022">
+                <div class="ec-top"><h3>唔哈喜剧 · 演出执行</h3></div>
                 <p class="ec-role">演出报批 / 现场执行</p>
                 <p class="ec-desc">喜剧演出全流程操盘——负责演出从文旅局资料报批到现场落地的全流程事务，处理被打回的内容修改与沟通，保障每一场顺利开演。</p>
-                <div class="ec-tags"><span class="ec-tag">演出报批</span><span class="ec-tag">现场执行</span><span class="ec-tag">合规沟通</span></div>
+                <p class="ec-more">查看详情 →</p>
               </div>
-              <div class="event-card">
-                <div class="ec-top"><h3>上海 MAO Livehouse · 演出经纪</h3><span class="ec-year">2021</span></div>
+              <div class="event-card" data-detail="ev-mao" data-title="上海 MAO Livehouse · 演出经纪" data-stack="演出报批 / 行业合规 · 2021">
+                <div class="ec-top"><h3>上海 MAO Livehouse · 演出经纪</h3></div>
                 <p class="ec-role">演出报批 / 行业合规</p>
                 <p class="ec-desc">头部 Livehouse 的演出报批。负责文旅局演出资料申报，熟悉演出行业的合规流程与申报规范，能独立把控演出落地前的报批环节。</p>
-                <div class="ec-tags"><span class="ec-tag">Livehouse</span><span class="ec-tag">演出申报</span><span class="ec-tag">行业合规</span></div>
+                <p class="ec-more">查看详情 →</p>
               </div>
             </div>
           </div>
@@ -587,6 +574,109 @@
       </div>
     </template>
 
+    <!-- 活动详情模板：菖璞艺术空间 -->
+    <template id="aidetail-ev-changpu">
+      <div class="ai-detail">
+        <section>
+          <h4>空间与背景</h4>
+          <p>位于上海绍兴路 80 号的线下文化空间（场地由赞助方提供），2022—2023 年由我一人独立运营。</p>
+        </section>
+        <section>
+          <h4>我负责什么</h4>
+          <p>全部环节：活动选题与策划、嘉宾与演出者邀约、对外宣发、现场执行与氛围把控、收支与酒水经营。</p>
+        </section>
+        <section>
+          <h4>活动形态</h4>
+          <p>每周末固定开展项目：音乐演出、电影放映、文本交流沙龙等，累计落地数十场小型活动。</p>
+        </section>
+        <section>
+          <h4>代表场次与故事</h4>
+          <p class="en">【待补充：写 1—2 场你印象最深的活动——怎么策划的、来了多少人、发生了什么】</p>
+        </section>
+        <section>
+          <h4>现场照片</h4>
+          <p class="en">【待补充：现场图片，发给我即可排版】</p>
+        </section>
+      </div>
+    </template>
+
+    <!-- 活动详情模板：上海光影艺术节 -->
+    <template id="aidetail-ev-guangying">
+      <div class="ai-detail">
+        <section>
+          <h4>项目背景</h4>
+          <p>2025 年国庆期间，上海光影艺术节于静安公园主场呈现「家园」光影装置艺术表演。</p>
+        </section>
+        <section>
+          <h4>我负责什么</h4>
+          <p>部分装置的现场搭建与落地执行；表演期间的影像记录与素材拍摄。</p>
+        </section>
+        <section>
+          <h4>现场视频</h4>
+          <p><a class="link" href="https://www.xinpianchang.com/a13674270?from=webShare&channel=copyLink&token=3BNdoKeHrbv4ugU1D4zIZqR" target="_blank" rel="noopener noreferrer">在新片场观看现场记录 →</a></p>
+          <picture><source srcset="assets/img/guang1.webp" type="image/webp" /><img src="assets/img/guang1.png" alt="上海光影艺术节现场" loading="lazy" /></picture>
+        </section>
+        <section>
+          <h4>执行细节</h4>
+          <p class="en">【待补充：搭建周期、团队规模、你解决过的现场问题】</p>
+        </section>
+      </div>
+    </template>
+
+    <!-- 活动详情模板：赫芮琪珠宝展会 -->
+    <template id="aidetail-ev-zhubao">
+      <div class="ai-detail">
+        <section>
+          <h4>项目背景</h4>
+          <p>在赫芮琪珠宝品牌总部任品牌策划专员期间（2020—2021），深度参与大型珠宝商业展会的策展与执行——甲方市场部视角的展会全流程。</p>
+        </section>
+        <section>
+          <h4>我负责什么</h4>
+          <p>展会筹备、展位视觉物料的文字统筹、现场沟通与执行，协助品牌形象的精准落地。</p>
+        </section>
+        <section>
+          <h4>展会详情</h4>
+          <p class="en">【待补充：展会名称 / 城市 / 展位规模 / 你统筹的物料清单 / 现场照片】</p>
+        </section>
+      </div>
+    </template>
+
+    <!-- 活动详情模板：唔哈喜剧 -->
+    <template id="aidetail-ev-wuha">
+      <div class="ai-detail">
+        <section>
+          <h4>项目背景</h4>
+          <p>2022 年为唔哈喜剧负责演出申报与线下演出执行。</p>
+        </section>
+        <section>
+          <h4>我负责什么</h4>
+          <p>演出前在文旅局进行资料申报，内容被打回时负责修改沟通后再申报；演出当天确认演员到位、保障演出顺利进行。</p>
+        </section>
+        <section>
+          <h4>场次与细节</h4>
+          <p class="en">【待补充：执行了多少场 / 代表演出 / 印象深的一次救场】</p>
+        </section>
+      </div>
+    </template>
+
+    <!-- 活动详情模板：MAO Livehouse -->
+    <template id="aidetail-ev-mao">
+      <div class="ai-detail">
+        <section>
+          <h4>项目背景</h4>
+          <p>2021 年度担任上海 MAO Livehouse 演出申报经纪人。</p>
+        </section>
+        <section>
+          <h4>我负责什么</h4>
+          <p>负责文旅局演出资料申报全流程，熟悉演出行业的合规流程与申报规范，独立把控演出落地前的报批环节。</p>
+        </section>
+        <section>
+          <h4>规模与细节</h4>
+          <p class="en">【待补充：年度申报场次数量 / 代表演出 / 报批中处理过的难题】</p>
+        </section>
+      </div>
+    </template>
+
     <script>
       (function () {
         var modal = document.getElementById("aiModal");
@@ -612,7 +702,7 @@
           document.body.style.overflow = "";
           bodyEl.innerHTML = "";
         }
-        document.querySelectorAll(".ai-card[data-detail]").forEach(function (card) {
+        document.querySelectorAll(".ai-card[data-detail], .event-card[data-detail]").forEach(function (card) {
           card.addEventListener("click", function () {
             openAi(card.dataset.detail, card.dataset.title, card.dataset.stack);
           });

@@ -29,7 +29,7 @@ window.WORKS = [
       "配合团队完成装置现场搭建 / Collaborated with team on installation setup",
       "表演期间负责影像记录与素材采集 / Handled footage documentation during performance"
     ],
-    "tools": ["待补充 / TBD"],
+    "tools": ["摄影机 / Camera", "Premiere Pro"],
     "stills": [],
     "sort_order": 101
   },
@@ -620,29 +620,32 @@ window.WORKS = [
     "cover_webp": "assets/img/you1.webp",
     "cover_size": "95% auto",
     "credits": [
-      "待补充"
+      "访谈结构 / Interview Structure",
+      "剪辑 / Editor"
     ],
     "process": [
-      "待补充"
+      "访谈结构梳理 / Structuring",
+      "后期剪辑 / Edit"
     ],
     "tools": [
-      "待补充"
+      "Premiere Pro"
     ],
     "stills": []
   },
   {
     "slug": "shortvideo-jiazhuang-01",
     "sort_order": 1000,
+    "link_label": "暂无线上版本 / Not published online",
     "title_zh": "【家装】设计师大改造",
     "title_en": "",
     "role_zh": "",
-    "role_en": "信息上传中",
+    "role_en": "Home Renovation Series",
     "year": "2025",
     "category": "ShortVideo",
-    "one_line_zh": "家装设计师「大改造」系列短视频，负责现场拍摄与后期剪辑包装。（详情整理中）",
-    "one_line_en": "信息上传中",
-    "summary_zh": "家装设计师「大改造」系列短视频，负责现场拍摄与后期剪辑包装。（详情整理中）",
-    "summary_en": "信息上传中",
+    "one_line_zh": "家装设计师「大改造」系列短视频，负责现场拍摄与后期剪辑包装。",
+    "one_line_en": "A home-renovation short video series with an interior designer — on-site filming, editing and packaging.",
+    "summary_zh": "家装设计师「大改造」系列短视频，负责现场拍摄与后期剪辑包装。",
+    "summary_en": "A home-renovation short video series with an interior designer — on-site filming, editing and packaging.",
     "modal_full": true,
     "platform": "",
     "embed": "",
@@ -650,9 +653,9 @@ window.WORKS = [
     "cover": "assets/img/jia1.png",
     "cover_webp": "assets/img/jia1.webp",
     "cover_size": "95% auto",
-    "credits": ["信息上传中"],
-    "process": ["信息上传中"],
-    "tools": ["信息上传中"],
+    "credits": ["现场拍摄 / Camera", "剪辑包装 / Edit & Packaging"],
+    "process": ["现场拍摄 / Shoot", "后期剪辑包装 / Edit & Packaging"],
+    "tools": ["Premiere Pro"],
     "stills": []
   },
   {

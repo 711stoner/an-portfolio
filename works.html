@@ -225,10 +225,20 @@
       .ai-detail .box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 14px 16px; }
       .ai-detail .box .bt { color: #fff; font-weight: 600; }
       .ai-detail img { width: 100%; max-width: 680px; height: auto; margin: 14px auto 0; border-radius: 14px; display: block; }
-      .ai-detail .shots { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-top: 12px; }
-      .ai-detail .shots .full { grid-column: 1 / -1; }
-      .ai-detail .shots img { margin-top: 0; }
-      @media (max-width: 600px) { .ai-detail .shots { grid-template-columns: 1fr; } }
+      .ai-detail .carousel { position: relative; margin: 26px auto 0; max-width: 460px; border-radius: 14px; overflow: hidden; background: #0b0e13; border: 1px solid rgba(255,255,255,0.08); }
+      .ai-detail .carousel-viewport { overflow: hidden; cursor: pointer; }
+      .ai-detail .carousel-track { display: flex; transition: transform .35s ease; }
+      .ai-detail .carousel-slide { flex: 0 0 100%; height: min(52vh, 440px); margin: 0; display: block; }
+      .ai-detail .carousel-slide img { width: 100%; height: 100%; max-width: none; object-fit: contain; margin: 0; border-radius: 0; display: block; }
+      .ai-detail .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(0,0,0,0.45); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background .2s ease; }
+      .ai-detail .carousel-arrow:hover { background: rgba(0,0,0,0.78); }
+      .ai-detail .carousel-prev { left: 10px; }
+      .ai-detail .carousel-next { right: 10px; }
+      .ai-detail .carousel-counter { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.55); color: #fff; font-size: 12px; padding: 3px 9px; border-radius: 10px; z-index: 2; letter-spacing: .5px; }
+      .ai-detail .carousel-dots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; gap: 6px; justify-content: center; z-index: 2; }
+      .ai-detail .carousel-dots button { width: 7px; height: 7px; padding: 0; border: none; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: background .2s ease, transform .2s ease; }
+      .ai-detail .carousel-dots button.active { background: #fff; transform: scale(1.25); }
+      @media (max-width: 600px) { .ai-detail .carousel-slide { height: 50vh; } .ai-detail .carousel-arrow { width: 36px; height: 36px; font-size: 22px; } }
     </style>
   </head>
   <body class="works-page">
@@ -568,29 +578,42 @@
     <template id="aidetail-ev-changpu">
       <div class="ai-detail">
         <section>
-          <h4>空间与背景</h4>
-          <p>2022—2023 年，在上海市中心独立运营一家线下文化空间，以<strong>周末模式</strong>运营：活动固定在每周末开展，平日完成选题、邀约与宣发等全部筹备。这里的「独立」不是牵头的意思——从内容定位到日常经营，策划、执行、经营者三个角色我同时承担。</p>
-          <p>对做活动的人来说，这是一段少有的完整训练：从选题到收支，每个环节都亲手做过——每件事实际要花多少功夫、容易在哪里出问题，我都有第一手体感。</p>
+          <h4>项目概览</h4>
+          <p>2022—2023 年，独立运营一家线下文化空间。以周末为周期，音乐演出 / 电影放映 / 文本沙龙轮替，累计落地数十场——从选题、邀约、宣发到现场执行与收支核算，全流程一人统筹，空间自负盈亏。</p>
         </section>
         <section>
-          <h4>每周的工作内容：从筹备到落地</h4>
-          <p>以周末为节点，每周完整跑一轮活动周期：</p>
+          <h4>一个人的三个角色</h4>
+          <p>这家空间，我同时是策划、执行和经营者：平日完成选题、邀约、宣发等全部筹备，周末把活动落地。所谓「独立」，是从内容定位到一张一张算账，每个环节都亲手跑过——每件事要花多少功夫、容易在哪儿出问题，我有第一手体感，不是听来的经验。</p>
+        </section>
+        <section>
+          <h4>每周一轮：完整的活动周期</h4>
+          <p>以周末为节点，每周完整跑一遍「筹备→落地→复盘」的闭环：</p>
           <ul>
-            <li><strong>选题与排期</strong>：确定当周活动的主题与形式——音乐演出、电影放映、文本沙龙轮替，选题要同时兼顾内容质量和到场率，不是办给自己看的；</li>
-            <li><strong>嘉宾与演出者邀约</strong>：寻找并联系合适的音乐人、放映内容与沙龙嘉宾，谈定内容、形式与档期，全程自己对接；</li>
-            <li><strong>宣发与报名</strong>：撰写活动文案、制作宣传物料，在社交平台与社群发布，跟进报名与到场——宣发直接对到场人数负责；</li>
-            <li><strong>周末现场执行</strong>：活动日的布场与设备准备、签到入场、流程衔接与控时、氛围把控、散场收尾；</li>
-            <li><strong>收支与经营</strong>：票价制定、酒水经营、单场成本核算——空间要自己养活自己，每一场活动都必须算账。</li>
+            <li><strong>选题与排期</strong>：定下当周主题与形式，兼顾内容质量和到场率——不是办给自己看的；</li>
+            <li><strong>嘉宾邀约</strong>：找到并对接合适的音乐人、放映片目与沙龙嘉宾，谈定内容、形式与档期，全程自己谈；</li>
+            <li><strong>宣发与报名</strong>：撰写文案、制作物料，在社交平台与社群发布，跟进报名到场——宣发直接对人数负责；</li>
+            <li><strong>现场执行</strong>：布场与设备、签到入场、流程衔接与控时、氛围把控、散场收尾；</li>
+            <li><strong>收支与经营</strong>：定价、酒水经营、单场成本核算。</li>
           </ul>
         </section>
         <section>
-          <h4>数十场之后</h4>
-          <p>一年里以每周一轮的节奏累计落地数十场，意味着这不是「办成过一场活动」，而是把办活动跑成了稳定的周期：筹备清单、宣发节奏、现场分工都被反复验证和修正过。办活动的能力，最终体现在第 N 场和第一场一样稳。</p>
-        </section>
-        <section>
-          <h4>这段经历意味着什么</h4>
-          <p>独立跑通过全流程，意味着在团队里可以补位任何一个环节：策划、邀约、宣发、现场，缺哪一环都能顶上，活动的宣传内容也可以自产，不需要额外配人。</p>
-          <p>更重要的是对成本与工作量的判断力：统筹活动、拆解任务或对接供应商时，我清楚每件事实际要花多少时间和钱——排期和预算有依据，不靠拍脑袋。</p>
+          <h4>现场实录 / On-site Records</h4>
+          <p>空间公众号「菖璞艺术」记录的部分活动：放映、音乐演出、主题派对、文本沙龙与诗刊发布。</p>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport" data-carousel-viewport>
+              <div class="carousel-track">
+                <picture class="carousel-slide"><source srcset="assets/img/changpu-1.webp?v=2" type="image/webp" /><img src="assets/img/changpu-1.jpg?v=2" alt="音乐演出现场" loading="lazy" /></picture>
+                <picture class="carousel-slide"><source srcset="assets/img/changpu-2.webp?v=2" type="image/webp" /><img src="assets/img/changpu-2.jpg?v=2" alt="独立纪录片《路上的情花花》放映" loading="lazy" /></picture>
+                <picture class="carousel-slide"><source srcset="assets/img/changpu-3.webp?v=2" type="image/webp" /><img src="assets/img/changpu-3.jpg?v=2" alt="乐队「拯救海洋计划」音乐演出" loading="lazy" /></picture>
+                <picture class="carousel-slide"><source srcset="assets/img/changpu-4.webp?v=2" type="image/webp" /><img src="assets/img/changpu-4.jpg?v=2" alt="万圣节主题派对" loading="lazy" /></picture>
+                <picture class="carousel-slide"><source srcset="assets/img/changpu-5.webp?v=2" type="image/webp" /><img src="assets/img/changpu-5.jpg?v=2" alt="《文灾》诗刊发布会海报" loading="lazy" /></picture>
+              </div>
+            </div>
+            <button class="carousel-arrow carousel-prev" type="button" aria-label="上一张">‹</button>
+            <button class="carousel-arrow carousel-next" type="button" aria-label="下一张">›</button>
+            <div class="carousel-counter"><span data-carousel-current>1</span> / 5</div>
+            <div class="carousel-dots" data-carousel-dots></div>
+          </div>
         </section>
       </div>
     </template>
@@ -669,11 +692,47 @@
         var bodyEl = document.getElementById("aiModalBody");
         var titleEl = document.getElementById("aiModalTitle");
         var stackEl = document.getElementById("aiModalStack");
+        function initCarousels(root) {
+          root.querySelectorAll("[data-carousel]").forEach(function (car) {
+            var track = car.querySelector(".carousel-track");
+            var slides = car.querySelectorAll(".carousel-slide");
+            var total = slides.length;
+            if (!track || !total) return;
+            var idx = 0;
+            var curEl = car.querySelector("[data-carousel-current]");
+            var dotsWrap = car.querySelector("[data-carousel-dots]");
+            var dots = [];
+            if (dotsWrap) {
+              for (var i = 0; i < total; i++) {
+                var d = document.createElement("button");
+                d.type = "button";
+                d.setAttribute("aria-label", "第 " + (i + 1) + " 张");
+                (function (n) { d.addEventListener("click", function (e) { e.stopPropagation(); go(n); }); })(i);
+                dotsWrap.appendChild(d);
+                dots.push(d);
+              }
+            }
+            function render() {
+              track.style.transform = "translateX(" + (-idx * 100) + "%)";
+              if (curEl) curEl.textContent = idx + 1;
+              dots.forEach(function (d, i) { d.classList.toggle("active", i === idx); });
+            }
+            function go(n) { idx = (n + total) % total; render(); }
+            var prev = car.querySelector(".carousel-prev");
+            var next = car.querySelector(".carousel-next");
+            if (prev) prev.addEventListener("click", function (e) { e.stopPropagation(); go(idx - 1); });
+            if (next) next.addEventListener("click", function (e) { e.stopPropagation(); go(idx + 1); });
+            var vp = car.querySelector("[data-carousel-viewport]");
+            if (vp) vp.addEventListener("click", function () { go(idx + 1); });
+            render();
+          });
+        }
         function openAi(key, title, stack) {
           var tpl = document.getElementById("aidetail-" + key);
           if (!tpl) return;
           bodyEl.innerHTML = "";
           bodyEl.appendChild(tpl.content.cloneNode(true));
+          initCarousels(bodyEl);
           titleEl.textContent = title || "";
           stackEl.textContent = stack || "";
           modal.classList.add("open");

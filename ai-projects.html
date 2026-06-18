@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#080c14" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f3f1ea" />
     <title>AI 项目 / AI Projects - Zhang An — Portfolio</title>
 
     <link rel="canonical" href="https://zhanganeditor.online/ai-projects.html" />
@@ -25,17 +25,17 @@
     <style>
       /* ── Dark theme overrides ─────────────────────────── */
       :root {
-        --d-bg: #080c14;
-        --d-bg-soft: #0d1117;
-        --d-ink: #ffffff;
-        --d-text: #b8c8dc;
-        --d-muted: #7a90a8;
-        --d-dim: #607890;
-        --d-card: rgba(255, 255, 255, 0.06);
-        --d-card-hover: rgba(255, 255, 255, 0.10);
-        --d-border: rgba(255, 255, 255, 0.12);
-        --d-border-soft: rgba(255, 255, 255, 0.08);
-        --d-blue: #6090ff;
+        --d-bg: #f3f1ea;
+        --d-bg-soft: #f8f6f0;
+        --d-ink: #14181d;
+        --d-text: #2b3138;
+        --d-muted: #6a7890;
+        --d-dim: #8593a8;
+        --d-card: rgba(255, 255, 255, 0.72);
+        --d-card-hover: rgba(255, 255, 255, 0.95);
+        --d-border: rgba(20, 30, 50, 0.12);
+        --d-border-soft: rgba(20, 30, 50, 0.08);
+        --d-blue: #1a1f2b;
       }
 
       body {
@@ -46,7 +46,7 @@
 
       /* Header */
       header.border-b {
-        background: rgba(8, 12, 20, 0.85) !important;
+        background: rgba(244, 242, 235, 0.85) !important;
         border-bottom: 1px solid var(--d-border-soft) !important;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
@@ -56,37 +56,37 @@
 
       /* Back button */
       .home-back-btn {
-        background: rgba(255, 255, 255, 0.06) !important;
+        background: rgba(20, 30, 50, 0.06) !important;
         border-color: var(--d-border) !important;
         color: var(--d-ink) !important;
         box-shadow: none !important;
       }
       .home-back-btn:hover {
-        background: rgba(96, 144, 255, 0.12) !important;
-        border-color: rgba(96, 144, 255, 0.5) !important;
-        box-shadow: 0 0 0 1px rgba(96, 144, 255, 0.2), 0 12px 28px rgba(0, 0, 0, 0.4) !important;
+        background: rgba(20, 30, 50, 0.12) !important;
+        border-color: rgba(20, 30, 50, 0.5) !important;
+        box-shadow: 0 0 0 1px rgba(20, 30, 50, 0.2), 0 12px 28px rgba(30, 40, 60, 0.06) !important;
       }
 
       /* Intro card */
       .intro-card {
         background: var(--d-card) !important;
         border-color: var(--d-border) !important;
-        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5) !important;
+        box-shadow: 0 10px 32px rgba(30, 40, 60, 0.06) !important;
       }
       .intro-card h2 { color: var(--d-ink) !important; }
       .intro-card p.text-slate-700 { color: var(--d-text) !important; }
       .intro-card p.text-slate-600 { color: var(--d-muted) !important; }
       .intro-card:hover {
         background: var(--d-card-hover) !important;
-        border-color: rgba(96, 144, 255, 0.4) !important;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(96, 144, 255, 0.15) !important;
+        border-color: rgba(20, 30, 50, 0.4) !important;
+        box-shadow: 0 20px 50px rgba(30, 40, 60, 0.08), 0 0 40px rgba(20, 30, 50, 0.15) !important;
       }
       .intro-card:hover h2 { color: var(--d-ink) !important; }
       .intro-card:hover p:first-of-type { color: var(--d-ink) !important; }
       .intro-card::before {
         background:
-          radial-gradient(circle at 14% 18%, rgba(96, 144, 255, 0.18), transparent 38%),
-          linear-gradient(135deg, rgba(96, 144, 255, 0.06), rgba(96, 144, 255, 0) 42%) !important;
+          radial-gradient(circle at 14% 18%, rgba(20, 30, 50, 0.18), transparent 38%),
+          linear-gradient(135deg, rgba(20, 30, 50, 0.06), rgba(20, 30, 50, 0) 42%) !important;
       }
 
       /* AI cards */
@@ -94,27 +94,27 @@
         background: var(--d-card) !important;
         border-color: var(--d-border) !important;
         color: var(--d-text) !important;
-        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45) !important;
+        box-shadow: 0 10px 32px rgba(30, 40, 60, 0.07) !important;
       }
       .ai-card-surface:hover {
         background: var(--d-card-hover) !important;
-        border-color: rgba(96, 144, 255, 0.4) !important;
+        border-color: rgba(20, 30, 50, 0.4) !important;
         box-shadow:
-          0 25px 50px rgba(0, 0, 0, 0.6),
-          0 0 0 1px rgba(96, 144, 255, 0.25),
-          0 0 40px rgba(96, 144, 255, 0.18) !important;
+          0 25px 50px rgba(30, 40, 60, 0.08),
+          0 0 0 1px rgba(20, 30, 50, 0.25),
+          0 0 40px rgba(20, 30, 50, 0.18) !important;
       }
       .ai-card-surface::before {
         background:
-          linear-gradient(135deg, rgba(96, 144, 255, 0.10), rgba(96, 144, 255, 0) 42%),
-          radial-gradient(circle at 16% 18%, rgba(96, 144, 255, 0.14), transparent 32%) !important;
+          linear-gradient(135deg, rgba(20, 30, 50, 0.10), rgba(20, 30, 50, 0) 42%),
+          radial-gradient(circle at 16% 18%, rgba(20, 30, 50, 0.14), transparent 32%) !important;
       }
       .ai-card-surface::after {
-        background: radial-gradient(circle, rgba(96, 144, 255, 0.20), transparent 70%) !important;
+        background: radial-gradient(circle, rgba(20, 30, 50, 0.20), transparent 70%) !important;
       }
       .ai-card-surface picture,
       .ai-card-surface .bg-white\\/60 {
-        background: rgba(255, 255, 255, 0.04) !important;
+        background: rgba(20, 30, 50, 0.04) !important;
         border: 1px solid var(--d-border-soft);
       }
       .ai-card-surface h3,
@@ -122,7 +122,7 @@
         color: var(--d-ink) !important;
       }
       .ai-card-surface .bg-slate-50 {
-        background: rgba(255, 255, 255, 0.04) !important;
+        background: rgba(20, 30, 50, 0.04) !important;
         border: 1px solid var(--d-border-soft);
       }
 
@@ -140,11 +140,11 @@
 
       /* Card highlight bar */
       .ai-card-surface .card-highlight {
-        background: linear-gradient(90deg, transparent, rgba(96, 144, 255, 0.7), transparent) !important;
+        background: linear-gradient(90deg, transparent, rgba(20, 30, 50, 0.7), transparent) !important;
       }
 
       /* Modal */
-      #modal { background: rgba(0, 0, 0, 0.85) !important; }
+      #modal { background: rgba(20, 30, 50, 0.5) !important; }
       #modal > div.bg-white {
         background: var(--d-bg-soft) !important;
         color: var(--d-text);
@@ -154,27 +154,27 @@
       #modal #modal-desc { color: var(--d-text) !important; }
       #modal #modal-stack { color: var(--d-dim) !important; }
       #modal-close {
-        background: rgba(255, 255, 255, 0.05) !important;
+        background: #ffffff !important;
         border-color: var(--d-border) !important;
         color: var(--d-text) !important;
       }
       #modal-close:hover {
-        background: rgba(96, 144, 255, 0.14) !important;
-        border-color: rgba(96, 144, 255, 0.5) !important;
+        background: rgba(20, 30, 50, 0.14) !important;
+        border-color: rgba(20, 30, 50, 0.5) !important;
         color: var(--d-ink) !important;
       }
       #modal .bg-slate-50 {
-        background: rgba(255, 255, 255, 0.04) !important;
+        background: rgba(20, 30, 50, 0.04) !important;
         border: 1px solid var(--d-border-soft);
       }
       #modal .bg-slate-200,
       #modal .h-px.bg-slate-200 { background: var(--d-border-soft) !important; }
       #modal h4 { color: var(--d-ink) !important; }
       #modal .bg-white {
-        background: rgba(255, 255, 255, 0.04) !important;
+        background: rgba(20, 30, 50, 0.04) !important;
       }
       #modal .border-slate-200.bg-white {
-        background: rgba(255, 255, 255, 0.04) !important;
+        background: rgba(20, 30, 50, 0.04) !important;
         border-color: var(--d-border-soft) !important;
       }
 
@@ -182,14 +182,14 @@
       @media (max-width: 640px) {
         .ai-card-surface {
           border-color: var(--d-border) !important;
-          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 0 14px 30px rgba(30, 40, 60, 0.06) !important;
         }
         .ai-card-surface picture {
-          background: rgba(255, 255, 255, 0.04) !important;
+          background: rgba(20, 30, 50, 0.04) !important;
           border-color: var(--d-border-soft) !important;
         }
         .ai-card-surface .bg-slate-50 {
-          background: rgba(255, 255, 255, 0.04) !important;
+          background: rgba(20, 30, 50, 0.04) !important;
           border-color: var(--d-border-soft) !important;
         }
       }
@@ -211,8 +211,8 @@
         pointer-events: none;
         opacity: 0;
         background:
-          radial-gradient(circle at 14% 18%, rgba(59, 130, 246, 0.15), transparent 35%),
-          linear-gradient(135deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0) 42%);
+          radial-gradient(circle at 14% 18%, rgba(20, 30, 50, 0.15), transparent 35%),
+          linear-gradient(135deg, rgba(20, 30, 50, 0.10), rgba(20, 30, 50, 0) 42%);
         transition: opacity 240ms ease;
       }
       .intro-card:hover {
@@ -220,7 +220,7 @@
         border-color: rgba(71, 85, 105, 0.42);
         box-shadow:
           0 20px 42px rgba(15, 23, 42, 0.12),
-          0 0 0 1px rgba(59, 130, 246, 0.12);
+          0 0 0 1px rgba(20, 30, 50, 0.12);
       }
       .intro-card:hover::before {
         opacity: 1;
@@ -259,10 +259,10 @@
       }
       .home-back-btn:hover {
         transform: translateY(-2px);
-        border-color: rgba(59, 130, 246, 0.45);
+        border-color: rgba(20, 30, 50, 0.45);
         box-shadow:
           0 12px 22px rgba(15, 23, 42, 0.12),
-          0 0 0 1px rgba(59, 130, 246, 0.16);
+          0 0 0 1px rgba(20, 30, 50, 0.16);
       }
       .home-back-btn .arrow {
         font-size: 13px;
@@ -291,8 +291,8 @@
         pointer-events: none;
         opacity: 0;
         background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0) 42%),
-          radial-gradient(circle at 16% 18%, rgba(59, 130, 246, 0.1), transparent 30%);
+          linear-gradient(135deg, rgba(20, 30, 50, 0.09), rgba(20, 30, 50, 0) 42%),
+          radial-gradient(circle at 16% 18%, rgba(20, 30, 50, 0.1), transparent 30%);
         transition: opacity 220ms ease;
         z-index: 1;
       }
@@ -303,7 +303,7 @@
         position: absolute;
         width: 200px;
         height: 200px;
-        background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+        background: radial-gradient(circle, rgba(20, 30, 50, 0.15), transparent 70%);
         border-radius: 50%;
         pointer-events: none;
         opacity: 0;
@@ -328,8 +328,8 @@
         border-color: rgba(71, 85, 105, 0.45) !important;
         box-shadow:
           0 25px 50px rgba(15, 23, 42, 0.15),
-          0 0 0 1px rgba(59, 130, 246, 0.15),
-          0 10px 20px rgba(59, 130, 246, 0.1);
+          0 0 0 1px rgba(20, 30, 50, 0.15),
+          0 10px 20px rgba(20, 30, 50, 0.1);
       }
       
       .ai-card-surface:hover::before {
@@ -394,7 +394,7 @@
         left: 0;
         right: 0;
         height: 3px;
-        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), transparent);
+        background: linear-gradient(90deg, transparent, rgba(20, 30, 50, 0.6), transparent);
         transform: scaleX(0);
         transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
       }
@@ -521,7 +521,7 @@
 
         .ai-card-surface .card-highlight {
           height: 4px;
-          background: linear-gradient(90deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.72), rgba(59, 130, 246, 0));
+          background: linear-gradient(90deg, rgba(20, 30, 50, 0), rgba(20, 30, 50, 0.72), rgba(20, 30, 50, 0));
           transform: scaleX(1);
         }
 
@@ -590,22 +590,22 @@
       @media (max-width: 640px) {
         .ai-card-surface {
           border-color: var(--d-border) !important;
-          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 0 14px 30px rgba(30, 40, 60, 0.06) !important;
         }
         .ai-card-surface picture {
           height: 132px !important;
-          background: rgba(255, 255, 255, 0.04) !important;
+          background: rgba(20, 30, 50, 0.04) !important;
           border: 1px solid var(--d-border-soft) !important;
         }
         .ai-card-surface .bg-slate-50 {
-          background: rgba(255, 255, 255, 0.04) !important;
+          background: rgba(20, 30, 50, 0.04) !important;
           border-color: var(--d-border-soft) !important;
         }
         .ai-card-surface .card-highlight {
-          background: linear-gradient(90deg, transparent, rgba(96, 144, 255, 0.7), transparent) !important;
+          background: linear-gradient(90deg, transparent, rgba(20, 30, 50, 0.7), transparent) !important;
         }
         header > div {
-          background: rgba(8, 12, 20, 0.92) !important;
+          background: rgba(244, 242, 235, 0.92) !important;
         }
         main {
           padding: 20px 14px 36px !important;
@@ -615,8 +615,8 @@
         position: relative;
         margin: 0 0 40px;
         padding: 28px 28px 24px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.10);
+        background: #ffffff;
+        border: 1px solid rgba(20, 30, 50, 0.10);
         border-radius: 16px;
         overflow: hidden;
       }
@@ -625,13 +625,13 @@
         position: absolute;
         top: 0; left: 0; right: 0;
         height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(96, 144, 255, 0.7), transparent);
+        background: linear-gradient(90deg, transparent, rgba(20, 30, 50, 0.7), transparent);
       }
       .ai-intro-label {
         display: block;
         font-size: 10px;
         letter-spacing: 0.18em;
-        color: rgba(96, 144, 255, 0.7);
+        color: rgba(20, 30, 50, 0.7);
         font-weight: 700;
         margin: 0 0 16px;
         text-transform: uppercase;
@@ -639,16 +639,16 @@
       .ai-intro-body {
         font-size: 14px;
         line-height: 2;
-        color: rgba(184, 200, 220, 0.75);
+        color: rgba(40, 52, 72, 0.75);
         margin: 0 0 16px;
       }
       .ai-intro-closing {
         font-size: 13px;
         line-height: 1.6;
-        color: rgba(255, 255, 255, 0.3);
+        color: rgba(20, 30, 50, 0.3);
         margin: 0;
         padding-top: 14px;
-        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        border-top: 1px solid rgba(20, 30, 50, 0.07);
       }
 
       /* ── 全屏滑动布局 ────────────────────────────── */
@@ -666,7 +666,7 @@
         inset: 0;
         z-index: 0;
         overflow: hidden;
-        background: #050607;
+        background: #eef0f4;
         pointer-events: none;
         perspective: 700px;
       }
@@ -681,7 +681,7 @@
       .aurora-blob.b1 {
         width: 720px;
         height: 720px;
-        background: rgba(96, 144, 255, 0.42);
+        background: #ffffff;
         top: -8%;
         left: -6%;
         animation: auroraFloat1 22s ease-in-out infinite;
@@ -690,7 +690,7 @@
       .aurora-blob.b2 {
         width: 600px;
         height: 600px;
-        background: rgba(150, 90, 255, 0.38);
+        background: rgba(20, 30, 50, 0.045);
         top: 38%;
         right: -8%;
         animation: auroraFloat2 27s ease-in-out infinite;
@@ -699,7 +699,7 @@
       .aurora-blob.b3 {
         width: 560px;
         height: 560px;
-        background: rgba(60, 200, 255, 0.32);
+        background: rgba(20, 30, 50, 0.04);
         bottom: -10%;
         left: 18%;
         animation: auroraFloat3 32s ease-in-out infinite;
@@ -708,7 +708,7 @@
       .aurora-blob.b4 {
         width: 500px;
         height: 500px;
-        background: rgba(255, 110, 180, 0.26);
+        background: rgba(20, 30, 50, 0.26);
         top: 12%;
         left: 42%;
         animation: auroraFloat4 25s ease-in-out infinite;
@@ -749,8 +749,8 @@
         width: 5px;
         height: 5px;
         border-radius: 50%;
-        background: rgba(180, 210, 255, 0.9);
-        box-shadow: 0 0 10px rgba(120, 170, 255, 0.8);
+        background: rgba(20, 30, 50, 0.32);
+        box-shadow: 0 0 10px rgba(20, 30, 50, 0.22);
         will-change: transform, opacity;
       }
 
@@ -813,12 +813,12 @@
       }
 
       #slides-container::-webkit-scrollbar-thumb {
-        background: rgba(96, 144, 255, 0.3);
+        background: rgba(20, 30, 50, 0.3);
         border-radius: 4px;
       }
 
       #slides-container::-webkit-scrollbar-thumb:hover {
-        background: rgba(96, 144, 255, 0.5);
+        background: rgba(20, 30, 50, 0.5);
       }
 
       .slide {
@@ -829,7 +829,7 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        background: rgba(5, 6, 7, 0.62) !important;
+        background: rgba(243, 241, 234, 0.55) !important;
         overflow: hidden !important;
         padding-top: 72px !important;
         flex-shrink: 0 !important;
@@ -839,8 +839,8 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        background: linear-gradient(rgba(20, 30, 50, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(20, 30, 50, 0.04) 1px, transparent 1px);
         background-size: 145px 145px;
         opacity: 0.45;
         z-index: 0;
@@ -850,8 +850,8 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.5)),
-                    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+        background: radial-gradient(circle at center, transparent 45%, rgba(30, 40, 60, 0.06)),
+                    linear-gradient(to bottom, rgba(30, 40, 60, 0.05), rgba(30, 40, 60, 0.08));
         z-index: 1;
       }
 
@@ -882,12 +882,12 @@
         align-items: center;
         gap: 8px;
         padding: 8px 16px;
-        background: rgba(255,255,255,0.08);
+        background: rgba(20, 30, 50, 0.08);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(96, 144, 255, 0.3);
+        border: 1px solid rgba(20, 30, 50, 0.3);
         border-radius: 999px;
-        color: rgba(96, 144, 255, 0.8);
+        color: rgba(20, 30, 50, 0.8);
         font-size: 12px;
         font-weight: 600;
         letter-spacing: 0.5px;
@@ -898,7 +898,7 @@
         font-size: 42px;
         font-weight: 200;
         line-height: 1.2;
-        color: #ffffff;
+        color: #14181d;
         margin: 0;
       }
 
@@ -906,20 +906,20 @@
         display: block;
         font-size: 18px;
         font-weight: 400;
-        color: rgba(184, 200, 220, 0.6);
+        color: rgba(40, 52, 72, 0.6);
         margin-top: 8px;
       }
 
       .slide-desc {
         font-size: 16px;
         line-height: 1.7;
-        color: rgba(184, 200, 220, 0.8);
+        color: rgba(40, 52, 72, 0.8);
         margin: 0;
       }
 
       .slide-stack {
         font-size: 13px;
-        color: rgba(96, 144, 255, 0.6);
+        color: rgba(20, 30, 50, 0.6);
         letter-spacing: 0.5px;
       }
 
@@ -929,12 +929,12 @@
         justify-content: center;
         gap: 8px;
         padding: 12px 24px;
-        background: rgba(96, 144, 255, 0.12);
+        background: rgba(20, 30, 50, 0.12);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(96, 144, 255, 0.4);
+        border: 1px solid rgba(20, 30, 50, 0.4);
         border-radius: 999px;
-        color: rgba(96, 144, 255, 0.95);
+        color: #1a1f2b;
         font-size: 14px;
         font-weight: 600;
         cursor: pointer;
@@ -943,18 +943,18 @@
       }
 
       .slide-cta:hover {
-        background: rgba(96, 144, 255, 0.2);
-        border-color: rgba(96, 144, 255, 0.6);
-        color: #ffffff;
+        background: rgba(20, 30, 50, 0.18);
+        border-color: rgba(20, 30, 50, 0.6);
+        color: #2c3544;
       }
 
       .slide-image-wrap {
         flex: 0 0 45%;
         height: 480px;
-        background: rgba(255,255,255,0.06);
+        background: rgba(20, 30, 50, 0.06);
         backdrop-filter: blur(32px);
         -webkit-backdrop-filter: blur(32px);
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid rgba(20, 30, 50, 0.1);
         border-radius: 32px;
         display: flex;
         align-items: center;
@@ -968,7 +968,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 50%);
+        background: linear-gradient(135deg, rgba(20, 30, 50, 0.08), transparent 50%);
         border-radius: inherit;
         pointer-events: none;
       }
@@ -997,18 +997,18 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: rgba(96, 144, 255, 0.3);
+        background: rgba(20, 30, 50, 0.3);
         border: none;
         cursor: pointer;
         transition: all 300ms ease;
       }
 
       .dot:hover {
-        background: rgba(96, 144, 255, 0.6);
+        background: rgba(20, 30, 50, 0.6);
       }
 
       .dot.active {
-        background: rgba(96, 144, 255, 0.95);
+        background: rgba(20, 30, 50, 0.95);
         transform: scale(1.3);
       }
 
@@ -1034,7 +1034,7 @@
         font-size: 64px;
         font-weight: 200;
         line-height: 1.1;
-        color: #ffffff;
+        color: #14181d;
         margin: 0;
       }
 
@@ -1042,30 +1042,30 @@
         display: block;
         font-size: 24px;
         font-weight: 400;
-        color: rgba(184, 200, 220, 0.55);
+        color: rgba(40, 52, 72, 0.55);
         margin-top: 10px;
       }
 
       .slide-intro-body {
         font-size: 17px;
         line-height: 2;
-        color: rgba(184, 200, 220, 0.78);
+        color: rgba(40, 52, 72, 0.78);
         margin: 0;
       }
 
       .slide-intro-closing {
         font-size: 14px;
         line-height: 1.6;
-        color: rgba(255, 255, 255, 0.4);
+        color: rgba(20, 30, 50, 0.4);
         margin: 0;
         padding-top: 16px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(20, 30, 50, 0.1);
       }
 
       .slide-scroll-hint {
         margin-top: 16px;
         font-size: 13px;
-        color: rgba(96, 144, 255, 0.7);
+        color: rgba(20, 30, 50, 0.7);
         letter-spacing: 1px;
         animation: scrollHintBounce 2s ease-in-out infinite;
       }

@@ -218,6 +218,14 @@
       .ai-detail p { margin: 4px 0; line-height: 1.72; font-size: 14.5px; }
       .ai-detail .en { color: #525a66; font-size: 12.5px; }
       .ai-detail .link { color: #1a1f2b; }
+      .ai-detail .btn-visit {
+        display: inline-block; margin-top: 10px;
+        padding: 13px 34px; border-radius: 999px;
+        background: #14181d; color: #fff !important;
+        font-size: 16px; font-weight: 600; letter-spacing: .02em;
+        text-decoration: none; transition: transform .18s ease, opacity .18s ease;
+      }
+      .ai-detail .btn-visit:hover { transform: translateY(-2px); opacity: .9; }
       .ai-detail ul { list-style: none; padding: 0; margin: 8px 0 0; }
       .ai-detail li { margin: 8px 0; line-height: 1.6; }
       .ai-detail li .en { display: block; }
@@ -523,8 +531,15 @@
           <h4>一句话介绍 / One-liner</h4>
           <p>以"背诵高频句子"为核心的英语学习网站，帮助用户把可复用表达存入长期记忆，更快获得真实交流能力。</p>
           <p class="en">An English learning site centered on high-frequency sentence memorization.</p>
-          <p><a class="link" href="https://mememeeme.mom/" target="_blank" rel="noopener noreferrer">在线访问 →</a></p>
+          <p><a class="btn-visit" href="https://mememeeme.mom/" target="_blank" rel="noopener noreferrer">在线访问 →</a></p>
         </section>
+        <section>
+          <div class="video-embed" style="position:relative;width:100%;padding-top:56.25%;border-radius:8px;overflow:hidden;background:#000;">
+            <iframe src="https://player.xinpianchang.com/?aid=13728483&amp;mid=NK0mw6Re188wW1na" title="小猫学英语演示视频" loading="lazy" allowfullscreen allow="fullscreen" frameborder="0" style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+          </div>
+          <p style="margin-top:8px;font-size:11px;color:#8a909b;">* 该视频动画由 AI 生成</p>
+        </section>
+        <!-- 暂时删除：文字小节（为什么背句子→典型场景与人群），保留代码，需恢复时去掉本注释
         <section>
           <h4>为什么是"背句子" / Why Sentences</h4>
           <p>单词缺语境、表达靠句子、输出靠模板。把学习单位从"词"升级为"可复用表达"，让"知道"直接变成"能说出口"。</p>
@@ -563,6 +578,8 @@
           <p>口语卡壳、写作不自然、听力反应慢；以及面试/出国/旅行等短期冲刺，职场沟通与写作听力提升人群。</p>
           <p class="en">For speaking blocks, natural writing, faster listening, and short-term prep (interview, travel, overseas).</p>
         </section>
+        -->
+        <!-- 暂时删除：网站截图 / Product Screenshots（保留代码，需恢复时去掉本注释）
         <section>
           <h4>网站截图 / Product Screenshots</h4>
           <div class="shots">
@@ -571,6 +588,7 @@
             <picture class="full"><source srcset="assets/img/xiaomao5-1400.webp" type="image/webp" /><img src="assets/img/xiaomao5-1400.png" alt="小猫学英语截图 3" loading="lazy" /></picture>
           </div>
         </section>
+        -->
       </div>
     </template>
 

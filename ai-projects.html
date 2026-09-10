@@ -940,12 +940,50 @@
         cursor: pointer;
         transition: all 300ms ease;
         width: fit-content;
+        text-decoration: none;
       }
 
       .slide-cta:hover {
         background: rgba(20, 30, 50, 0.18);
         border-color: rgba(20, 30, 50, 0.74);
         color: #2c3544;
+      }
+
+      .slide-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .slide-cta-primary {
+        background: #14181d;
+        border-color: #14181d;
+        color: #fff;
+      }
+
+      .slide-cta-primary:hover {
+        background: #2c3544;
+        border-color: #2c3544;
+        color: #fff;
+      }
+
+      .project-live-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 18px;
+        padding: 11px 20px;
+        border-radius: 999px;
+        background: #14181d;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 200ms ease, transform 200ms ease;
+      }
+
+      .project-live-link:hover {
+        background: #2c3544;
+        transform: translateY(-1px);
       }
 
       .slide-image-wrap {
@@ -1293,6 +1331,48 @@
           </div>
         </div>
       </section>
+
+      <!-- Slide 5: Quguangou -->
+      <section class="slide" data-slide="5">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">AI-Built Product</div>
+            <h2 class="slide-title">取关狗：X 账号批量处理工具<span>Quguangou: X Account Blocklist Assistant</span></h2>
+            <p class="slide-desc">面向 X 互关冷启动场景的 Chrome 扩展。查看经审核的单方面取关名单，确认后按顺序处理账号，任务记录只保存在本地。</p>
+            <div class="slide-stack">Vibe Coding · Chrome Extension · Manifest V3 · Local First</div>
+            <div class="slide-actions">
+              <button class="slide-cta" onclick="openModal('quguangou', 4)">查看详情 →</button>
+              <a class="slide-cta slide-cta-primary" href="https://711stoner.github.io/quguangou/" target="_blank" rel="noopener noreferrer">立即使用 ↗</a>
+            </div>
+          </div>
+          <div class="slide-image-wrap">
+            <picture>
+              <img src="https://711stoner.github.io/quguangou/assets/social-card.png" alt="取关狗 Chrome 扩展产品界面" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: Shangdan Partner -->
+      <section class="slide" data-slide="6">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">AI-Built Product</div>
+            <h2 class="slide-title">商单网：连接出海品牌与华语创作者<span>Shangdan Partner: Brand–Creator Marketplace</span></h2>
+            <p class="slide-desc">为出海品牌、海外华人商家与华语创作者搭建的商单撮合平台，集中处理需求发布、创作者入驻、人工审核与合作对接。</p>
+            <div class="slide-stack">Vibe Coding · Product Design · Static Web · Workflow Automation</div>
+            <div class="slide-actions">
+              <button class="slide-cta" onclick="openModal('shangdan', 5)">查看详情 →</button>
+              <a class="slide-cta slide-cta-primary" href="https://threads-cn-platform.pages.dev/" target="_blank" rel="noopener noreferrer">立即使用 ↗</a>
+            </div>
+          </div>
+          <div class="slide-image-wrap">
+            <picture>
+              <img src="https://threads-cn-platform.pages.dev/assets/social-card.png" alt="商单搭档品牌与华语创作者撮合平台" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- 右侧导航点 / Side Navigation Dots -->
@@ -1302,6 +1382,8 @@
       <button class="dot" data-slide="2" onclick="scrollToSlide(2)"></button>
       <button class="dot" data-slide="3" onclick="scrollToSlide(3)"></button>
       <button class="dot" data-slide="4" onclick="scrollToSlide(4)"></button>
+      <button class="dot" data-slide="5" onclick="scrollToSlide(5)"></button>
+      <button class="dot" data-slide="6" onclick="scrollToSlide(6)"></button>
     </nav>
 
     <!-- 弹窗 / Modal -->
@@ -1700,6 +1782,64 @@
       </div>
     </template>
 
+    <!-- 详情模板：取关狗 / Detail Template: Quguangou -->
+    <template id="detail-quguangou">
+      <div class="space-y-6 text-center">
+        <section>
+          <h4 class="text-lg font-semibold">项目定位 / Positioning</h4>
+          <p class="mt-2 text-slate-700">面向 X 互关冷启动场景的 Chrome 扩展，用更清晰、可控的流程处理经审核的单方面取关名单。</p>
+          <p class="mt-1 text-slate-500">A Chrome extension for reviewing an evidence-backed unfollow list and processing accounts through a controlled workflow.</p>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">我解决的问题 / Problem Solved</h4>
+          <p class="mt-2 text-slate-700">重复打开账号主页、展开菜单并确认操作耗时且容易遗漏。取关狗把重复步骤交给浏览器执行，同时把最终决定保留给用户。</p>
+          <p class="mt-1 text-slate-500">It automates repetitive browser steps while keeping every final action under the user's control.</p>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">核心能力 / Core Features</h4>
+          <ul class="mt-2 list-none space-y-2 pl-0 text-slate-700">
+            <li>查看由截图证据支持、经维护者审核的名单。</li>
+            <li>用户明确确认后按顺序处理账号，支持任务状态反馈。</li>
+            <li>采用 Chrome Manifest V3，任务记录仅保存在本地。</li>
+          </ul>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">我的工作 / My Role</h4>
+          <p class="mt-2 text-slate-700">独立完成产品定义、交互流程、扩展开发、官网、隐私说明、测试与 Chrome 商店上架材料。</p>
+        </section>
+        <a class="project-live-link" href="https://711stoner.github.io/quguangou/" target="_blank" rel="noopener noreferrer">访问取关狗官网 / Visit Product ↗</a>
+      </div>
+    </template>
+
+    <!-- 详情模板：商单网 / Detail Template: Shangdan Partner -->
+    <template id="detail-shangdan">
+      <div class="space-y-6 text-center">
+        <section>
+          <h4 class="text-lg font-semibold">项目定位 / Positioning</h4>
+          <p class="mt-2 text-slate-700">商单网当前产品名为「商单搭档」，帮助出海品牌找到合适的海外华语创作者。</p>
+          <p class="mt-1 text-slate-500">A collaboration marketplace connecting global-facing brands with Chinese-speaking creators overseas.</p>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">产品流程 / Product Flow</h4>
+          <p class="mt-2 text-slate-700">品牌发布推广需求，创作者提交入驻资料，平台进行人工审核与沟通对接；报价、交付和付款由合作双方确认。</p>
+          <p class="mt-1 text-slate-500">Brands publish briefs, creators apply, and the platform reviews and connects both sides for collaboration.</p>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">核心能力 / Core Features</h4>
+          <ul class="mt-2 list-none space-y-2 pl-0 text-slate-700">
+            <li>商单公告栏与平台筛选，过期需求自动隐藏。</li>
+            <li>需求发布、创作者入驻与在线留言三套表单流程。</li>
+            <li>静态站点架构、响应式界面、SEO 与结构化数据。</li>
+          </ul>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">我的工作 / My Role</h4>
+          <p class="mt-2 text-slate-700">独立完成市场定位、信息架构、品牌视觉、前端开发、表单流程、隐私机制、测试与 Cloudflare Pages 部署。</p>
+        </section>
+        <a class="project-live-link" href="https://threads-cn-platform.pages.dev/" target="_blank" rel="noopener noreferrer">访问商单搭档 / Visit Product ↗</a>
+      </div>
+    </template>
+
     <script>
       // 全屏滑动导航与模态框逻辑
 
@@ -1708,7 +1848,9 @@
         { id: 'lostfound', titleZh: '丢了么：寻物海报自动生成器', titleEn: 'Lost & Found Poster Auto Generator', descZh: '利用脚本自动化排版生成海报图片，提升走失宠物信息的传播效率。', descEn: 'Automated poster generation via scripting to improve missing‑pet info distribution.', stack: 'Python · Pillow · OpenCV · Automation', cover: './assets/img/diu.jpg', coverWebp: './assets/img/diu.webp' },
         { id: 'globalflow', titleZh: '内容流：海外自媒体自动翻译及发布', titleEn: 'Content Flow: Auto Translation & Publishing for Global Social Media', descZh: '面向海外平台的一键翻译与发布流程。', descEn: 'One‑click translation and publishing workflow for global platforms.', stack: 'Midjourney · Runway · LLM · Workflow', cover: './assets/img/wang11.png', coverWebp: './assets/img/wang11.webp' },
         { id: 'ai-site', titleZh: 'AI 个人网站架构', titleEn: 'AI Personal Site Architecture', descZh: '本网站的静态搭建，全部用的 vibe coding 完成。', descEn: 'This site\'s static build was completed entirely with vibe coding.', stack: 'HTML · CSS · JS · AI Assist', cover: './assets/img/wang1.png', coverWebp: './assets/img/wang1.webp' },
-        { id: 'xiaomao', titleZh: '小猫学英语：带语境的长句记忆工具', titleEn: 'Xiaomao Learns English: Context‑Driven Long‑Sentence Memory Tool', descZh: '以"高频句子"为核心的英语学习网站。', descEn: 'An English learning site built around high‑frequency sentences for speaking‑ready practice.', stack: '英语学习工具 / English Learning Tool', cover: './assets/img/xiaomao1-1400.png', coverWebp: './assets/img/xiaomao1-1400.webp' }
+        { id: 'xiaomao', titleZh: '小猫学英语：带语境的长句记忆工具', titleEn: 'Xiaomao Learns English: Context‑Driven Long‑Sentence Memory Tool', descZh: '以"高频句子"为核心的英语学习网站。', descEn: 'An English learning site built around high‑frequency sentences for speaking‑ready practice.', stack: '英语学习工具 / English Learning Tool', cover: './assets/img/xiaomao1-1400.png', coverWebp: './assets/img/xiaomao1-1400.webp' },
+        { id: 'quguangou', titleZh: '取关狗：X 账号批量处理工具', titleEn: 'Quguangou: X Account Blocklist Assistant', descZh: '查看经审核的单方面取关名单，确认后按顺序处理账号，任务记录只保存在本地。', descEn: 'Review an evidence-backed unfollow list and process accounts through a user-controlled, local-first workflow.', stack: 'Vibe Coding · Chrome Extension · Manifest V3 · Local First', cover: 'https://711stoner.github.io/quguangou/assets/social-card.png' },
+        { id: 'shangdan', titleZh: '商单网：连接出海品牌与华语创作者', titleEn: 'Shangdan Partner: Brand–Creator Marketplace', descZh: '集中处理需求发布、创作者入驻、人工审核与合作对接。', descEn: 'A collaboration marketplace for global-facing brands and Chinese-speaking creators overseas.', stack: 'Vibe Coding · Product Design · Static Web · Workflow Automation', cover: 'https://threads-cn-platform.pages.dev/assets/social-card.png' }
       ];
 
       const slidesContainer = document.getElementById('slides-container');

@@ -142,6 +142,7 @@
         display: block;
         fill: currentColor;
       }
+      .social-link .zhihu-mark { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 5px; background: #1772f6; color: #fff; font-size: 16px; font-weight: 700; line-height: 1; }
 
       @keyframes pulse {
         0%, 100% {
@@ -175,20 +176,6 @@
             <div>
             </div>
           </div>
-          <div class="contact-grid reveal">
-            <div id="contact-card" class="contact-card">
-              <h3>
-                <span class="pulse-dot"></span>
-                联系方式 / Contact
-              </h3>
-              <div class="contact-lines" style="display: grid; gap: 10px;">
-                <div class="contact-line">📧 邮件 / Email: juejiangfm@gmail.com</div>
-                <div class="contact-line">💬 Line / WhatsApp: wuhu2026</div>
-                <div class="contact-line">👥 微信 / WeChat: thesawen</div>
-              </div>
-            </div>
-          </div>
-          
           <!-- 服务简介 -->
           <div class="reveal" style="max-width: 900px; margin: 20px auto 40px;">
             <div id="service-intro">
@@ -213,6 +200,12 @@
                 <path d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2A30 30 0 0 0 2 12a30 30 0 0 0 .4 4.8 2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2A30 30 0 0 0 22 12a30 30 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"/>
               </svg>
             </a>
+            <a class="social-link" href="https://x.com/woyongyuangeson" target="_blank" rel="me noopener noreferrer" aria-label="X" title="X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+            </a>
+            <a class="social-link" href="https://www.zhihu.com/people/yuanjuejiang" target="_blank" rel="me noopener noreferrer" aria-label="知乎" title="知乎">
+              <span class="zhihu-mark" aria-hidden="true">知</span>
+            </a>
           </div>
         </div>
       </section>
@@ -220,7 +213,6 @@
 
     <footer class="footer">
       © 2026 章安 · All Rights Reserved
-      <div style="margin-top: 10px;"><a href="https://x.com/woyongyuangeson" target="_blank" rel="me noopener noreferrer" aria-label="X 社交媒体" title="X 社交媒体" style="display:inline-flex;color:#475061;font-size:17px;text-decoration:none">𝕏</a><a href="https://www.zhihu.com/people/yuanjuejiang" target="_blank" rel="me noopener noreferrer" aria-label="Zhihu" title="Zhihu" style="display:inline-grid;width:19px;height:19px;place-items:center;margin-left:14px;border-radius:4px;background:#1772f6;color:#fff;font-size:13px;font-weight:700;text-decoration:none">&#30693;</a></div>
     </footer>
 
     <script src="assets/js/main.min.js?v=20260427h"></script>

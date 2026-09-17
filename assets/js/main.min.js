@@ -317,7 +317,7 @@
     initWorkCoverLazyLoad(container);
     qsa(".work-card", container).forEach((card) => {
       card.addEventListener("click", () => {
-        window.location.href = `work.html?slug=${encodeURIComponent(card.dataset.slug)}`;
+        window.location.href = `/work?slug=${encodeURIComponent(card.dataset.slug)}`;
       });
       if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) init3DTilt(card);
     });
@@ -349,7 +349,7 @@
     initWorkCoverLazyLoad(container);
     qsa(".work-card", container).forEach((card) => {
       card.addEventListener("click", () => {
-        window.location.href = `work.html?slug=${encodeURIComponent(card.dataset.slug)}`;
+        window.location.href = `/work?slug=${encodeURIComponent(card.dataset.slug)}`;
       });
     });
   }
@@ -477,7 +477,7 @@
     }
     if (detailLink) {
       detailLink.style.display = "";
-      detailLink.href = `work.html?slug=${encodeURIComponent(work.slug)}`;
+      detailLink.href = `/work?slug=${encodeURIComponent(work.slug)}`;
     }
     if (credits) {
       const list = work.credits && work.credits.length ? work.credits : ["待补充 / To be updated"];

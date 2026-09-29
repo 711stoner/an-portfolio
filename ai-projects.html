@@ -1389,6 +1389,27 @@
           </div>
         </div>
       </section>
+
+      <!-- Slide 8: 商单搭档浏览器插件 / Shangdan Partner Extension -->
+      <section class="slide" data-slide="8">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">MEDIA BUSINESS TOOL · AI-BUILT</div>
+            <h2 class="slide-title">商单搭档：海外华语创作者媒介报价插件<span>Shangdan Partner: Creator Media Rate Extension</span></h2>
+            <p class="slide-desc">面向海外华语博主与中文 KOL/KOC 的媒介商务工具：读取 X、Threads、YouTube、TikTok 公开主页近期表现，生成账号商业价值、合理成交区间、报价底线与首次开价参考。</p>
+            <div class="slide-stack">Vibe Coding · Browser Extension · Media Pricing · Creator Economy · X / Threads / YouTube / TikTok</div>
+            <div class="slide-actions">
+              <button class="slide-cta" onclick="openModal('shangdan-plugin', 6)">查看详情 →</button>
+              <a class="slide-cta slide-cta-primary" href="https://jiedanfadan.com/" target="_blank" rel="noopener noreferrer">访问项目网站 ↗</a>
+            </div>
+          </div>
+          <div class="slide-image-wrap">
+            <picture>
+              <img src="./assets/img/shangdan-plugin-1280x800.png" alt="商单搭档媒介报价浏览器插件界面" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- 右侧导航点 / Side Navigation Dots -->
@@ -1401,6 +1422,7 @@
       <button class="dot" data-slide="5" onclick="scrollToSlide(5)"></button>
       <button class="dot" data-slide="6" onclick="scrollToSlide(6)"></button>
       <button class="dot" data-slide="7" onclick="scrollToSlide(7)"></button>
+      <button class="dot" data-slide="8" onclick="scrollToSlide(8)"></button>
     </nav>
 
     <!-- 弹窗 / Modal -->
@@ -1857,6 +1879,35 @@
       </div>
     </template>
 
+    <!-- 详情模板：商单搭档浏览器插件 / Detail Template: Shangdan Partner Extension -->
+    <template id="detail-shangdan-plugin">
+      <div class="space-y-6 text-center">
+        <section>
+          <h4 class="text-lg font-semibold">项目定位 / Positioning</h4>
+          <p class="mt-2 text-slate-700">面向海外华语博主、中文 KOL/KOC 的媒介商务与商单报价浏览器插件，把公开主页数据转化为更可执行的商业合作参考。</p>
+          <p class="mt-1 text-slate-500">A creator-media business extension that turns public profile performance into practical sponsorship pricing references.</p>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">媒介工作流 / Media Workflow</h4>
+          <p class="mt-2 text-slate-700">在 X、Threads、YouTube、TikTok 的公开主页读取近期触达、播放与互动表现，并生成市场价值下限、合理成交区间、首次开价和估值可信度。</p>
+          <p class="mt-1 text-slate-500">It reads recent reach, views and engagement from public creator profiles, then produces rate floors, deal ranges and opening-price references.</p>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">核心能力 / Core Features</h4>
+          <ul class="mt-2 list-none space-y-2 pl-0 text-slate-700">
+            <li>支持 X / Twitter、Threads、YouTube、TikTok 四个平台的公开主页估值。</li>
+            <li>输出商单报价区间、市场价值下限、建议首次开价与完整估值报告。</li>
+            <li>连接创作者商业合作计划，让估值结果进一步进入媒介合作与品牌对接流程。</li>
+          </ul>
+        </section>
+        <section>
+          <h4 class="text-lg font-semibold">我的工作 / My Role</h4>
+          <p class="mt-2 text-slate-700">独立完成产品定位、媒介报价逻辑、交互设计、浏览器扩展开发、跨浏览器适配、商店素材、测试与发布流程。</p>
+        </section>
+        <a class="project-live-link" href="https://jiedanfadan.com/" target="_blank" rel="noopener noreferrer">访问商单搭档 / Visit Product ↗</a>
+      </div>
+    </template>
+
     <script>
       // 全屏滑动导航与模态框逻辑
 
@@ -1867,7 +1918,8 @@
         { id: 'ai-site', titleZh: 'AI 个人网站架构', titleEn: 'AI Personal Site Architecture', descZh: '本网站的静态搭建，全部用的 vibe coding 完成。', descEn: 'This site\'s static build was completed entirely with vibe coding.', stack: 'HTML · CSS · JS · AI Assist', cover: './assets/img/wang1.png', coverWebp: './assets/img/wang1.webp' },
         { id: 'xiaomao', titleZh: '小猫学英语：带语境的长句记忆工具', titleEn: 'Xiaomao Learns English: Context‑Driven Long‑Sentence Memory Tool', descZh: '以"高频句子"为核心的英语学习网站。', descEn: 'An English learning site built around high‑frequency sentences for speaking‑ready practice.', stack: '英语学习工具 / English Learning Tool', cover: './assets/img/xiaomao1-1400.png', coverWebp: './assets/img/xiaomao1-1400.webp' },
         { id: 'quguangou', titleZh: '取关狗：X 账号批量处理工具', titleEn: 'Quguangou: X Account Blocklist Assistant', descZh: '查看经审核的单方面取关名单，确认后按顺序处理账号，任务记录只保存在本地。', descEn: 'Review an evidence-backed unfollow list and process accounts through a user-controlled, local-first workflow.', stack: 'Vibe Coding · Chrome Extension · Manifest V3 · Local First', cover: 'https://711stoner.github.io/quguangou/assets/social-card.png' },
-        { id: 'shangdan', titleZh: '商单网：连接出海品牌与华语创作者', titleEn: 'Shangdan Partner: Brand–Creator Marketplace', descZh: '集中处理需求发布、创作者入驻、人工审核与合作对接。', descEn: 'A collaboration marketplace for global-facing brands and Chinese-speaking creators overseas.', stack: 'Vibe Coding · Product Design · Static Web · Workflow Automation', cover: 'https://threads-cn-platform.pages.dev/assets/social-card.png' }
+        { id: 'shangdan', titleZh: '商单网：连接出海品牌与华语创作者', titleEn: 'Shangdan Partner: Brand–Creator Marketplace', descZh: '集中处理需求发布、创作者入驻、人工审核与合作对接。', descEn: 'A collaboration marketplace for global-facing brands and Chinese-speaking creators overseas.', stack: 'Vibe Coding · Product Design · Static Web · Workflow Automation', cover: 'https://threads-cn-platform.pages.dev/assets/social-card.png' },
+        { id: 'shangdan-plugin', titleZh: '商单搭档：海外华语创作者媒介报价插件', titleEn: 'Shangdan Partner: Creator Media Rate Extension', descZh: '面向海外华语博主与中文 KOL/KOC 的媒介商务工具，读取公开主页表现并生成商单报价参考。', descEn: 'A creator-media business extension that turns public profile performance into sponsorship pricing references.', stack: 'Vibe Coding · Browser Extension · Media Pricing · Creator Economy', cover: './assets/img/shangdan-plugin-1280x800.png' }
       ];
 
       const slidesContainer = document.getElementById('slides-container');
